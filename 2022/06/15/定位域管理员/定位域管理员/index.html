@@ -1,0 +1,799 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#447EA5">
+  <meta name="author" content="iDea">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="内网渗透与常规的渗透测试是截然不同 的。内网渗透测试的需求是，获取内网中特定用户或机器的权限，进而获得特定的资源，对内网的安全性进行评估。 域管理定位概述  在内网中，通常会部署大量的网络安全系统和设备，列入IDS,IPS,日志审计，安全网关，反病毒软件等。在域网络攻击测试中，获取域管理员权限。      在一个域中，当计算机加入域后，会默认给域管理员组赋予本地系统管理员权限。也就是说，当计算机被">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定位域管理员">
+<meta property="og:url" content="http://idea-oss.github.io/2022/06/15/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/index.html">
+<meta property="og:site_name" content="iDea &#39;blog">
+<meta property="og:description" content="内网渗透与常规的渗透测试是截然不同 的。内网渗透测试的需求是，获取内网中特定用户或机器的权限，进而获得特定的资源，对内网的安全性进行评估。 域管理定位概述  在内网中，通常会部署大量的网络安全系统和设备，列入IDS,IPS,日志审计，安全网关，反病毒软件等。在域网络攻击测试中，获取域管理员权限。      在一个域中，当计算机加入域后，会默认给域管理员组赋予本地系统管理员权限。也就是说，当计算机被">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://idea-oss.github.io/img/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98.png">
+<meta property="article:published_time" content="2022-06-15T06:14:57.000Z">
+<meta property="article:modified_time" content="2022-06-15T06:16:59.693Z">
+<meta property="article:author" content="iDea">
+<meta property="article:tag" content="内网安全">
+<meta property="article:tag" content="定位域管理员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://idea-oss.github.io/img/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98.png">
+  
+  
+  
+  <title>定位域管理员 - iDea &#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"idea-oss.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"0mPxzRPwogk31Fn10hTPyb1K-gzGzoHsz","app_key":"BUzND1EWjf6LGVsgj979UcGb","server_url":"https://0mpxzrpw.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>iDea</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/./img/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="定位域管理员"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-15 14:14" pubdate>
+          2022年6月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">定位域管理员</h1>
+            
+            <div class="markdown-body">
+              
+              <p>内网渗透与常规的渗透测试是截然不同 的。内网渗透测试的需求是，获取内网中特定用户或机器的权限，进而获得特定的资源，对内网的安全性进行评估。</p>
+<h2 id="域管理定位概述"><a href="#域管理定位概述" class="headerlink" title="域管理定位概述"></a>域管理定位概述</h2><p>  在内网中，通常会部署大量的网络安全系统和设备，列入IDS,IPS,日志审计，安全网关，反病毒软件等。在域网络攻击测试中，获取域管理员权限。<br>      在一个域中，当计算机加入域后，会默认给域管理员组赋予本地系统管理员权限。也就是说，当计算机被添加到域中，成为域的成员主机后，系统会自动将域管理员组添加到本地系统管理员组中。因此，域管理员组的成员均可访问本地计算机，具备完全控制权限。<br>    定位域内管理员的常规渠道，一是日志，而是会话。日志是指本地机器的管理员日志，可以使用脚本或Wevtutil工具导出并查看。会话是指域内每台机器的登录会话，可以使用netsess.exe或PowerView等工具查询(可以匿名查询，不需要权限)</p>
+<h2 id="常用域管理员定位工具"><a href="#常用域管理员定位工具" class="headerlink" title="常用域管理员定位工具"></a>常用域管理员定位工具</h2><p>常用的域管理员定位工具有psloggedon.exe,PVEFindADUser.exe,netsess.exe,以及hunter,NetView等，在powershell中，常用的工具是PowerView。<br><strong>1.Psloggedon.exe</strong><br>在windows平台上，可以执行命令”net session”来查看谁使用了本机资源，但是没有命令可以用来查看谁在使用远程计算机资源，谁登录了本地或远程计算机。<br>使用psloggedon.exe，可以查看本地登录的用户和通过本地计算机或远程计算机的资源登录用户。如果指定的是用户名而不是计算机名，psloggedon.exe会搜索网上邻居中的计算机，并显示该用户当前是否已经登录。其原理是通过检查注册表HKEY_USERS项的key值来查询谁登录过，但某些功能需要管理员权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">psloggedon [-] [-x] [-l] [\\computername| username]<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20210429233354452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<ul>
+<li>-l：仅显示本地登录，不显示本地和网络资源登录。</li>
+<li>-x: 不显示登录时间。</li>
+<li>\computername  指定要列出登录信息的计算机的名称。</li>
+<li>username: 指定用户名，在网络中搜索该用户登录的计算机。</li>
+</ul>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psloggedon">https://docs.microsoft.com/en-us/sysinternals/downloads/psloggedon</a></p>
+<p>2.<strong>PVEFindADUser.exe</strong><br>PVEFindADUser.exe可用于查找活动目录用户登录的位置，枚举域用户，以及查找在特定计算机上登录的用户，包括本地用户，通过RDP登录的用户、用于运行服务和计划任务的用户。运行该工具的计算机需要配置 .NET Framework2.0环境，并且需要具有管理员权限。<br><img src="https://img-blog.csdnimg.cn/20210430131109497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>这里我的没连接成功，不知道为什么，希望有大佬告诉我。</p>
+<ul>
+<li>-u:检查程序是否有新版本</li>
+<li>-current [‘username’]:如果仅指定-current参数，将获取目标计算机上当前登录的所有用户。如果指定用户名(Domain\Username),则显示该用户登录的计算机。</li>
+<li>last[“username”]:如果仅指定了 -last参数，将获取目标计算机的最后一个登录用户，如果指定了用户名(Domain\username），则显示此用户上次登录的计算机。根据网络的安全策略。可能会隐藏最后一个登录用户的用户名，此时使用该工具可能无法得到该用户名。</li>
+<li>noping：阻止该工具在尝试获取用户登录信息之前对目标计算机执行Ping命令。</li>
+<li>target：可选参数，用于指定要查询的主机。如果未指定此参数，将查询当前域中的所有主机，如果指定此参数，则后跟一个由逗号分隔的主机名列表。</li>
+</ul>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/chrisdee/Tools/tree/master/AD/ADFindUsersLoggedOn">https://github.com/chrisdee/Tools/tree/master/AD/ADFindUsersLoggedOn</a><br><strong>3.netview.exe</strong><br> netview.exe 是一个枚举工具，使用 WinAPI 枚举系统，利用 NetSessionEnum 找寻登录会话， 利用 NetShareEnum 找寻共享，利用 NetWkstaUserEnum 枚举登录的用户。同时，netview.exe 能够 查询共享入口和有价值用户。netview.exe的绝大部分功能不需要管理员权限就可以使用。<br><img src="https://img-blog.csdnimg.cn/20210430134829728.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<ul>
+<li>-f filename.txt:指定从中提取主机列表的文件。</li>
+<li>-e filename.txt:指定要排除的主机名文件。</li>
+<li>-o filename.txt:将所有输出重定向到文件。</li>
+<li>-d domain:指定从中提取主机列表的域。如果没有指定，则使用当前域。</li>
+<li>-g group:指定用户搜寻的组名。如果没有指定，则使用 Domain Admins。</li>
+<li>-c:检查对已找到共享的访问权限。</li>
+</ul>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://malicious.link/projects/netview.exe">https://malicious.link/projects/netview.exe</a></p>
+<p><strong>4.PowerView脚本</strong><br>PowerView是一款powershell脚本，提供了辅助定位关键用户的功能。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell.exe -<span class="hljs-built_in">exec</span>  bypass -Command <span class="hljs-string">&quot;&amp; (Import-Module .\PowerView.ps1; Invoke-StealthUserHunter)&quot;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20210430142150756.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<ul>
+<li>Invoke-StealthUserHunter ：只需要进行一次查询，就可以获取域里面的所有用户。使用方法为，从user.HomeDirectories中提取所有用户，并对每台服务器进行Get-NetSession获取。因此不需要使用Invoke-UserHunter对每台机器进行操作，所以这个方法的隐蔽性相对较高(但涉及的机器不一定全面)。PowerView默认使用Invoke-SteathUserHunter,如果找不到需要的信息，就使用Invoke-UserHunter。</li>
+<li>Invoke-UserHunter :找到域内特定的用户群，接收用户名，用户列表和域组查询，接收一个主机列表或查询可用的主机域名。它可以使用Get-NetSessions和Get-NetLoggedon(调用NetSessionEnum和NetWkstaUserEnum API)扫描每台服务器并对扫描结果进行比较，从而找出目标用户集，在使用时不需要管理员权限。</li>
+</ul>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerView">https://github.com/PowerShellEmpire/PowerTools/tree/master/PowerView</a></p>
+<p><strong>5.Empire中的user_hunter模块</strong><br> 在 Empire 下user_hunter模块用来查找域管理员登录的机器的。<br>获取反弹shell<br>使用命令<br>usemodule situational_awareness&#x2F;network&#x2F;powerview&#x2F;user_hunter<br>我机器出问题了就不演示这个了</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://timeshu.github.io/2020/02/08/%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E5%AE%9A%E4%BD%8D%E5%B7%A5%E5%85%B7/">https://timeshu.github.io/2020/02/08/%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E5%AE%9A%E4%BD%8D%E5%B7%A5%E5%85%B7/</a></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+      
+        <a href="/tags/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/">#定位域管理员</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>定位域管理员</div>
+      <div>http://idea-oss.github.io/2022/06/15/定位域管理员/定位域管理员/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>iDea</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月15日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/15/Empire%E4%BD%BF%E7%94%A8/Empire%E4%BD%BF%E7%94%A8/" title="Empire使用">
+                        <span class="hidden-mobile">Empire使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.18/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"0mPxzRPwogk31Fn10hTPyb1K-gzGzoHsz","appKey":"BUzND1EWjf6LGVsgj979UcGb","path":"window.location.pathname","placeholder":"说点什么吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://0mpxzrpw.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":null},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>可乐</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>不乐</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
