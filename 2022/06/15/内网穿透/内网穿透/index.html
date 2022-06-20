@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F.png">
 <meta property="article:published_time" content="2022-06-15T05:50:44.000Z">
-<meta property="article:modified_time" content="2022-06-15T06:01:34.400Z">
+<meta property="article:modified_time" content="2022-06-20T05:21:27.306Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网穿透">
 <meta property="article:tag" content="内网渗透">
@@ -220,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.4k 字
+          7.1k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
         
-          54 分钟
+          59 分钟
         
       </span>
     
@@ -375,6 +375,19 @@
 <p>进入ngrok官网（<a target="_blank" rel="noopener" href="https://ngrok.com/%EF%BC%89%EF%BC%8C%E6%B3%A8%E5%86%8Cngrok%E8%B4%A6%E5%8F%B7">https://ngrok.com/），注册ngrok账号</a><br>创建隧道，如下<br><img src="https://img-blog.csdnimg.cn/71f87b07ff4b46caa0eb6fb8e4589a29.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>将3389端口代理出来<br><img src="https://img-blog.csdnimg.cn/59db4f30326a43ab86dadd9538f4ca89.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <p>下载客户端<br><img src="https://img-blog.csdnimg.cn/2255684e1632434593579f0be0f5f524.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <p>在目标机上运行客户端<br><img src="https://img-blog.csdnimg.cn/140425729e0c47b68afbe6bd90961f56.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入这里的id<br><img src="https://img-blog.csdnimg.cn/c833afffbefb42bc92c485466b6329d8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>成功<br><img src="https://img-blog.csdnimg.cn/fd1bdbbca8334f15bf0207eb15c66c6e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/d0cab615406e482f87afd668246c4990.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<ul>
+<li><p><strong>smb beacon上线</strong><br>官网介绍：SMB Beacon使用命名管道通过父级Beacon进行通讯，当两个Beacons连接后，子Beacon从父Beacon获取到任务并发送。<br>因为连接的Beacons使用Windows命名管道进行通信，此流量封装在SMB协议中，所以SMB Beacon相对隐蔽，绕防火墙时可能发挥奇效</p>
+<p> <strong>这种Beacon要求具有SMB Beacon的主机必须接受端口445上的连接。</strong><br> 派生一个SMB Beacon方法：在Listner生成SMB Beacon&gt;目标主机&gt;右键&gt; spawn &gt;选中对应的Listener&gt;上线<br> 或在Beacon中使用命令spawn smb（smb为我的smb listener名字)<br> <img src="https://img-blog.csdnimg.cn/9b653d1ab2054a2cbd2ba11a7d16c9e9.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<p>使用插件，或自带端口扫描，扫描内网机器<br><img src="https://img-blog.csdnimg.cn/9e3a4a7b7c00438aa22d296d1a4811a5.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/f7c29fa003d544e1bc595bd78a6df2cb.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>转到视图，选择目标<br><img src="https://img-blog.csdnimg.cn/ad771c85c6474474907c57f4876054c4.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在之前我们要先抓一波密码</p>
+<p>运行成功后外部可以看到∞∞这个字符，这就是派生的SMB Beacon。<br>当前是连接状态，你可以Beacon上用link <ip>命令链接它或者unlink <ip>命令断开它</p>
+<ul>
+<li><p><strong>中转listener(Reverse TCP Beacon)</strong><br><img src="https://img-blog.csdnimg.cn/dd8adf72287a4423a94c314a6332ec69.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>然后和上面差不多</p>
+</li>
+<li><p><strong>tcp beacon正向</strong><br>SMB Beacon，TCP Beacon 与 Cobalt Strike 中派生 payload 的大多数动作相兼容。除了一些 要求显式 stager 的用户驱动的攻击（比如：Attacks → Packages 、 Attacks → Web Drive-by ）<br>生成listener<br><img src="https://img-blog.csdnimg.cn/32f4b072d8fa4d7995f986e85d8b52e6.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在中转机器的Beacon里使用connect [ip address] [port]命令进行正向连接，即可上线<img src="https://img-blog.csdnimg.cn/1a9ea1b53bf7497683fe74422ae01e0f.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+</li>
+</ul>
 
               
             </div>
