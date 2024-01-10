@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98.png">
 <meta property="article:published_time" content="2022-06-15T06:14:57.000Z">
-<meta property="article:modified_time" content="2022-06-15T06:16:59.693Z">
+<meta property="article:modified_time" content="2024-01-07T07:46:19.459Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网安全">
 <meta property="article:tag" content="定位域管理员">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -282,7 +282,7 @@
 <h2 id="常用域管理员定位工具"><a href="#常用域管理员定位工具" class="headerlink" title="常用域管理员定位工具"></a>常用域管理员定位工具</h2><p>常用的域管理员定位工具有psloggedon.exe,PVEFindADUser.exe,netsess.exe,以及hunter,NetView等，在powershell中，常用的工具是PowerView。<br><strong>1.Psloggedon.exe</strong><br>在windows平台上，可以执行命令”net session”来查看谁使用了本机资源，但是没有命令可以用来查看谁在使用远程计算机资源，谁登录了本地或远程计算机。<br>使用psloggedon.exe，可以查看本地登录的用户和通过本地计算机或远程计算机的资源登录用户。如果指定的是用户名而不是计算机名，psloggedon.exe会搜索网上邻居中的计算机，并显示该用户当前是否已经登录。其原理是通过检查注册表HKEY_USERS项的key值来查询谁登录过，但某些功能需要管理员权限。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">psloggedon [-] [-x] [-l] [\\computername| username]<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20210429233354452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/image-20240107154537796.png" srcset="/img/loading.gif" lazyload alt="image-20240107154537796"></p>
 <ul>
 <li>-l：仅显示本地登录，不显示本地和网络资源登录。</li>
 <li>-x: 不显示登录时间。</li>
@@ -290,7 +290,7 @@
 <li>username: 指定用户名，在网络中搜索该用户登录的计算机。</li>
 </ul>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psloggedon">https://docs.microsoft.com/en-us/sysinternals/downloads/psloggedon</a></p>
-<p>2.<strong>PVEFindADUser.exe</strong><br>PVEFindADUser.exe可用于查找活动目录用户登录的位置，枚举域用户，以及查找在特定计算机上登录的用户，包括本地用户，通过RDP登录的用户、用于运行服务和计划任务的用户。运行该工具的计算机需要配置 .NET Framework2.0环境，并且需要具有管理员权限。<br><img src="https://img-blog.csdnimg.cn/20210430131109497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>这里我的没连接成功，不知道为什么，希望有大佬告诉我。</p>
+<p>2.<strong>PVEFindADUser.exe</strong><br>PVEFindADUser.exe可用于查找活动目录用户登录的位置，枚举域用户，以及查找在特定计算机上登录的用户，包括本地用户，通过RDP登录的用户、用于运行服务和计划任务的用户。运行该工具的计算机需要配置 .NET Framework2.0环境，并且需要具有管理员权限。<br><img src="/2022/06/15/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/image-20240107154548642.png" srcset="/img/loading.gif" lazyload alt="image-20240107154548642"><br>这里我的没连接成功，不知道为什么，希望有大佬告诉我。</p>
 <ul>
 <li>-u:检查程序是否有新版本</li>
 <li>-current [‘username’]:如果仅指定-current参数，将获取目标计算机上当前登录的所有用户。如果指定用户名(Domain\Username),则显示该用户登录的计算机。</li>
@@ -298,7 +298,7 @@
 <li>noping：阻止该工具在尝试获取用户登录信息之前对目标计算机执行Ping命令。</li>
 <li>target：可选参数，用于指定要查询的主机。如果未指定此参数，将查询当前域中的所有主机，如果指定此参数，则后跟一个由逗号分隔的主机名列表。</li>
 </ul>
-<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/chrisdee/Tools/tree/master/AD/ADFindUsersLoggedOn">https://github.com/chrisdee/Tools/tree/master/AD/ADFindUsersLoggedOn</a><br><strong>3.netview.exe</strong><br> netview.exe 是一个枚举工具，使用 WinAPI 枚举系统，利用 NetSessionEnum 找寻登录会话， 利用 NetShareEnum 找寻共享，利用 NetWkstaUserEnum 枚举登录的用户。同时，netview.exe 能够 查询共享入口和有价值用户。netview.exe的绝大部分功能不需要管理员权限就可以使用。<br><img src="https://img-blog.csdnimg.cn/20210430134829728.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/chrisdee/Tools/tree/master/AD/ADFindUsersLoggedOn">https://github.com/chrisdee/Tools/tree/master/AD/ADFindUsersLoggedOn</a><br><strong>3.netview.exe</strong><br> netview.exe 是一个枚举工具，使用 WinAPI 枚举系统，利用 NetSessionEnum 找寻登录会话， 利用 NetShareEnum 找寻共享，利用 NetWkstaUserEnum 枚举登录的用户。同时，netview.exe 能够 查询共享入口和有价值用户。netview.exe的绝大部分功能不需要管理员权限就可以使用。<br><img src="/2022/06/15/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/image-20240107154601537.png" srcset="/img/loading.gif" lazyload alt="image-20240107154601537"></p>
 <ul>
 <li>-f filename.txt:指定从中提取主机列表的文件。</li>
 <li>-e filename.txt:指定要排除的主机名文件。</li>
@@ -310,7 +310,7 @@
 <p>下载地址：<a target="_blank" rel="noopener" href="https://malicious.link/projects/netview.exe">https://malicious.link/projects/netview.exe</a></p>
 <p><strong>4.PowerView脚本</strong><br>PowerView是一款powershell脚本，提供了辅助定位关键用户的功能。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">powershell.exe -<span class="hljs-built_in">exec</span>  bypass -Command <span class="hljs-string">&quot;&amp; (Import-Module .\PowerView.ps1; Invoke-StealthUserHunter)&quot;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210430142150756.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/image-20240107154616504.png" srcset="/img/loading.gif" lazyload alt="image-20240107154616504"></p>
 <ul>
 <li>Invoke-StealthUserHunter ：只需要进行一次查询，就可以获取域里面的所有用户。使用方法为，从user.HomeDirectories中提取所有用户，并对每台服务器进行Get-NetSession获取。因此不需要使用Invoke-UserHunter对每台机器进行操作，所以这个方法的隐蔽性相对较高(但涉及的机器不一定全面)。PowerView默认使用Invoke-SteathUserHunter,如果找不到需要的信息，就使用Invoke-UserHunter。</li>
 <li>Invoke-UserHunter :找到域内特定的用户群，接收用户名，用户列表和域组查询，接收一个主机列表或查询可用的主机域名。它可以使用Get-NetSessions和Get-NetLoggedon(调用NetSessionEnum和NetWkstaUserEnum API)扫描每台服务器并对扫描结果进行比较，从而找出目标用户集，在使用时不需要管理员权限。</li>
@@ -335,7 +335,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
   
   
 
@@ -350,9 +350,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
       
-        <a href="/tags/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/">#定位域管理员</a>
+        <a href="../../../../../tags/%E5%AE%9A%E4%BD%8D%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98/">#定位域管理员</a>
       
     </div>
   
@@ -407,7 +407,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/16/%E5%90%84%E7%B1%BBLoader/index/" title="各类Loader">
+                      <a href="../../../16/%E5%90%84%E7%B1%BBLoader/index/" title="各类Loader">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">各类Loader</span>
                         <span class="visible-mobile">上一篇</span>
@@ -417,7 +417,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/Empire%E4%BD%BF%E7%94%A8/Empire%E4%BD%BF%E7%94%A8/" title="Empire使用">
+                      <a href="../../Empire%E4%BD%BF%E7%94%A8/Empire%E4%BD%BF%E7%94%A8/" title="Empire使用">
                         <span class="hidden-mobile">Empire使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -571,8 +571,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -611,7 +611,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -748,7 +748,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -756,7 +756,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

